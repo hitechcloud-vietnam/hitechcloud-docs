@@ -1,0 +1,26 @@
+---
+id: start-vm
+title: Start VM
+---
+
+## Start VM
+
+Start a virtual server.
+
+### HTTP Request
+
+`POST /service/@id/vms/@vmid/start`
+
+### Query Parameters
+
+| Parameter | Type   | Description       |
+|-----------|--------|-------------------|
+| id        | int    | Service ID        |
+| vmid      | string | Virtual server ID |
+
+### Example Request
+
+```bash
+curl -X POST "https://my.photuesoftware.vn/api/service/@id/vms/@vmid/start" \
+   -H "Authorization: Bearer $token"
+```

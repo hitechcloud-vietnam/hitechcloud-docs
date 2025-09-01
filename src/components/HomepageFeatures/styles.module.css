@@ -1,0 +1,135 @@
+.features {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.featureSvg {
+  height: 200px;
+  width: 200px;
+}
+
+.homepageContainer {
+  text-align: center;
+  background-color: #000;
+  color: #fff;
+}
+
+.heroBanner {
+  padding: 50px 20px;
+}
+
+.heroContent {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.textContent {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.imageContent {
+  flex: 1;
+  text-align: center;
+}
+
+.logo {
+  max-width: 100%;
+  height: auto;
+}
+
+.heroTitle {
+  font-size: 3rem;
+  color: #2e8555;
+}
+
+.heroSubtitle {
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+.heroDescription {
+  font-size: 1.2rem;
+  margin: 20px 0;
+}
+
+.heroButtons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.heroButton {
+  background-color: #2e8555;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.featuresSection {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping for mobile */
+  justify-content: center;
+  gap: 20px;
+  padding: 50px 20px;
+}
+
+.featureCard {
+  flex: 1 1 calc(100% - 40px); /* Adjust width for mobile */
+  max-width: 300px;
+  background-color: #1a1a1a;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.featureCard h3 {
+  color: #2e8555;
+}
+
+.featureCard p {
+  color: #ccc;
+}
+
+.darkMode {
+  background-color: #000;
+  color: #fff;
+}
+
+.lightMode {
+  background-color: #fff;
+  color: #000;
+}
+
+.toggleButton {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #2e8555;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.heroBanner_qdFl {
+  display: none;
+}
+[data-theme='light'] .themedComponent--light_NVdE {
+  width: 180px;
+  height: auto;
+}
+@media (max-width: 768px) {
+  .featuresSection {
+    flex-direction: column; /* Stack cards vertically */
+    align-items: center;
+  }
+
+  .featureCard {
+    width: 100%; /* Full width for mobile */
+    max-width: none;
+  }
+}

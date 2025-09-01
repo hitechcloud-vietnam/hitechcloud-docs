@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  docusaurus:
+    build: .
+    container_name: docusaurus_docs
+    ports:
+      - "3056:3000"
+    restart: unless-stopped

@@ -1,0 +1,36 @@
+.customer-slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slides img {
+  width: 100px;
+  height: auto;
+  margin: 0 10px;
+}
+
+.slides img.inactive {
+  display: none;
+}
+
+.slides img.active {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .customer-slider {
+    height: auto;
+  }
+
+  .slides img {
+    width: 80px;
+    margin: 0 5px;
+  }
+}
