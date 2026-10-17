@@ -1,17 +1,17 @@
-# Update Domain Lock
+# Cập nhật khóa tên miền
 
-Enable or disable the lock status of a domain.
+Bật hoặc tắt khóa tên miền.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 PUT /domain/@id/reglock
 ```
 
-### Query Parameters
-| Parameter | Type  | Description                     |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|-------|---------------------------------|
-| id        | int   | Domain ID                       |
-| switch    | bool  | Enable or disable domain lock   |
+| id | int | ID tên miền |
+| switch | bool | Bật hoặc tắt khóa tên miền |
 
 ```bash
 POST_DATA="{

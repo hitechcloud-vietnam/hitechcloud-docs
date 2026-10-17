@@ -1,17 +1,17 @@
 ---
 id: countries-list
-title: Countries List
+title: Danh sách quốc gia
 ---
 
-## Countries List
+## Danh sách quốc gia
 
-Retrieve a list of countries.
+Lấy danh sách các quốc gia.
 
-### HTTP Request
+### Yêu cầu HTTP
 
 `GET /location_v2/countries`
 
-### Example Request
+### Yêu cầu mẫu
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/location_v2/countries"

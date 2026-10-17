@@ -1,24 +1,24 @@
 ---
 id: vm-network-usage-graph
-title: VM Network Usage Graph
+title: Biểu đồ sử dụng mạng của máy ảo
 ---
 
-## VM Network Usage Graph
+## Biểu đồ sử dụng mạng của máy ảo
 
-Retrieve HTML code for embedding the network usage graph of a virtual server.
+Lấy mã HTML để nhúng biểu đồ sử dụng mạng của máy chủ ảo.
 
-### HTTP Request
+### Yêu cầu HTTP
 
 `GET /service/@id/vms/@vmid/usage/net`
 
-### Query Parameters
+### Tham số truy vấn
 
-| Parameter | Type   | Description       |
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|-------------------|
-| id        | int    | Service ID        |
-| vmid      | string | Virtual server ID |
+| id | int | ID dịch vụ |
+| vmid | string | ID máy chủ ảo |
 
-### Example Request
+### Yêu cầu mẫu
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@id/vms/@vmid/usage/net" \

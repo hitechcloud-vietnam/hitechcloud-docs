@@ -1,8 +1,8 @@
-# List Available Certificates
+# Danh sách chứng chỉ có thể mua
 
-Return a list of certificates available for purchase.
+Trả về danh sách các chứng chỉ có thể mua.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /certificate/order
 ```
@@ -12,7 +12,7 @@ curl -X GET "https://my.photuesoftware.vn/api/certificate/order" \
    -H "Authorization: Bearer $token"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "products": [

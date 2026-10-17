@@ -1,23 +1,23 @@
 ---
 id: reinstall-details
-title: Reinstall Details
+title: Chi tiết cài lại
 ---
 
-## Reinstall Details
+## Chi tiết cài lại
 
-Retrieve installation options for a server.
+Lấy các tùy chọn cài đặt của máy chủ.
 
-### HTTP Request
+### Yêu cầu HTTP
 
 `GET /service/@id/reinstall`
 
-### Query Parameters
+### Tham số truy vấn
 
-| Parameter | Type | Description |
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID  |
+| id | int | ID dịch vụ |
 
-### Example Request
+### Yêu cầu mẫu
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@id/reinstall"

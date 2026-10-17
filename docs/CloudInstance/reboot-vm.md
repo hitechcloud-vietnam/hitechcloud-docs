@@ -1,25 +1,25 @@
 ---
 id: reboot-vm
-title: Reboot VM
+title: Khởi động lại máy ảo
 ---
 
-## Reboot VM
+## Khởi động lại máy ảo
 
-Reboot a virtual server, optionally specifying an ISO image to boot from.
+Khởi động lại máy chủ ảo, có thể chỉ định ảnh ISO để khởi động.
 
-### HTTP Request
+### Yêu cầu HTTP
 
 `POST /service/@id/vms/@vmid/reboot`
 
-### Query Parameters
+### Tham số truy vấn
 
-| Parameter | Type   | Description       |
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|-------------------|
-| id        | int    | Service ID        |
-| vmid      | string | Virtual server ID |
-| iso       | string | Optional ISO image to boot from |
+| id | int | ID dịch vụ |
+| vmid | string | ID máy chủ ảo |
+| iso | string | Ảnh ISO để khởi động (tùy chọn) |
 
-### Example Request
+### Yêu cầu mẫu
 
 ```bash
 POST_DATA="{

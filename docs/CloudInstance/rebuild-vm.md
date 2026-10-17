@@ -1,27 +1,27 @@
 ---
 id: rebuild-vm
-title: Rebuild VM
+title: Cài lại máy ảo
 ---
 
-## Rebuild VM
+## Cài lại máy ảo
 
-Rebuild a virtual server using a specified template.
+Cài lại máy chủ ảo bằng một mẫu được chỉ định.
 
-### HTTP Request
+### Yêu cầu HTTP
 
 `POST /service/@id/vms/@vmid/rebuild`
 
-### Query Parameters
+### Tham số truy vấn
 
-| Parameter     | Type   | Description                          |
+| Tham số | Kiểu | Mô tả |
 |---------------|--------|--------------------------------------|
-| id            | int    | Service ID                          |
-| vmid          | string | Virtual server ID                   |
-| template      | string | Template ID                         |
-| license_key   | string | Type of OS license (required for Windows VMs) |
-| license_type  | string | The key of a license (if own licensing type) |
+| id | int | ID dịch vụ |
+| vmid | string | ID máy chủ ảo |
+| template | string | ID mẫu |
+| license_key | string | Loại giấy phép hệ điều hành (bắt buộc với máy ảo Windows) |
+| license_type | string | Khóa giấy phép (nếu dùng giấy phép riêng) |
 
-### Example Request
+### Yêu cầu mẫu
 
 ```bash
 POST_DATA="{

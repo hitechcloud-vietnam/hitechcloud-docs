@@ -1,17 +1,17 @@
-# Update Domain Contact Info
+# Cập nhật thông tin liên hệ của tên miền
 
-Update the contact information for a domain.
+Cập nhật thông tin liên hệ của tên miền.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 PUT /domain/@id/contact
 ```
 
-### Query Parameters
-| Parameter      | Type   | Description             |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |----------------|--------|-------------------------|
-| id             | int    | Domain ID               |
-| contact_info   | array  | Contact information     |
+| id | int | ID tên miền |
+| contact_info | array | Thông tin liên hệ |
 
 ```bash
 POST_DATA="{
@@ -25,7 +25,7 @@ curl -X PUT "https://my.photuesoftware.vn/api/domain/@id/contact" \
    -d "${POST_DATA}"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "success": true,

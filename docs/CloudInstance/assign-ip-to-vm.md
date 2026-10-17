@@ -1,26 +1,26 @@
 ---
 id: assign-ip-to-vm
-title: Assign IP to VM
+title: Gán IP cho máy ảo
 ---
 
-## Assign IP to VM
+## Gán IP cho máy ảo
 
-Add a new IP to a virtual server.
+Thêm một IP mới cho máy chủ ảo.
 
-### HTTP Request
+### Yêu cầu HTTP
 
 `POST /service/@id/vms/@vmid/ips`
 
-### Query Parameters
+### Tham số truy vấn
 
-| Parameter    | Type   | Description          |
+| Tham số | Kiểu | Mô tả |
 |--------------|--------|----------------------|
-| id           | int    | Service ID          |
-| vmid         | string | Virtual server ID   |
-| ipid         | string | IP Address ID       |
-| interfaceid  | string | Network interface ID |
+| id | int | ID dịch vụ |
+| vmid | string | ID máy chủ ảo |
+| ipid | string | ID địa chỉ IP |
+| interfaceid | string | ID giao diện mạng |
 
-### Example Request
+### Yêu cầu mẫu
 
 ```bash
 POST_DATA="{

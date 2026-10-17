@@ -1,23 +1,23 @@
 ---
 id: server-power-status
-title: Server Power Status
+title: Trạng thái nguồn máy chủ
 ---
 
-## Server Power Status
+## Trạng thái nguồn máy chủ
 
-Retrieve the power status of a server.
+Lấy trạng thái nguồn của máy chủ.
 
-### HTTP Request
+### Yêu cầu HTTP
 
 `GET /service/@id/status`
 
-### Query Parameters
+### Tham số truy vấn
 
-| Parameter | Type | Description |
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID  |
+| id | int | ID dịch vụ |
 
-### Example Request
+### Yêu cầu mẫu
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@id/status"

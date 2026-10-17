@@ -1,18 +1,18 @@
-# Update Email Forwarding
+# Cập nhật chuyển tiếp email
 
-Update email forwarding settings for a domain.
+Cập nhật cấu hình chuyển tiếp email của tên miền.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 PUT /domain/@id/emforwarding
 ```
 
-### Query Parameters
-| Parameter | Type   | Description                     |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|---------------------------------|
-| id        | int    | Domain ID                       |
-| from      | string | Email address to forward from   |
-| to        | string | Email address to forward to     |
+| id | int | ID tên miền |
+| from | string | Địa chỉ email chuyển tiếp từ |
+| to | string | Địa chỉ email chuyển tiếp đến |
 
 ```bash
 POST_DATA="{

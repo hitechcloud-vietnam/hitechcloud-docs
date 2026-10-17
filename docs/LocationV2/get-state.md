@@ -1,23 +1,23 @@
 ---
 id: get-state
-title: Get State
+title: Lấy danh sách tỉnh/bang
 ---
 
-## Get State
+## Lấy danh sách tỉnh/bang
 
-Retrieve states for a given country code.
+Lấy các tỉnh/bang theo mã quốc gia.
 
-### HTTP Request
+### Yêu cầu HTTP
 
 `GET /location_v2/@code/state`
 
-### Query Parameters
+### Tham số truy vấn
 
-| Parameter | Type   | Description    |
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|----------------|
-| code      | string | Country Code   |
+| code | string | Mã quốc gia |
 
-### Example Request
+### Yêu cầu mẫu
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/location_v2/@code/state"

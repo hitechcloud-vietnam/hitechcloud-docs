@@ -1,23 +1,23 @@
 ---
 id: list-iso-images
-title: List ISO Images
+title: Danh sách ảnh ISO
 ---
 
-## List ISO Images
+## Danh sách ảnh ISO
 
-Retrieve a list of ISO images that can be attached to virtual servers.
+Lấy danh sách các ảnh ISO có thể gắn vào máy chủ ảo.
 
-### HTTP Request
+### Yêu cầu HTTP
 
 `GET /service/@id/images`
 
-### Query Parameters
+### Tham số truy vấn
 
-| Parameter | Type | Description |
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID  |
+| id | int | ID dịch vụ |
 
-### Example Request
+### Yêu cầu mẫu
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@id/images" \

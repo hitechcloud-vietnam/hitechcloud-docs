@@ -1,24 +1,24 @@
 ---
 id: reset-vm-password
-title: Reset VM Password
+title: Đặt lại mật khẩu máy ảo
 ---
 
-## Reset VM Password
+## Đặt lại mật khẩu máy ảo
 
-Reset the root password for a virtual server.
+Đặt lại mật khẩu root của máy chủ ảo.
 
-### HTTP Request
+### Yêu cầu HTTP
 
 `POST /service/@id/vms/@vmid/resetpwd`
 
-### Query Parameters
+### Tham số truy vấn
 
-| Parameter | Type   | Description       |
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|-------------------|
-| id        | int    | Service ID        |
-| vmid      | string | Virtual server ID |
+| id | int | ID dịch vụ |
+| vmid | string | ID máy chủ ảo |
 
-### Example Request
+### Yêu cầu mẫu
 
 ```bash
 curl -X POST "https://my.photuesoftware.vn/api/service/@id/vms/@vmid/resetpwd" \

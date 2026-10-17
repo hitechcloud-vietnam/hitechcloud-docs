@@ -1,26 +1,26 @@
 ---
 id: resize-disk-vm
-title: Resize Disk VM
+title: Thay đổi dung lượng ổ đĩa máy ảo
 ---
 
-## Resize Disk VM
+## Thay đổi dung lượng ổ đĩa máy ảo
 
-Change the disk size of a virtual server.
+Thay đổi dung lượng ổ đĩa của máy chủ ảo.
 
-### HTTP Request
+### Yêu cầu HTTP
 
 `PUT /service/@id/vms/@vmid/storage/@diskid`
 
-### Query Parameters
+### Tham số truy vấn
 
-| Parameter | Type   | Description       |
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|-------------------|
-| id        | int    | Service ID        |
-| vmid      | string | Virtual server ID |
-| diskid    | string | Disk ID           |
-| size      | int    | Disk size in GB   |
+| id | int | ID dịch vụ |
+| vmid | string | ID máy chủ ảo |
+| diskid | string | ID ổ đĩa |
+| size | int | Dung lượng ổ đĩa (GB) |
 
-### Example Request
+### Yêu cầu mẫu
 
 ```bash
 POST_DATA="{

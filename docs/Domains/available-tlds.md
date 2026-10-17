@@ -1,8 +1,8 @@
-# Available TLDs
+# Các TLD khả dụng
 
-List TLDs available for registration and transfer.
+Liệt kê các TLD có thể đăng ký và chuyển về.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /domain/order
 ```
@@ -12,7 +12,7 @@ curl -X GET "https://my.photuesoftware.vn/api/domain/order" \
    -H "Authorization: Bearer $token"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "tlds": [

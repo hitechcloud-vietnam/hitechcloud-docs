@@ -1,16 +1,16 @@
-# Domain Availability
+# Kiểm tra tên miền khả dụng
 
-Check if a domain is available for registration.
+Kiểm tra tên miền có thể đăng ký hay không.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 POST /domain/lookup
 ```
 
-### Query Parameters
-| Parameter | Type   | Description       |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|-------------------|
-| name      | string | Domain name       |
+| name | string | Tên miền |
 
 ```bash
 POST_DATA="{
@@ -23,7 +23,7 @@ curl -X POST "https://my.photuesoftware.vn/api/domain/lookup" \
    -d "${POST_DATA}"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "available": false,

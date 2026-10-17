@@ -1,24 +1,24 @@
 ---
 id: list-vm-ips
-title: List VM IPs
+title: Danh sách IP của máy ảo
 ---
 
-## List VM IPs
+## Danh sách IP của máy ảo
 
-Retrieve the IPs assigned to a virtual server.
+Lấy các IP đã gán cho máy chủ ảo.
 
-### HTTP Request
+### Yêu cầu HTTP
 
 `GET /service/@id/vms/@vmid/ips`
 
-### Query Parameters
+### Tham số truy vấn
 
-| Parameter | Type   | Description       |
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|-------------------|
-| id        | int    | Service ID        |
-| vmid      | string | Virtual server ID |
+| id | int | ID dịch vụ |
+| vmid | string | ID máy chủ ảo |
 
-### Example Request
+### Yêu cầu mẫu
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@id/vms/@vmid/ips" \

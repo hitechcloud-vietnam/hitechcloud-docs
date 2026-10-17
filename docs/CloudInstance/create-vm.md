@@ -1,34 +1,34 @@
 ---
 id: create-vm
-title: Create VM
+title: Tạo máy ảo
 ---
 
-## Create VM
+## Tạo máy ảo
 
-Add a new virtual server.
+Thêm một máy chủ ảo mới.
 
-### HTTP Request
+### Yêu cầu HTTP
 
 `POST /service/@id/vms`
 
-### Query Parameters
+### Tham số truy vấn
 
-| Parameter       | Type   | Description                          |
+| Tham số | Kiểu | Mô tả |
 |-----------------|--------|--------------------------------------|
-| id              | int    | Service ID                          |
-| label           | string | VM label                            |
-| template_id     | string | Template ID                         |
-| password        | string | Initial root password               |
-| memory          | string | Amount of RAM memory in MB          |
-| cpu             | string | Amount of CPU cores                 |
-| cpu_share       | string | Share percentage of CPU             |
-| disk            | string | Disk Space in GB                    |
-| swap            | string | Swap Space in GB                    |
-| note            | string | Custom note                         |
-| license_key     | string | Type of OS license (required for Windows VMs) |
-| license_type    | string | The key of a license (if own licensing type) |
+| id | int | ID dịch vụ |
+| label | string | Nhãn máy ảo |
+| template_id | string | ID mẫu |
+| password | string | Mật khẩu root ban đầu |
+| memory | string | Dung lượng RAM (MB) |
+| cpu | string | Số nhân CPU |
+| cpu_share | string | Tỷ lệ chia sẻ CPU (%) |
+| disk | string | Dung lượng ổ đĩa (GB) |
+| swap | string | Dung lượng swap (GB) |
+| note | string | Ghi chú tùy chỉnh |
+| license_key | string | Loại giấy phép hệ điều hành (bắt buộc với máy ảo Windows) |
+| license_type | string | Khóa giấy phép (nếu dùng giấy phép riêng) |
 
-### Example Request
+### Yêu cầu mẫu
 
 ```bash
 POST_DATA="{

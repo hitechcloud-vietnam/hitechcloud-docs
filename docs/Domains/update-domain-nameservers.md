@@ -1,17 +1,17 @@
-# Update Domain Nameservers
+# Cập nhật nameserver của tên miền
 
-Change the nameservers of a domain. If `nameservers` is left empty, default nameservers will be used.
+Thay đổi nameserver của tên miền. Nếu để trống `nameservers`, hệ thống sẽ dùng nameserver mặc định.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 PUT /domain/@id/ns
 ```
 
-### Query Parameters
-| Parameter    | Type   | Description             |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |--------------|--------|-------------------------|
-| id           | int    | Domain ID               |
-| nameservers  | array  | List of nameservers     |
+| id | int | ID tên miền |
+| nameservers | array | Danh sách nameserver |
 
 ```bash
 POST_DATA="{
@@ -25,7 +25,7 @@ curl -X PUT "https://my.photuesoftware.vn/api/domain/@id/ns" \
    -d "${POST_DATA}"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "info": [

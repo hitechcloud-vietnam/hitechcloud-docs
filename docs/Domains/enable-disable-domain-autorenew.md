@@ -1,17 +1,17 @@
-# Enable/Disable Domain Auto-Renew
+# Bật/tắt tự động gia hạn tên miền
 
-Enable or disable the auto-renew status of a domain.
+Bật hoặc tắt chế độ tự động gia hạn của tên miền.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 PUT /domain/@id/autorenew
 ```
 
-### Query Parameters
-| Parameter   | Type  | Description                     |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-------------|-------|---------------------------------|
-| id          | int   | Domain ID                       |
-| autorenew   | bool  | Enable or disable auto-renew    |
+| id | int | ID tên miền |
+| autorenew | bool | Bật hoặc tắt tự động gia hạn |
 
 ```bash
 POST_DATA="{

@@ -1,23 +1,23 @@
-# Get Domain Contact Info
+# Lấy thông tin liên hệ của tên miền
 
-Retrieve the contact information for a domain.
+Lấy thông tin liên hệ của tên miền.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /domain/@id/contact
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Domain ID   |
+| id | int | ID tên miền |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/domain/@id/contact" \
    -H "Authorization: Bearer $token"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "success": true,

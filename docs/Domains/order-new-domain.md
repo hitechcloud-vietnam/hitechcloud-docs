@@ -1,22 +1,22 @@
-# Order New Domain
+# Đặt hàng tên miền mới
 
-Create a new order for a domain. Ensure the domain is available before proceeding.
+Tạo đơn hàng mới cho một tên miền. Hãy bảo đảm tên miền còn khả dụng trước khi tiếp tục.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 POST /domain/order
 ```
 
-### Query Parameters
-| Parameter    | Type   | Description                     |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |--------------|--------|---------------------------------|
-| name         | string | Domain name                    |
-| years        | string | Number of years                |
-| action       | string | register|transfer              |
-| tld_id       | int    | TLD ID                         |
-| pay_method   | int    | Payment method ID              |
-| nameservers  | array  | Optional nameservers           |
-| aff_id       | int    | Affiliate ID                   |
+| name | string | Tên miền |
+| years | string | Số năm |
+| action | string | register|transfer |
+| tld_id | int | ID TLD |
+| pay_method | int | ID phương thức thanh toán |
+| nameservers | array | Nameserver (tùy chọn) |
+| aff_id | int | ID đối tác tiếp thị liên kết |
 
 ```bash
 POST_DATA="{
@@ -41,7 +41,7 @@ curl -X POST "https://my.photuesoftware.vn/api/domain/order" \
    -d "${POST_DATA}"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "order_num": 563647679,

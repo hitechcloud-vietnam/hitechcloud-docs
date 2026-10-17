@@ -1,23 +1,23 @@
 ---
 id: get-city-by-state-name
-title: Get City by State Name
+title: Lấy thành phố theo tên tỉnh/bang
 ---
 
-## Get City by State Name
+## Lấy thành phố theo tên tỉnh/bang
 
-Retrieve cities for a state matching the given name.
+Lấy các thành phố của tỉnh/bang có tên tương ứng.
 
-### HTTP Request
+### Yêu cầu HTTP
 
 `GET /location_v2/state/city/@name`
 
-### Query Parameters
+### Tham số truy vấn
 
-| Parameter | Type   | Description  |
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|--------------|
-| name      | string | State name   |
+| name | string | Tên tỉnh/bang |
 
-### Example Request
+### Yêu cầu mẫu
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/location_v2/state/city/@name"

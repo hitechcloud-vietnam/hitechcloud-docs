@@ -1,30 +1,30 @@
 ---
 id: add-iso-image
-title: Add ISO Image
+title: Thêm ảnh ISO
 ---
 
-## Add ISO Image
+## Thêm ảnh ISO
 
-Add a custom ISO image to the service.
+Thêm ảnh ISO tùy chỉnh vào dịch vụ.
 
-### HTTP Request
+### Yêu cầu HTTP
 
 `POST /service/@id/images`
 
-### Query Parameters
+### Tham số truy vấn
 
-| Parameter        | Type   | Description                          |
+| Tham số | Kiểu | Mô tả |
 |------------------|--------|--------------------------------------|
-| id               | int    | Service ID                          |
-| label            | string | Label for the ISO image             |
-| file_url         | string | URL pointing to the ISO file        |
-| min_memory       | int    | Minimum memory size in MB           |
-| version          | string | Version number                      |
-| os               | string | OS type (e.g., Windows, Linux)      |
-| distro           | string | Distribution name                   |
-| virtualization   | array  | Supported virtualization types      |
+| id | int | ID dịch vụ |
+| label | string | Nhãn của ảnh ISO |
+| file_url | string | URL của tệp ISO |
+| min_memory | int | Dung lượng bộ nhớ tối thiểu (MB) |
+| version | string | Số phiên bản |
+| os | string | Loại hệ điều hành (ví dụ: Windows, Linux) |
+| distro | string | Tên bản phân phối |
+| virtualization | array | Các loại ảo hóa được hỗ trợ |
 
-### Example Request
+### Yêu cầu mẫu
 
 ```bash
 POST_DATA="{

@@ -1,23 +1,23 @@
-# Perform WHOIS Lookup
+# Tra cứu WHOIS
 
-Perform a WHOIS lookup for a given domain.
+Tra cứu WHOIS cho một tên miền.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /whoislookup/@domain
 ```
 
-### Query Parameters
-| Parameter | Type   | Description       |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|-------------------|
-| domain    | string | Domain name       |
+| domain | string | Tên miền |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/whoislookup/@domain" \
    -H "Authorization: Bearer $token"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
   "code": "0",

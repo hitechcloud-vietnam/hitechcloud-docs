@@ -1,17 +1,17 @@
-# Renew Domain
+# Gia hạn tên miền
 
-Create a new renew order for a domain.
+Tạo đơn gia hạn mới cho một tên miền.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 POST /domain/@id/renew
 ```
 
-### Query Parameters
-| Parameter   | Type   | Description       |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-------------|--------|-------------------|
-| years       | string | Number of years   |
-| pay_method  | int    | Payment method ID |
+| years | string | Số năm |
+| pay_method | int | ID phương thức thanh toán |
 
 ```bash
 POST_DATA="{

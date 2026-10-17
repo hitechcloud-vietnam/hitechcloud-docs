@@ -1,27 +1,27 @@
 ---
 id: rebuild-network
-title: Rebuild Network
+title: Dựng lại mạng
 ---
 
-## Rebuild Network
+## Dựng lại mạng
 
-Rebuild the network for a virtual server.
+Dựng lại mạng cho máy chủ ảo.
 
-### HTTP Request
+### Yêu cầu HTTP
 
 `POST /service/@id/vms/@vmid/rebuild_network`
 
-### Query Parameters
+### Tham số truy vấn
 
-| Parameter       | Type   | Description       |
+| Tham số | Kiểu | Mô tả |
 |-----------------|--------|-------------------|
-| id              | int    | Service ID        |
-| vmid            | string | Virtual server ID |
-| shutdown_type   | string | Shutdown type     |
-| force           | bool   | Force reboot      |
-| startup         | bool   | Required startup  |
+| id | int | ID dịch vụ |
+| vmid | string | ID máy chủ ảo |
+| shutdown_type | string | Kiểu tắt máy |
+| force | bool | Buộc khởi động lại |
+| startup | bool | Bắt buộc khởi động |
 
-### Example Request
+### Yêu cầu mẫu
 
 ```bash
 POST_DATA="{

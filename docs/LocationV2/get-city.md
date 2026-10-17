@@ -1,23 +1,23 @@
 ---
 id: get-city
-title: Get City
+title: Lấy danh sách thành phố
 ---
 
-## Get City
+## Lấy danh sách thành phố
 
-Retrieve cities for a given state ID.
+Lấy các thành phố theo ID của tỉnh/bang.
 
-### HTTP Request
+### Yêu cầu HTTP
 
 `GET /location_v2/state/@id/city`
 
-### Query Parameters
+### Tham số truy vấn
 
-| Parameter | Type | Description |
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | State ID    |
+| id | int | ID tỉnh/bang |
 
-### Example Request
+### Yêu cầu mẫu
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/location_v2/state/@id/city"

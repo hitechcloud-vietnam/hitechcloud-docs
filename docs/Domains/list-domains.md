@@ -1,8 +1,8 @@
-# List Domains
+# Danh sách tên miền
 
-List domains under your account.
+Liệt kê các tên miền thuộc tài khoản của bạn.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /domain
 ```
@@ -12,7 +12,7 @@ curl -X GET "https://my.photuesoftware.vn/api/domain" \
    -H "Authorization: Bearer $token"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "domains": [

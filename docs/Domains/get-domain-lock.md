@@ -1,16 +1,16 @@
-# Get Domain Lock
+# Lấy trạng thái khóa tên miền
 
-Retrieve the lock status of a domain.
+Lấy trạng thái khóa của tên miền.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /domain/@id/reglock
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Domain ID   |
+| id | int | ID tên miền |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/domain/@id/reglock" \

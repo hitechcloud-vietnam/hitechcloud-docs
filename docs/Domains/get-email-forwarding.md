@@ -1,16 +1,16 @@
-# Get Email Forwarding
+# Lấy cấu hình chuyển tiếp email
 
-Retrieve email forwarding settings for a domain.
+Lấy cấu hình chuyển tiếp email của tên miền.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /domain/@id/emforwarding
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Domain ID   |
+| id | int | ID tên miền |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/domain/@id/emforwarding" \

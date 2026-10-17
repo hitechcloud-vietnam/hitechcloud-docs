@@ -1,23 +1,23 @@
 ---
 id: reset-server
-title: Reset Server
+title: Đặt lại máy chủ
 ---
 
-## Reset Server
+## Đặt lại máy chủ
 
-Reset a server to its default state.
+Đặt máy chủ về trạng thái mặc định.
 
-### HTTP Request
+### Yêu cầu HTTP
 
 `POST /service/@id/reset`
 
-### Query Parameters
+### Tham số truy vấn
 
-| Parameter | Type | Description |
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID  |
+| id | int | ID dịch vụ |
 
-### Example Request
+### Yêu cầu mẫu
 
 ```bash
 POST_DATA="{

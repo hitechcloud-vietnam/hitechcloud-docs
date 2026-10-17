@@ -1,16 +1,16 @@
-# Get Domain EPP Code
+# Lấy mã EPP của tên miền
 
-Retrieve the EPP code for a domain.
+Lấy mã EPP của tên miền.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /domain/@id/epp
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Domain ID   |
+| id | int | ID tên miền |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/domain/@id/epp" \

@@ -1,7 +1,7 @@
-# Upload signed document
+# Tải lên tài liệu đã ký
 
-Upload signed document.
-## HTTP Request
+Tải lên tài liệu đã ký.
+## Yêu cầu HTTP
 
 ```POST /domain/@id/documents/@documentid/upload```
 
