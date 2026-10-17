@@ -1,17 +1,17 @@
-# Reset VM
+# Đặt lại máy ảo
 
-Reset the power of a virtual machine.
+Đặt lại nguồn của máy ảo.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 POST /service/@id/vms/@vmid/reset
 ```
 
-### Query Parameters
-| Parameter | Type   | Description         |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|---------------------|
-| id        | int    | Service ID          |
-| vmid      | string | Virtual machine ID  |
+| id | int | ID dịch vụ |
+| vmid | string | ID máy ảo |
 
 ```bash
 curl -X POST "https://my.photuesoftware.vn/api/service/@id/vms/@vmid/reset" \

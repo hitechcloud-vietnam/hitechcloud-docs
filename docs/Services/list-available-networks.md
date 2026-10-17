@@ -1,16 +1,16 @@
-# List Available Networks
+# Danh sách mạng khả dụng
 
-List networks and IP pools that can be used for VM creation.
+Liệt kê các mạng và dải IP có thể dùng để tạo máy ảo.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /service/@id/networks
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID   |
+| id | int | ID dịch vụ |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@id/networks" \

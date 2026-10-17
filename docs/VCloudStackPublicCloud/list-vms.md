@@ -1,30 +1,30 @@
 ---
 id: list-vms
-title: List VMs
+title: Danh sách máy ảo
 ---
 
-## List VMs
+## Danh sách máy ảo
 
-Retrieve a list of virtual machines.
+Lấy danh sách các máy ảo.
 
-### HTTP Request
+### Yêu cầu HTTP
 
 `GET /service/@id/vms`
 
-### Query Parameters
+### Tham số truy vấn
 
-| Parameter | Type | Description |
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID  |
+| id | int | ID dịch vụ |
 
-### Example Request
+### Yêu cầu mẫu
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@id/vms" \
    -H "Authorization: Bearer $token"
 ```
 
-### Example Response
+### Phản hồi mẫu
 
 ```json
 {

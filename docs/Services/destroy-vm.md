@@ -1,17 +1,17 @@
-# Destroy VM
+# Hủy máy ảo
 
-Remove a virtual machine.
+Xóa một máy ảo.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 DELETE /service/@id/vms/@vmid
 ```
 
-### Query Parameters
-| Parameter | Type   | Description         |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|---------------------|
-| id        | int    | Service ID          |
-| vmid      | string | Virtual machine ID  |
+| id | int | ID dịch vụ |
+| vmid | string | ID máy ảo |
 
 ```bash
 curl -X DELETE "https://my.photuesoftware.vn/api/service/@id/vms/@vmid" \

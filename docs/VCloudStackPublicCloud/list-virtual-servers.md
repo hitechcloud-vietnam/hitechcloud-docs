@@ -1,30 +1,30 @@
 ---
 id: list-virtual-servers
-title: List Virtual Servers
+title: Danh sách máy chủ ảo
 ---
 
-## List Virtual Servers
+## Danh sách máy chủ ảo
 
-Retrieve a list of virtual servers.
+Lấy danh sách các máy chủ ảo.
 
-### HTTP Request
+### Yêu cầu HTTP
 
 `GET /service/@id/vms`
 
-### Query Parameters
+### Tham số truy vấn
 
-| Parameter | Type | Description |
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID  |
+| id | int | ID dịch vụ |
 
-### Example Request
+### Yêu cầu mẫu
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@id/vms" \
    -H "Authorization: Bearer $token"
 ```
 
-### Example Response
+### Phản hồi mẫu
 
 ```json
 {

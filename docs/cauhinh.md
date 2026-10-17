@@ -14,7 +14,7 @@ HiTechCloud cung cấp **HTTP REST API** cho phép quản lý các chi tiết qu
 ## Xác thực
 Hỗ trợ hai phương thức xác thực:
 
-### 1. JSON Web Token (JWT) Authentication
+### 1. Xác thực bằng JSON Web Token (JWT)
 ```bash
 # Lấy token xác thực
 curl 'https://my.photuesoftware.vn/api/login' \

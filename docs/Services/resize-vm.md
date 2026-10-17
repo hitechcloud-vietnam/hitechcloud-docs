@@ -1,19 +1,19 @@
-# Resize VM
+# Thay đổi cấu hình máy ảo
 
-Modify the resources of a virtual machine.
+Thay đổi tài nguyên của máy ảo.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 PUT /service/@id/vms/@vmid
 ```
 
-### Query Parameters
-| Parameter | Type   | Description         |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|---------------------|
-| id        | int    | Service ID          |
-| vmid      | string | Virtual machine ID  |
-| memory    | string | RAM in MB           |
-| cpu       | string | CPU cores           |
+| id | int | ID dịch vụ |
+| vmid | string | ID máy ảo |
+| memory | string | Dung lượng RAM (MB) |
+| cpu | string | Số nhân CPU |
 
 ```bash
 POST_DATA="{

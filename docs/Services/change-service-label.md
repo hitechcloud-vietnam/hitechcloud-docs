@@ -1,17 +1,17 @@
-# Change Service Label
+# Đổi nhãn dịch vụ
 
-Set a new custom label to identify this service.
+Đặt nhãn tùy chỉnh mới để nhận diện dịch vụ này.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 POST /service/@id/label
 ```
 
-### Query Parameters
-| Parameter | Type   | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|-------------|
-| id        | int    | Service ID  |
-| label     | string | New label   |
+| id | int | ID dịch vụ |
+| label | string | Nhãn mới |
 
 ```bash
 POST_DATA="{
@@ -25,7 +25,7 @@ curl -X POST "https://my.photuesoftware.vn/api/service/@id/label" \
    -d "${POST_DATA}"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "success": true,

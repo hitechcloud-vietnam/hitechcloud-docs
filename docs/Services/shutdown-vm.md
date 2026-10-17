@@ -1,17 +1,17 @@
-# Shutdown VM
+# Tắt máy ảo
 
-Perform a graceful shutdown of a virtual machine.
+Tắt máy ảo một cách an toàn (graceful shutdown).
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 POST /service/@id/vms/@vmid/shutdown
 ```
 
-### Query Parameters
-| Parameter | Type   | Description         |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|---------------------|
-| id        | int    | Service ID          |
-| vmid      | string | Virtual machine ID  |
+| id | int | ID dịch vụ |
+| vmid | string | ID máy ảo |
 
 ```bash
 curl -X POST "https://my.photuesoftware.vn/api/service/@id/vms/@vmid/shutdown" \

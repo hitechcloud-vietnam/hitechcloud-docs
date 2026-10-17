@@ -1,17 +1,17 @@
-# Change Billing Cycle
+# Đổi chu kỳ thanh toán
 
-Change the recurring billing cycle for a service.
+Thay đổi chu kỳ thanh toán định kỳ của một dịch vụ.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 POST /service/@id/cycle
 ```
 
-### Query Parameters
-| Parameter | Type   | Description       |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|-------------------|
-| id        | int    | Service ID        |
-| cycle     | string | New billing cycle |
+| id | int | ID dịch vụ |
+| cycle | string | Chu kỳ thanh toán mới |
 
 ```bash
 POST_DATA="{
@@ -25,7 +25,7 @@ curl -X POST "https://my.photuesoftware.vn/api/service/@id/cycle" \
    -d "${POST_DATA}"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "success": true,

@@ -1,17 +1,17 @@
-# Get VM Details
+# Lấy chi tiết máy ảo
 
-Retrieve details of a specific virtual machine.
+Lấy thông tin chi tiết của một máy ảo cụ thể.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /service/@id/vms/@vmid
 ```
 
-### Query Parameters
-| Parameter | Type   | Description         |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|---------------------|
-| id        | int    | Service ID          |
-| vmid      | string | Virtual machine ID  |
+| id | int | ID dịch vụ |
+| vmid | string | ID máy ảo |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@id/vms/@vmid" \

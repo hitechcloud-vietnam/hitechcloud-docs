@@ -1,24 +1,24 @@
 ---
 id: get-vm-usage
-title: Get VM Usage
+title: Lấy mức sử dụng của máy ảo
 ---
 
-## Get VM Usage
+## Lấy mức sử dụng của máy ảo
 
-Retrieve the usage details of a specific virtual server.
+Lấy thông tin sử dụng của một máy chủ ảo cụ thể.
 
-### HTTP Request
+### Yêu cầu HTTP
 
 `GET /service/@id/vms/@vmid/usage`
 
-### Query Parameters
+### Tham số truy vấn
 
-| Parameter | Type   | Description       |
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|-------------------|
-| id        | int    | Service ID        |
-| vmid      | string | Virtual server ID |
+| id | int | ID dịch vụ |
+| vmid | string | ID máy chủ ảo |
 
-### Example Request
+### Yêu cầu mẫu
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@id/vms/@vmid/usage" \

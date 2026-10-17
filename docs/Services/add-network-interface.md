@@ -1,20 +1,20 @@
-# Add Network Interface
+# Thêm giao diện mạng
 
-Add a new network interface to a virtual machine.
+Thêm giao diện mạng mới cho máy ảo.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 POST /service/@id/vms/@vmid/interfaces
 ```
 
-### Query Parameters
-| Parameter | Type   | Description                     |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|---------------------------------|
-| id        | int    | Service ID                      |
-| vmid      | int    | Virtual machine ID              |
-| firewall  | int    | Enable or disable firewall      |
-| ipv4      | int[]  | List of IPv4 IDs                |
-| ipv6      | int[]  | List of IPv6 IDs                |
+| id | int | ID dịch vụ |
+| vmid | int | ID máy ảo |
+| firewall | int | Bật hoặc tắt tường lửa |
+| ipv4 | int[] | Danh sách ID IPv4 |
+| ipv6 | int[] | Danh sách ID IPv6 |
 
 ```bash
 POST_DATA="{

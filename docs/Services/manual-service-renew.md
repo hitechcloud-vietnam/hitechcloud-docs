@@ -1,16 +1,16 @@
-# Manual Service Renew
+# Gia hạn dịch vụ thủ công
 
-Generate an invoice to renew the service.
+Tạo hóa đơn để gia hạn dịch vụ.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 POST /service/@id/renew
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID   |
+| id | int | ID dịch vụ |
 
 ```bash
 POST_DATA="{
@@ -23,7 +23,7 @@ curl -X POST "https://my.photuesoftware.vn/api/service/@id/renew" \
    -d "${POST_DATA}"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "status": true,

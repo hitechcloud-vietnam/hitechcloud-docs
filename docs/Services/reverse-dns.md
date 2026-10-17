@@ -1,16 +1,16 @@
-# Reverse DNS
+# DNS ngược
 
-Get reverse DNS entries for service's IP addresses.
+Lấy các bản ghi DNS ngược cho các địa chỉ IP của dịch vụ.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /service/@id/rdns
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID   |
+| id | int | ID dịch vụ |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@id/rdns" \

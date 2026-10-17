@@ -1,20 +1,20 @@
-# List IPs
+# Danh sách IP
 
-List virtual machine IPs.
+Liệt kê các IP của máy ảo.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /service/@id/vms/@vmid/ips
 ```
 
-### Query Parameters
-| Parameter | Type   | Description         |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|---------------------|
-| id        | int    | Service ID          |
-| vmid      | int    | Virtual machine ID  |
-| type      | string | IPv4 or IPv6        |
-| iface     | int    | Interface number    |
-| bridge    | string | Bridge name         |
+| id | int | ID dịch vụ |
+| vmid | int | ID máy ảo |
+| type | string | IPv4 hoặc IPv6 |
+| iface | int | Số thứ tự giao diện |
+| bridge | string | Tên bridge |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@id/vms/@vmid/ips" \

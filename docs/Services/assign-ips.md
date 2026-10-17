@@ -1,20 +1,20 @@
-# Assign IPs
+# Gán IP
 
-Assign a new IP to a network interface.
+Gán một IP mới cho giao diện mạng.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 POST /service/@id/vms/@vmid/ippool/@pool
 ```
 
-### Query Parameters
-| Parameter | Type   | Description                     |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|---------------------------------|
-| id        | int    | Service ID                      |
-| vmid      | int    | Virtual machine ID              |
-| pool      | string | List ID to allocate new IP from |
-| type      | string | IPv4 or IPv6                    |
-| iface     | int    | Interface number                |
+| id | int | ID dịch vụ |
+| vmid | int | ID máy ảo |
+| pool | string | ID danh sách để cấp IP mới |
+| type | string | IPv4 hoặc IPv6 |
+| iface | int | Số thứ tự giao diện |
 
 ```bash
 POST_DATA="{

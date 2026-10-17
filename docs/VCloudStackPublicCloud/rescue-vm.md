@@ -1,24 +1,24 @@
 ---
 id: rescue-vm
-title: Rescue VM
+title: Cứu hộ máy ảo
 ---
 
-## Rescue VM
+## Cứu hộ máy ảo
 
-Reboot a virtual server into rescue mode.
+Khởi động lại máy chủ ảo vào chế độ cứu hộ.
 
-### HTTP Request
+### Yêu cầu HTTP
 
 `POST /service/@id/vms/@vmid/rescue`
 
-### Query Parameters
+### Tham số truy vấn
 
-| Parameter | Type   | Description       |
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|-------------------|
-| id        | int    | Service ID        |
-| vmid      | string | Virtual server ID |
+| id | int | ID dịch vụ |
+| vmid | string | ID máy chủ ảo |
 
-### Example Request
+### Yêu cầu mẫu
 
 ```bash
 curl -X POST "https://my.photuesoftware.vn/api/service/@id/vms/@vmid/rescue" \

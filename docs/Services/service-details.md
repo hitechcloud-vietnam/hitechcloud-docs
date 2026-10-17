@@ -1,23 +1,23 @@
-# Service Details
+# Chi tiết dịch vụ
 
-Return details for a specific service.
+Trả về thông tin chi tiết của một dịch vụ cụ thể.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /service/@id
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID   |
+| id | int | ID dịch vụ |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@id" \
    -H "Authorization: Bearer $token"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "service": {

@@ -1,23 +1,23 @@
-# List Service Methods
+# Danh sách phương thức của dịch vụ
 
-List methods available for a specific service.
+Liệt kê các phương thức khả dụng của một dịch vụ cụ thể.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /service/@id/methods
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID   |
+| id | int | ID dịch vụ |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@id/methods" \
    -H "Authorization: Bearer $token"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "methods": [
