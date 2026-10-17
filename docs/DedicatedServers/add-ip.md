@@ -1,19 +1,19 @@
-# Add IP
+# Thêm IP
 
-Add a new IP to a server.
+Thêm một IP mới cho máy chủ.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 POST /service/@id/ips
 ```
 
-### Query Parameters
-| Parameter | Type   | Description                     |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|---------------------------------|
-| id        | int    | Service ID                      |
-| vlan      | string | VLAN ID                         |
-| domain    | string | IP Domain                       |
-| num       | string | Number of IPs to add (optional) |
+| id | int | ID dịch vụ |
+| vlan | string | ID VLAN |
+| domain | string | Tên miền của IP |
+| num | string | Số lượng IP cần thêm (tùy chọn) |
 
 ```bash
 POST_DATA="{

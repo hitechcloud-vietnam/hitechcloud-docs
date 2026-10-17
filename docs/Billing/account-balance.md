@@ -1,21 +1,21 @@
-# Account Balance
+# Số dư tài khoản
 
-Get current account balance (unpaid invoices total) and account credit.
-Get Account Balance description: Retrieve the current account balance and credit information from the HiTechCloud system.
+Lấy số dư tài khoản hiện tại (tổng hóa đơn chưa thanh toán) và tín dụng tài khoản.
+Mô tả: Lấy số dư tài khoản hiện tại và thông tin tín dụng từ hệ thống HiTechCloud.
 
-Overview
+## Tổng quan
 
-The GET /balance API endpoint allows users to retrieve their current account balance (total unpaid invoices) and account credit in the HiTechCloud system. This endpoint provides details such as the currency, account balance, and available credit, enabling users to monitor their financial status effectively. Authentication is required using a valid Bearer token in the request header.
+Endpoint API `GET /balance` cho phép người dùng lấy số dư tài khoản hiện tại (tổng các hóa đơn chưa thanh toán) và tín dụng tài khoản trong hệ thống HiTechCloud. Endpoint này trả về các thông tin như đơn vị tiền tệ, số dư tài khoản và tín dụng khả dụng, giúp người dùng theo dõi tình hình tài chính hiệu quả. Yêu cầu xác thực bằng token Bearer hợp lệ trong header của yêu cầu.
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/balance" \
    -H "Authorization: Bearer $token"
 ```
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /balance
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "success": true,

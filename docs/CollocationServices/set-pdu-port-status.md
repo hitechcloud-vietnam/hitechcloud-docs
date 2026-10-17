@@ -1,19 +1,19 @@
-# Set PDU Port Status
+# Đặt trạng thái cổng PDU
 
-Set the state of a PDU port/outlet.
+Đặt trạng thái của một cổng/ổ cắm PDU.
 
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 POST /service/@id/pdu/@port
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID   |
-| port      | int  | Port ID      |
-| power     | bool | Desired power state ('true' for ON, 'false' for OFF) |
+| id | int | ID dịch vụ |
+| port | int | ID cổng |
+| power | bool | Trạng thái nguồn mong muốn ('true' là bật, 'false' là tắt) |
 
 ```bash
 POST_DATA="{

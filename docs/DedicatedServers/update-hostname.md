@@ -1,17 +1,17 @@
-# Update Hostname
+# Cập nhật hostname
 
-Update the hostname of a server.
+Cập nhật hostname của máy chủ.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 POST /service/@id/hostname
 ```
 
-### Query Parameters
-| Parameter | Type   | Description         |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|---------------------|
-| id        | int    | Service ID          |
-| hostname  | string | New hostname        |
+| id | int | ID dịch vụ |
+| hostname | string | Hostname mới |
 
 ```bash
 POST_DATA="{

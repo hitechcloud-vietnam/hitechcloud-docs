@@ -1,16 +1,16 @@
-# List VLANs
+# Danh sách VLAN
 
-List available VLANs.
+Liệt kê các VLAN khả dụng.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /service/@id/vlans
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID  |
+| id | int | ID dịch vụ |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@id/vlans" \

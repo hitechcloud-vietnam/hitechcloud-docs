@@ -1,19 +1,19 @@
-# Run Diagnostics
+# Chạy chẩn đoán
 
-Start a new diagnostics operation.
+Bắt đầu một thao tác chẩn đoán mới.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 POST /service/@id/diag
 ```
 
-### Query Parameters
-| Parameter     | Type   | Description                     |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |---------------|--------|---------------------------------|
-| id            | int    | Service ID                      |
-| template      | string | Diagnostic Template ID          |
-| clearhdd      | bool   | Clear disks                     |
-| fullhddclear  | bool   | Full hard drive erase (requires `clearhdd` set to True) |
+| id | int | ID dịch vụ |
+| template | string | ID mẫu chẩn đoán |
+| clearhdd | bool | Xóa ổ đĩa |
+| fullhddclear | bool | Xóa sạch toàn bộ ổ cứng (yêu cầu đặt `clearhdd` là True) |
 
 ```bash
 POST_DATA="{

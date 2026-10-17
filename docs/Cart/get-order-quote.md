@@ -1,8 +1,8 @@
-# Get Order Quote
+# Báo giá đơn hàng
 
-Calculate order cost and recurring prices for selected items.
+Tính chi phí đơn hàng và giá định kỳ cho các mục đã chọn.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 POST /quote
 ```
@@ -27,7 +27,7 @@ curl -X POST "https://my.photuesoftware.vn/api/quote" \
    -d "${POST_DATA}"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "summary": {

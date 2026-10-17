@@ -1,19 +1,19 @@
-# Order New Service
+# Đặt hàng dịch vụ mới
 
-Create and submit a new order for the selected product.
+Tạo và gửi một đơn hàng mới cho sản phẩm đã chọn.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 POST /order/@product_id
 ```
 
-### Query Parameters
-| Parameter    | Type   | Description  |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |--------------|--------|--------------|
-| product_id   | int    | Product ID   |
-| domain       | string | Domain name  |
-| cycle        | string | Billing cycle|
-| pay_method   | int    | Payment method ID |
+| product_id | int | ID sản phẩm |
+| domain | string | Tên miền |
+| cycle | string | Chu kỳ thanh toán |
+| pay_method | int | ID phương thức thanh toán |
 
 ```bash
 POST_DATA="{
@@ -36,7 +36,7 @@ curl -X POST "https://my.photuesoftware.vn/api/order/@product_id" \
    -d "${POST_DATA}"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "order_num": 873340995,

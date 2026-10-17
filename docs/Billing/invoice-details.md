@@ -1,17 +1,17 @@
-# Invoice Details
+# Chi tiết hóa đơn
 
-Get invoice details.
+Lấy chi tiết hóa đơn.
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/invoice/@id" \
    -H "Authorization: Bearer $token"
 ```
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /invoice/@id
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "invoice": {

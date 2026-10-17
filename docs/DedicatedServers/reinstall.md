@@ -1,20 +1,20 @@
-# Reinstall
+# Cài lại
 
-Start a reinstall operation on a server.
+Bắt đầu thao tác cài lại trên máy chủ.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 POST /service/@id/reinstall
 ```
 
-### Query Parameters
-| Parameter | Type   | Description                     |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|---------------------------------|
-| id        | int    | Service ID                      |
-| hostname  | string | New hostname for server         |
-| template  | string | Template ID                     |
-| recipe    | string | Recipe ID (optional)            |
-| password  | string | New password (optional)         |
+| id | int | ID dịch vụ |
+| hostname | string | Hostname mới của máy chủ |
+| template | string | ID mẫu |
+| recipe | string | ID công thức cấu hình (tùy chọn) |
+| password | string | Mật khẩu mới (tùy chọn) |
 
 ```bash
 POST_DATA="{

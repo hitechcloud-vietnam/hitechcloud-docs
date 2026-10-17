@@ -1,16 +1,16 @@
-# Bandwidth Graph
+# Biểu đồ băng thông
 
-Return base64 encoded images representing bandwidth usage for the last day, week, and month.
+Trả về các ảnh mã hóa base64 biểu diễn mức sử dụng băng thông trong ngày, tuần và tháng gần nhất.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /service/@id/bandwidth-graphs
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID   |
+| id | int | ID dịch vụ |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@id/bandwidth-graphs" \

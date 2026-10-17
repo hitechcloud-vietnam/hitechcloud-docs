@@ -1,8 +1,8 @@
-# List Product Categories
+# Danh sách danh mục sản phẩm
 
-Return a list of product categories.
+Trả về danh sách danh mục sản phẩm.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /category
 ```
@@ -12,7 +12,7 @@ curl -X GET "https://my.photuesoftware.vn/api/category" \
    -H "Authorization: Bearer $token"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "categories": [

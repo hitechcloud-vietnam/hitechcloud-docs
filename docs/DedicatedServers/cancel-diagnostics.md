@@ -1,17 +1,17 @@
-# Cancel Diagnostics
+# Hủy chẩn đoán
 
-Cancel a diagnostics operation.
+Hủy một thao tác chẩn đoán.
 
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 POST /service/@id/diag/cancel
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID   |
+| id | int | ID dịch vụ |
 
 ```bash
 curl -X POST "https://my.photuesoftware.vn/api/service/@id/diag/cancel" \

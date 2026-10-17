@@ -1,9 +1,9 @@
-# User Details
+# Thông tin người dùng
 
-Return registration details for my account.
+Trả về thông tin đăng ký của tài khoản của tôi.
 
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /details
 ```
@@ -13,7 +13,7 @@ curl -X GET "https://my.photuesoftware.vn/api/details" \
    -H "Authorization: Bearer $token"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "client": {

@@ -1,17 +1,17 @@
-# PDU Port State
+# Trạng thái cổng PDU
 
-Get the state of a PDU port/outlet.
+Lấy trạng thái của một cổng/ổ cắm PDU.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /service/@id/pdu/@port
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID   |
-| port      | int  | Port ID      |
+| id | int | ID dịch vụ |
+| port | int | ID cổng |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@id/pdu/@port"

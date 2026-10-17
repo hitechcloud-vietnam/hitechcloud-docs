@@ -1,22 +1,22 @@
-# Get Product Configuration Details
+# Lấy chi tiết cấu hình sản phẩm
 
-Return product details with form configuration, addons, and subproducts if available.
+Trả về chi tiết sản phẩm cùng cấu hình biểu mẫu, addon và sản phẩm con (nếu có).
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /order/@product_id
 ```
 
-### Query Parameters
-| Parameter    | Type | Description  |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |--------------|------|--------------|
-| product_id   | int  | Product ID   |
+| product_id | int | ID sản phẩm |
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/order/@product_id" \
    -H "Authorization: Bearer $token"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "product": {

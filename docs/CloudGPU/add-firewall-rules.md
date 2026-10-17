@@ -1,24 +1,24 @@
-# Add Firewall Rules
+# Thêm quy tắc tường lửa
 
-Add firewall rules to a virtual server.
+Thêm quy tắc tường lửa cho máy chủ ảo.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 POST /service/@id/vms/firewall
 ```
 
-### Query Parameters
-| Parameter       | Type   | Description                             |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------------|--------|-----------------------------------------|
-| id              | int    | Service ID                             |
-| action          | string | accept or drop                         |
-| type            | string | source, destination, or both           |
-| comment         | string | Freeform comment string (0-250 chars)  |
-| protocol        | string | tcp, udp, or icmp                      |
-| address_start   | string | Valid IP address                       |
-| address_end     | string | Valid IP address                       |
-| port_start      | string | Port range start (1-65535)             |
-| port_end        | string | Port range end (1-65535)               |
+| id | int | ID dịch vụ |
+| action | string | accept hoặc drop |
+| type | string | source, destination hoặc both |
+| comment | string | Chuỗi ghi chú tự do (0-250 ký tự) |
+| protocol | string | tcp, udp hoặc icmp |
+| address_start | string | Địa chỉ IP hợp lệ |
+| address_end | string | Địa chỉ IP hợp lệ |
+| port_start | string | Cổng bắt đầu của dải (1-65535) |
+| port_end | string | Cổng kết thúc của dải (1-65535) |
 
 ```bash
 POST_DATA="{

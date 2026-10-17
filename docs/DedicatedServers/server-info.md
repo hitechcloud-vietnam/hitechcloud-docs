@@ -1,16 +1,16 @@
-# Server Info
+# Thông tin máy chủ
 
-Get server hardware and OS details.
+Lấy thông tin phần cứng và hệ điều hành của máy chủ.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /service/@id/info
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID  |
+| id | int | ID dịch vụ |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@id/info" \

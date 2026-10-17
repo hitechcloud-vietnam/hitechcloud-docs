@@ -1,18 +1,18 @@
-# Rescue
+# Cứu hộ
 
-Start a rescue operation on a server.
+Bắt đầu thao tác cứu hộ trên máy chủ.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 POST /service/@id/rescue
 ```
 
-### Query Parameters
-| Parameter | Type   | Description                     |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|---------------------------------|
-| id        | int    | Service ID                      |
-| template  | string | Rescue Template ID              |
-| password  | string | Password for rescue operation   |
+| id | int | ID dịch vụ |
+| template | string | ID mẫu cứu hộ |
+| password | string | Mật khẩu cho thao tác cứu hộ |
 
 ```bash
 POST_DATA="{

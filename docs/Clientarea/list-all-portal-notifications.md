@@ -1,13 +1,13 @@
-# List All Portal Notifications
+# Danh sách tất cả thông báo của cổng
 
-Return a list of all portal notifications.
+Trả về danh sách tất cả thông báo của cổng.
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/notifications" \
    -H "Authorization: Bearer $token"
 ```
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /notifications
 ```

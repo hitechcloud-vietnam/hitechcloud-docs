@@ -1,17 +1,17 @@
-# IP Details
+# Chi tiết IP
 
-Get details about an IP.
+Lấy thông tin chi tiết về một IP.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /service/@id/ips/@ip
 ```
 
-### Query Parameters
-| Parameter | Type   | Description         |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|---------------------|
-| id        | int    | Service ID          |
-| ip        | string | IP Address ID       |
+| id | int | ID dịch vụ |
+| ip | string | ID địa chỉ IP |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@id/ips/@ip" \

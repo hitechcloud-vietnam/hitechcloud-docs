@@ -1,17 +1,17 @@
-# List Rescue Templates
+# Danh sách mẫu cứu hộ
 
-List templates that can be used for rescue operations.
+Liệt kê các mẫu có thể dùng cho thao tác cứu hộ.
 
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /service/@id/rescue/templates
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID   |
+| id | int | ID dịch vụ |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@id/rescue/templates" \

@@ -1,20 +1,20 @@
-# Create DNS Records
+# Tạo bản ghi DNS
 
-Add a new DNS record.
+Thêm một bản ghi DNS mới.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 POST /domain/@id/dns
 ```
 
-### Query Parameters
-| Parameter | Type   | Description          |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|----------------------|
-| id        | int    | Domain ID            |
-| name      | string | Record name          |
-| type      | string | Record type          |
-| priority  | string | Record priority      |
-| content   | string | Record content (e.g., IP address for A records) |
+| id | int | ID tên miền |
+| name | string | Tên bản ghi |
+| type | string | Loại bản ghi |
+| priority | string | Độ ưu tiên của bản ghi |
+| content | string | Nội dung bản ghi (ví dụ: địa chỉ IP cho bản ghi A) |
 
 ```bash
 POST_DATA="{
@@ -31,7 +31,7 @@ curl -X POST "https://my.photuesoftware.vn/api/domain/@id/dns" \
    -d "${POST_DATA}"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "info": [

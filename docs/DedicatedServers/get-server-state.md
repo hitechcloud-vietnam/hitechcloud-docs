@@ -1,17 +1,17 @@
-# Get Server State
+# Lấy trạng thái máy chủ
 
-Return details about the server's power state.
+Trả về thông tin về trạng thái nguồn của máy chủ.
 
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /service/@id/status
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID   |
+| id | int | ID dịch vụ |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@id/status" \

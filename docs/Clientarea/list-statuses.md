@@ -1,23 +1,23 @@
 ---
 id: list-statuses
-title: List Statuses
+title: Danh sách trạng thái
 ---
 
-## List Statuses
+## Danh sách trạng thái
 
-Retrieve a list of all statuses with specific status.
+Lấy danh sách tất cả trạng thái theo một trạng thái cụ thể.
 
-### HTTP Request
+### Yêu cầu HTTP
 
 `GET /statuses`
 
-### Query Parameters
+### Tham số truy vấn
 
-| Parameter | Type   | Description                          |
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|--------------------------------------|
-| status    | string | Returns details of status            |
+| status | string | Trả về chi tiết của trạng thái |
 
-### Example Request
+### Yêu cầu mẫu
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/statuses" \

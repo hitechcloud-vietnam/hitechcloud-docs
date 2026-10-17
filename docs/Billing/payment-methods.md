@@ -1,18 +1,18 @@
-# Payment Methods
+# Phương thức thanh toán
 
-List available payment methods.
+Liệt kê các phương thức thanh toán khả dụng.
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/payment" \
    -H "Authorization: Bearer $token"
 ```
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /payment
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "payments": {

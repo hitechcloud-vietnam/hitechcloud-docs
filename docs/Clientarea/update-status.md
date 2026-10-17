@@ -1,23 +1,23 @@
 ---
 id: update-status
-title: Update Status
+title: Cập nhật trạng thái
 ---
 
-## Update Status
+## Cập nhật trạng thái
 
-Update a specific status.
+Cập nhật một trạng thái cụ thể.
 
-### HTTP Request
+### Yêu cầu HTTP
 
 `PUT /statuses/@id`
 
-### Query Parameters
+### Tham số truy vấn
 
-| Parameter | Type | Description  |
+| Tham số | Kiểu | Mô tả |
 |-----------|------|--------------|
-| id        | int  | Status ID    |
+| id | int | ID trạng thái |
 
-### Example Request
+### Yêu cầu mẫu
 
 ```bash
 curl -X PUT "https://my.photuesoftware.vn/api/statuses/@id" \

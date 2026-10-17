@@ -1,24 +1,24 @@
-# Get DNS Details
+# Lấy chi tiết DNS
 
-Returns details of the DNS zone.
+Trả về thông tin chi tiết của vùng DNS.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /service/@service_id/dns/@zone_id
 ```
 
-### Query Parameters
-| Parameter    | Type   | Description  |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |--------------|--------|--------------|
-| service_id   | int    | Service ID   |
-| zone_id      | int    | Zone ID      |
+| service_id | int | ID dịch vụ |
+| zone_id | int | ID vùng |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@service_id/dns/@zone_id" \
    -H "Authorization: Bearer $token"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "service_id": 10,

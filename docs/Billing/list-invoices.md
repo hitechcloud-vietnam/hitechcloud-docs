@@ -1,17 +1,17 @@
-# List Invoices
+# Danh sách hóa đơn
 
-List all invoices under my account.
+Liệt kê tất cả hóa đơn thuộc tài khoản của tôi.
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/invoice" \
    -H "Authorization: Bearer $token"
 ```
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /invoice
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "invoices": [

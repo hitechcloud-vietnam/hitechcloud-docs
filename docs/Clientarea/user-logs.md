@@ -1,9 +1,9 @@
-# User Logs
+# Nhật ký người dùng
 
-Returns logs from history.
+Trả về nhật ký từ lịch sử.
 
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /logs
 ```

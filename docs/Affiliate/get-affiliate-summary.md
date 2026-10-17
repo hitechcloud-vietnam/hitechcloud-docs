@@ -1,11 +1,11 @@
-# Get Affiliate Summary
-Get Affiliate Summary description: Retrieve a summary of affiliate performance and metrics from the HiTechCloud system.
+# Lấy tổng quan tiếp thị liên kết
+Mô tả: Lấy tổng quan về hiệu quả và các chỉ số tiếp thị liên kết từ hệ thống HiTechCloud.
 
-Overview
+## Tổng quan
 
-The GET /affiliates/summary API endpoint allows affiliates to retrieve a summary of their performance metrics in the HiTechCloud system. This endpoint provides key information such as total earnings, campaign performance, and other relevant statistics, enabling affiliates to monitor their overall activity and success. Authentication is required using a valid Bearer token in the request header.
+Endpoint API `GET /affiliates/summary` cho phép đối tác tiếp thị liên kết lấy tổng quan các chỉ số hiệu quả của họ trong hệ thống HiTechCloud. Endpoint này trả về các thông tin chính như tổng thu nhập, hiệu quả chiến dịch và các số liệu thống kê liên quan khác, giúp đối tác theo dõi hoạt động và kết quả chung. Yêu cầu xác thực bằng token Bearer hợp lệ trong header của yêu cầu.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /affiliates/summary
 ```

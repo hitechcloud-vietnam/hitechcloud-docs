@@ -1,24 +1,24 @@
-# Remove DNS Zone
+# Xóa vùng DNS
 
-Deletes the selected DNS zone.
+Xóa vùng DNS đã chọn.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 DELETE /service/@service_id/dns/@zone_id
 ```
 
-### Query Parameters
-| Parameter    | Type   | Description  |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |--------------|--------|--------------|
-| service_id   | int    | Service ID   |
-| zone_id      | int    | Zone ID      |
+| service_id | int | ID dịch vụ |
+| zone_id | int | ID vùng |
 
 ```bash
 curl -X DELETE "https://my.photuesoftware.vn/api/service/@service_id/dns/@zone_id" \
    -H "Authorization: Bearer $token"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
    "info": [

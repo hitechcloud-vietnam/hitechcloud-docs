@@ -1,11 +1,11 @@
-# Get Affiliate Payouts
-Get Affiliate Payouts description: Retrieve a list of affiliate payouts from the HiTechCloud system.
+# Lấy danh sách các lần chi trả tiếp thị liên kết
+Mô tả: Lấy danh sách các lần chi trả tiếp thị liên kết từ hệ thống HiTechCloud.
 
-Overview
+## Tổng quan
 
-The GET /affiliates/payouts API endpoint allows affiliates to retrieve a list of their payouts in the HiTechCloud system. This endpoint provides details about payout amounts, dates, statuses, and other relevant information, enabling affiliates to track their payment history effectively. Authentication is required using a valid Bearer token in the request header.
+Endpoint API `GET /affiliates/payouts` cho phép đối tác tiếp thị liên kết lấy danh sách các lần chi trả của họ trong hệ thống HiTechCloud. Endpoint này trả về chi tiết về số tiền chi trả, ngày chi trả, trạng thái và các thông tin liên quan khác, giúp đối tác theo dõi lịch sử thanh toán hiệu quả. Yêu cầu xác thực bằng token Bearer hợp lệ trong header của yêu cầu.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /affiliates/payouts
 ```

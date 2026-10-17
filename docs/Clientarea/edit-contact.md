@@ -1,42 +1,42 @@
 ---
 id: edit-contact
-title: Edit Contact
+title: Sửa liên hệ
 ---
 
-## Edit Contact
+## Sửa liên hệ
 
-Update details of a specific contact.
+Cập nhật thông tin của một liên hệ cụ thể.
 
-### HTTP Request
+### Yêu cầu HTTP
 
 `PUT /contact/@id`
 
-### Query Parameters
+### Tham số truy vấn
 
-| Parameter             | Type   | Description                          |
+| Tham số | Kiểu | Mô tả |
 |-----------------------|--------|--------------------------------------|
-| id                   | int    | Contact ID                          |
-| privileges           | array  | Array with privileges to enable      |
-| type                 | string | Account Type (Private, Company)      |
-| companyname          | string | Organization                         |
-| taxid                | string | Tax ID                               |
-| gender               | string | Gender (Nam, Nữ)                     |
-| lastname             | string | Last Name                            |
-| firstname            | string | First Name                           |
-| nationalid           | string | National ID or Passport              |
-| email                | string | Email Address                        |
-| birthday             | string | Date of Birth                        |
-| phonenumber          | string | Phone Number                         |
-| country              | string | Country                              |
-| state                | string | State                                |
-| city                 | string | City                                 |
-| address1             | string | Address Line 1                       |
-| postcode             | string | Postcode                             |
-| managementagency     | string | Tax Management Agency                |
-| telegramnotifications| array  | Telegram notifications               |
-| email2               | string | Secondary Email                      |
+| id | int | ID liên hệ |
+| privileges | array | Mảng các quyền cần bật |
+| type | string | Loại tài khoản (Private, Company) |
+| companyname | string | Tổ chức |
+| taxid | string | Mã số thuế |
+| gender | string | Giới tính (Nam, Nữ) |
+| lastname | string | Họ |
+| firstname | string | Tên |
+| nationalid | string | Số CMND/CCCD hoặc hộ chiếu |
+| email | string | Địa chỉ email |
+| birthday | string | Ngày sinh |
+| phonenumber | string | Số điện thoại |
+| country | string | Quốc gia |
+| state | string | Tỉnh/Bang |
+| city | string | Thành phố |
+| address1 | string | Địa chỉ dòng 1 |
+| postcode | string | Mã bưu chính |
+| managementagency | string | Cơ quan quản lý thuế |
+| telegramnotifications | array | Thông báo Telegram |
+| email2 | string | Email phụ |
 
-### Example Request
+### Yêu cầu mẫu
 
 ```bash
 POST_DATA="{
@@ -68,7 +68,7 @@ curl -X PUT "https://my.photuesoftware.vn/api/contact/@id" \
    -d "${POST_DATA}"
 ```
 
-### Example Response
+### Phản hồi mẫu
 
 ```json
 {

@@ -1,16 +1,16 @@
-# Reinstall Status
+# Trạng thái cài lại
 
-Get the status of a reinstall operation.
+Lấy trạng thái của thao tác cài lại.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /service/@id/reinstall
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID  |
+| id | int | ID dịch vụ |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@id/reinstall" \

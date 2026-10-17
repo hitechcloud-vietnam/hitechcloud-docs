@@ -1,17 +1,17 @@
 ---
 id: acknowledge-notification
-title: Acknowledge Notification
+title: Xác nhận đã đọc thông báo
 ---
 
-## Acknowledge Notification
+## Xác nhận đã đọc thông báo
 
-Mark a notification as read.
+Đánh dấu một thông báo là đã đọc.
 
-### HTTP Request
+### Yêu cầu HTTP
 
 `PUT /notifications/@id/ack`
 
-### Example Request
+### Yêu cầu mẫu
 
 ```bash
 curl -X PUT "https://my.photuesoftware.vn/api/notifications/@id/ack" \

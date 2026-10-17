@@ -1,34 +1,34 @@
-# Sign Up
+# Đăng ký
 
-Create a new account.
+Tạo tài khoản mới.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 POST /signup
 ```
 
-### Query Parameters
-| Parameter         | Type   | Description                  |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-------------------|--------|------------------------------|
-| type              | string | Account Type (Private, Company) |
-| companyname       | string | Organization (Required for organization account) |
-| taxid             | string | Tax ID (Required for organization account) |
-| gender            | string | Gender (Nam, Nữ) |
-| lastname          | string | Last Name |
-| firstname         | string | First Name |
-| nationalid        | string | National ID |
-| email             | string | Email Address |
-| birthday          | string | Birthday |
-| phonenumber       | string | Phone |
-| country           | string | Country |
-| state             | string | State |
-| city              | string | City |
-| address1          | string | Address 1 |
-| password          | string | Password |
-| postcode          | string | Postcode |
-| managementagency  | string | Tax Management Agency |
-| email2            | string | Secondary Email |
-| currency          | string | Currency (e.g., VND, USD, EUR) |
+| type | string | Loại tài khoản (Private, Company) |
+| companyname | string | Tổ chức (bắt buộc với tài khoản tổ chức) |
+| taxid | string | Mã số thuế (bắt buộc với tài khoản tổ chức) |
+| gender | string | Giới tính (Nam, Nữ) |
+| lastname | string | Họ |
+| firstname | string | Tên |
+| nationalid | string | Số CMND/CCCD |
+| email | string | Địa chỉ email |
+| birthday | string | Ngày sinh |
+| phonenumber | string | Số điện thoại |
+| country | string | Quốc gia |
+| state | string | Tỉnh/Bang |
+| city | string | Thành phố |
+| address1 | string | Địa chỉ 1 |
+| password | string | Mật khẩu |
+| postcode | string | Mã bưu chính |
+| managementagency | string | Cơ quan quản lý thuế |
+| email2 | string | Email phụ |
+| currency | string | Đơn vị tiền tệ (ví dụ: VND, USD, EUR) |
 
 ```bash
 POST_DATA="{
@@ -58,7 +58,7 @@ curl -X POST "https://my.photuesoftware.vn/api/signup" \
    -d "${POST_DATA}"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "info": [

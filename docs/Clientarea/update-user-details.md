@@ -1,33 +1,33 @@
-# Update User Details
+# Cập nhật thông tin người dùng
 
-Update registration details under my account.
+Cập nhật thông tin đăng ký của tài khoản của tôi.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 PUT /details
 ```
 
-### Query Parameters
-| Parameter              | Type   | Description                  |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |------------------------|--------|------------------------------|
-| type                   | string | Account Type (Private, Company) |
-| companyname            | string | Organization |
-| taxid                  | string | Tax ID |
-| gender                 | string | Gender (Nam, Nữ) |
-| lastname               | string | Last Name |
-| firstname              | string | First Name |
-| nationalid             | string | National ID |
-| email                  | string | Email Address |
-| birthday               | string | Birthday |
-| phonenumber            | string | Phone |
-| country                | string | Country |
-| state                  | string | State |
-| city                   | string | City |
-| address1               | string | Address 1 |
-| postcode               | string | Postcode |
-| managementagency       | string | Tax Management Agency |
-| telegramnotifications  | string | Telegram notifications |
-| email2                 | string | Secondary Email |
+| type | string | Loại tài khoản (Private, Company) |
+| companyname | string | Tổ chức |
+| taxid | string | Mã số thuế |
+| gender | string | Giới tính (Nam, Nữ) |
+| lastname | string | Họ |
+| firstname | string | Tên |
+| nationalid | string | Số CMND/CCCD |
+| email | string | Địa chỉ email |
+| birthday | string | Ngày sinh |
+| phonenumber | string | Số điện thoại |
+| country | string | Quốc gia |
+| state | string | Tỉnh/Bang |
+| city | string | Thành phố |
+| address1 | string | Địa chỉ 1 |
+| postcode | string | Mã bưu chính |
+| managementagency | string | Cơ quan quản lý thuế |
+| telegramnotifications | string | Thông báo Telegram |
+| email2 | string | Email phụ |
 
 ```bash
 POST_DATA="{
@@ -57,7 +57,7 @@ curl -X PUT "https://my.photuesoftware.vn/api/details" \
    -d "${POST_DATA}"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "client": {

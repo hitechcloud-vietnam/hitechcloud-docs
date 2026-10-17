@@ -1,16 +1,16 @@
-# Stop VM
+# Dừng máy ảo
 
-Stop a virtual server.
+Dừng máy chủ ảo.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 PUT /service/@id/vms/stop
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID   |
+| id | int | ID dịch vụ |
 
 ```bash
 curl -X PUT "https://my.photuesoftware.vn/api/service/@id/vms/stop"

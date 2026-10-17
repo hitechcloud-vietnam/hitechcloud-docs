@@ -1,8 +1,8 @@
-# List Contacts
+# Danh sách liên hệ
 
-Return a list of contacts on this account.
+Trả về danh sách các liên hệ của tài khoản này.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /contact
 ```
@@ -12,7 +12,7 @@ curl -X GET "https://my.photuesoftware.vn/api/contact" \
    -H "Authorization: Bearer $token"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "contacts": [
