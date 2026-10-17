@@ -1,57 +1,57 @@
-# Installation Overview
+# Tổng quan về cài đặt {#installation-overview}
 
-AnythingLLM Docker is both a single-user and multi-user application you can install on any webserver using Docker and leverage local LLMs, RAG, and Agents with little to zero configuration and full privacy.
+AnythingLLM Docker vừa là ứng dụng một người dùng vừa là ứng dụng nhiều người dùng, bạn có thể cài trên bất kỳ máy chủ web nào bằng Docker và tận dụng LLM cục bộ, RAG và Agent với cấu hình rất ít hoặc không cần cấu hình, đồng thời bảo đảm quyền riêng tư.
 
-Self-hosting AnythingLLM via Docker is very popular and can be done locally or on cloud services (AWS, Google Cloud, Railway, etc.).
+Tự lưu trữ AnythingLLM bằng Docker rất phổ biến và có thể thực hiện cục bộ hoặc trên các dịch vụ đám mây (AWS, Google Cloud, Railway, v.v.).
 
-## Docker vs Desktop Version
+## Docker so với bản Desktop {#docker-vs-desktop-version}
 
-**Tip:** AnythingLLM Desktop is the easiest way to get started with AnythingLLM.
+**Mẹo:** AnythingLLM Desktop là cách dễ nhất để bắt đầu với AnythingLLM.
 
-If you don’t need multi-user support, you should use AnythingLLM Desktop.
+Nếu không cần hỗ trợ nhiều người dùng, bạn nên dùng AnythingLLM Desktop.
 
-There are some distinct differences in functionality between each offering. Both are open source.
+Mỗi phiên bản có những khác biệt rõ rệt về chức năng. Cả hai đều là mã nguồn mở.
 
-### You want AnythingLLM Docker if...
+### Bạn cần AnythingLLM Docker nếu... {#you-want-anythingllm-docker-if}
 
-- You need an easy setup, but server-based service for AnythingLLM to use local LLMs, RAG, and Agents locally
-- You want to run an AnythingLLM instance that many people can use at the same time
-- You want to be able to share information with users on your instance you invite
-- You need admin and rule-based access for workspaces and documents
-- You will publish chat widgets to the public internet
-- You want to access AnythingLLM from the browser
+- Bạn cần cách thiết lập dễ dàng nhưng là dịch vụ trên máy chủ để AnythingLLM dùng LLM cục bộ, RAG và Agent
+- Bạn muốn chạy một phiên bản AnythingLLM mà nhiều người có thể dùng cùng lúc
+- Bạn muốn chia sẻ thông tin với những người dùng mà bạn mời vào phiên bản của mình
+- Bạn cần phân quyền quản trị và theo quy tắc cho workspace và tài liệu
+- Bạn sẽ công khai các chat widget lên Internet
+- Bạn muốn truy cập AnythingLLM từ trình duyệt
 
-### You want AnythingLLM Desktop if...
+### Bạn cần AnythingLLM Desktop nếu... {#you-want-anythingllm-desktop-if}
 
-- You want a one-click installable app to use local LLMs, RAG, and Agents locally
-- You do not need multi-user support
-- Everything needs to stay only on your device
-- You do not need to "publish" anything to the public internet (e.g., chat widget for website)
+- Bạn muốn một ứng dụng cài đặt bằng một cú nhấp chuột để dùng LLM cục bộ, RAG và Agent ngay trên máy
+- Bạn không cần hỗ trợ nhiều người dùng
+- Mọi thứ cần chỉ nằm trên thiết bị của bạn
+- Bạn không cần "xuất bản" bất cứ thứ gì lên Internet (ví dụ: chat widget cho website)
 
-## Feature Comparison
+## So sánh tính năng {#feature-comparison}
 
-The below table is a non-exhaustive list of features supported between platforms.
+Bảng dưới đây liệt kê một số tính năng được hỗ trợ giữa các nền tảng (không đầy đủ).
 
-| Feature                        | Available on Desktop | Available on Docker |
+| Tính năng                      | Có trên Desktop      | Có trên Docker      |
 |--------------------------------|----------------------|---------------------|
-| Multi-user support             | ❌                  | ✅                  |
-| Embeddable chat widgets        | ❌                  | ✅                  |
-| One-click install              | ✅                  | ❌                  |
-| Private documents              | ✅                  | ✅                  |
-| Connect to any vector database | ✅                  | ✅                  |
-| Use any LLM                    | ✅                  | ✅                  |
-| Built-in embedding provider    | ✅                  | ✅                  |
-| Built-in LLM provider          | ✅                  | ❌                  |
-| White-labeling                 | ❌                  | ✅                  |
-| Chat logs                      | ✅                  | ✅                  |
-| Agent support                  | ✅                  | ✅                  |
-| Agent skills                   | ✅                  | ✅                  |
-| Third-party data connectors    | ✅                  | ✅                  |
-| Password protection            | ❌                  | ✅                  |
-| Invite new users to instance   | ❌                  | ✅                  |
-| Text splitting configuration   | ✅                  | ✅                  |
-| Whisper model support          | ✅                  | ✅                  |
-| Full developer API             | ✅                  | ✅                  |
-| User management                | ❌                  | ✅                  |
-| Workspace access management    | ❌                  | ✅                  |
-| Website scraping               | ✅                  | ✅                  |
+| Hỗ trợ nhiều người dùng        | ❌                  | ✅                  |
+| Chat widget có thể nhúng       | ❌                  | ✅                  |
+| Cài đặt một cú nhấp chuột      | ✅                  | ❌                  |
+| Tài liệu riêng tư              | ✅                  | ✅                  |
+| Kết nối tới mọi cơ sở dữ liệu vector | ✅            | ✅                  |
+| Dùng LLM bất kỳ                | ✅                  | ✅                  |
+| Nhà cung cấp embedding tích hợp | ✅                 | ✅                  |
+| Nhà cung cấp LLM tích hợp      | ✅                  | ❌                  |
+| White-label (gắn thương hiệu riêng) | ❌             | ✅                  |
+| Nhật ký chat                   | ✅                  | ✅                  |
+| Hỗ trợ Agent                   | ✅                  | ✅                  |
+| Kỹ năng của Agent              | ✅                  | ✅                  |
+| Kết nối dữ liệu bên thứ ba     | ✅                  | ✅                  |
+| Bảo vệ bằng mật khẩu           | ❌                  | ✅                  |
+| Mời người dùng mới vào phiên bản | ❌                | ✅                  |
+| Cấu hình tách văn bản          | ✅                  | ✅                  |
+| Hỗ trợ mô hình Whisper         | ✅                  | ✅                  |
+| API đầy đủ cho nhà phát triển  | ✅                  | ✅                  |
+| Quản lý người dùng             | ❌                  | ✅                  |
+| Quản lý quyền truy cập workspace | ❌                | ✅                  |
+| Thu thập nội dung website      | ✅                  | ✅                  |

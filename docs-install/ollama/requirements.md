@@ -1,6 +1,6 @@
-# System Requirements
+# Yêu cầu hệ thống {#system-requirements}
 
-- **OS**: Ubuntu 22.04 (recommended)
-- **Access**: Root or sudo
-- **Hardware**: Server with NVIDIA GPU (L4, A100, V100, RTX,...)
-- **Software**: NVIDIA driver, CUDA, Docker, NVIDIA Container Toolkit
+- **Hệ điều hành**: Ubuntu 22.04 (khuyến nghị)
+- **Quyền truy cập**: root hoặc sudo
+- **Phần cứng**: máy chủ có GPU NVIDIA (L4, A100, V100, RTX,...)
+- **Phần mềm**: driver NVIDIA, CUDA, Docker, NVIDIA Container Toolkit

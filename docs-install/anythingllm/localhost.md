@@ -1,59 +1,59 @@
-# Connecting to Localhost Services in Dockerized AnythingLLM
+# Kết nối tới các dịch vụ localhost trong AnythingLLM chạy bằng Docker {#connecting-to-localhost-services-in-dockerized-anythingllm}
 
-The provided instructions below assume you are running AnythingLLM via the official startup command.
+Các hướng dẫn dưới đây giả định bạn chạy AnythingLLM bằng lệnh khởi động chính thức.
 
-## Using Any Localhost Service When Running AnythingLLM in Docker
+## Dùng dịch vụ localhost bất kỳ khi chạy AnythingLLM trong Docker {#using-any-localhost-service-when-running-anythingllm-in-docker}
 
-When running AnythingLLM in Docker, you may need to connect to a service running on localhost. This could be any of the following:
+Khi chạy AnythingLLM trong Docker, bạn có thể cần kết nối tới một dịch vụ đang chạy trên localhost. Đó có thể là:
 
-- A PostgreSQL database
-- An LLM, Embedding, or Vector Database provider (LMStudio, Ollama, Chroma, etc.)
-- Any other service running on the same machine where you are using localhost, 127.0.0.1, or 0.0.0.0 to connect it with AnythingLLM
+- Cơ sở dữ liệu PostgreSQL
+- Nhà cung cấp LLM, Embedding hoặc cơ sở dữ liệu vector (LMStudio, Ollama, Chroma, v.v.)
+- Bất kỳ dịch vụ nào khác chạy trên cùng máy, mà bạn dùng localhost, 127.0.0.1 hoặc 0.0.0.0 để kết nối với AnythingLLM
 
-### localhost, 127.0.0.1, 0.0.0.0 Will Not Work!
+### localhost, 127.0.0.1, 0.0.0.0 sẽ không hoạt động! {#localhost-127001-0000-will-not-work}
 
-When running AnythingLLM in Docker, the localhost, 127.0.0.1, or 0.0.0.0 addresses do not exist in the container!
+Khi chạy AnythingLLM trong Docker, các địa chỉ localhost, 127.0.0.1 hoặc 0.0.0.0 không tồn tại bên trong container!
 
-This means when you are using localhost, 127.0.0.1, or 0.0.0.0 in any connection configuration, they will not work as expected because these connections never leave the AnythingLLM container.
+Nghĩa là khi bạn dùng localhost, 127.0.0.1 hoặc 0.0.0.0 trong bất kỳ cấu hình kết nối nào, chúng sẽ không hoạt động như mong đợi vì các kết nối này không bao giờ ra khỏi container AnythingLLM.
 
-## How to Connect to a Service Running on Localhost
+## Cách kết nối tới dịch vụ chạy trên localhost {#how-to-connect-to-a-service-running-on-localhost}
 
-If you need to connect to a service running on localhost or even a service running in another Docker container, simply modify anywhere you are using localhost, 127.0.0.1, or 0.0.0.0 to use the `host.docker.internal` address instead.
+Nếu cần kết nối tới dịch vụ chạy trên localhost, hoặc thậm chí dịch vụ chạy trong một container Docker khác, chỉ cần sửa mọi nơi đang dùng localhost, 127.0.0.1 hoặc 0.0.0.0 sang dùng địa chỉ `host.docker.internal`.
 
-### Note About Linux
+### Lưu ý về Linux {#note-about-linux}
 
-On Linux, you must use the `172.17.0.1` address instead of `host.docker.internal` to connect to the host machine.
+Trên Linux, bạn phải dùng địa chỉ `172.17.0.1` thay cho `host.docker.internal` để kết nối tới máy chủ.
 
-## Examples
+## Ví dụ {#examples}
 
-### PostgreSQL
+### PostgreSQL {#postgresql}
 ```
 postgresql://dbuser:dbpassword@localhost:5432/dbname => postgresql://dbuser:dbpassword@host.docker.internal:5432/dbname
 ```
 
-### Ollama
+### Ollama {#ollama}
 ```
 http://localhost:11434 => http://host.docker.internal:11434
 ```
 
-### Chroma
+### Chroma {#chroma}
 ```
 http://localhost:8000 => http://host.docker.internal:8000
 ```
 
-### LMStudio
+### LMStudio {#lmstudio}
 ```
 http://localhost:1234 => http://host.docker.internal:1234
 ```
 
-## General Debugging
+## Gỡ lỗi chung {#general-debugging}
 
-If you are having issues with AnythingLLM, the first thing you should do is check the logs. You can find the logs in the logs folder of your container.
+Nếu gặp sự cố với AnythingLLM, việc đầu tiên nên làm là kiểm tra log. Bạn có thể tìm log trong thư mục logs của container.
 
-### AnythingLLM Debug Mode on Docker
+### Chế độ gỡ lỗi của AnythingLLM trên Docker {#anythingllm-debug-mode-on-docker}
 
-- Open Container Logs in Docker Desktop
-- Print the logs via:
+- Mở Container Logs trong Docker Desktop
+- In log bằng lệnh:
 ```bash
 docker container <CONTAINER_ID> logs
 ```

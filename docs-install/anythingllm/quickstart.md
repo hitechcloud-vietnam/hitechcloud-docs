@@ -1,8 +1,8 @@
-# Quickstart Guide for Dockerized AnythingLLM
+# Hướng dẫn nhanh cho AnythingLLM chạy bằng Docker {#quickstart-guide-for-dockerized-anythingllm}
 
-## Start AnythingLLM via Docker
+## Khởi động AnythingLLM bằng Docker {#start-anythingllm-via-docker}
 
-### Linux/MacOS
+### Linux/MacOS {#linuxmacos}
 
 ```bash
 export STORAGE_LOCATION=$HOME/anythingllm && \
@@ -16,9 +16,9 @@ docker run -d -p 3001:3001 \
 mintplexlabs/anythingllm:latest
 ```
 
-Go to [http://localhost:3001](http://localhost:3001) and you are now using AnythingLLM! All your data and progress will persist between container rebuilds or pulls from Docker Hub.
+Truy cập [http://localhost:3001](http://localhost:3001) và bạn đã dùng được AnythingLLM! Toàn bộ dữ liệu và tiến trình của bạn được giữ lại khi dựng lại container hoặc pull lại từ Docker Hub.
 
-### Windows
+### Windows {#windows}
 
 ```powershell
 $env:STORAGE_LOCATION="$HOME\Documents\anythingllm"; `
@@ -32,25 +32,25 @@ docker run -d -p 3001:3001 `
 mintplexlabs/anythingllm:latest;
 ```
 
-Go to [http://localhost:3001](http://localhost:3001) and you are now using AnythingLLM! All your data and progress will persist between container rebuilds or pulls from Docker Hub.
+Truy cập [http://localhost:3001](http://localhost:3001) và bạn đã dùng được AnythingLLM! Toàn bộ dữ liệu và tiến trình của bạn được giữ lại khi dựng lại container hoặc pull lại từ Docker Hub.
 
-## How to Use the User Interface
+## Cách dùng giao diện {#how-to-use-the-user-interface}
 
-To access the full application, visit [http://localhost:3001](http://localhost:3001) in your browser.
+Để truy cập toàn bộ ứng dụng, hãy mở [http://localhost:3001](http://localhost:3001) trong trình duyệt.
 
-## About UID and GID in the ENV
+## Về UID và GID trong ENV {#about-uid-and-gid-in-the-env}
 
-The UID and GID are set to 1000 by default. This is the default user in the Docker container and on most host operating systems.
+UID và GID mặc định là 1000. Đây là người dùng mặc định trong container Docker và trên hầu hết hệ điều hành máy chủ.
 
-If there is a mismatch between your host user UID and GID and what is set in the `.env` file, you may experience permission issues.
+Nếu UID và GID của người dùng trên máy chủ không khớp với giá trị đặt trong tệp `.env`, bạn có thể gặp lỗi phân quyền.
 
-## pg Image Startup Command
+## Lệnh khởi động image pg {#pg-image-startup-command}
 
-The `pg` image has a slightly different startup command to support the PostgreSQL database connection.
+Image `pg` có lệnh khởi động hơi khác để hỗ trợ kết nối cơ sở dữ liệu PostgreSQL.
 
-First, ensure you have a PostgreSQL database running and a PGVector extension installed on that database.
+Trước hết, hãy bảo đảm bạn có cơ sở dữ liệu PostgreSQL đang chạy và đã cài phần mở rộng PGVector trên cơ sở dữ liệu đó.
 
-### Linux/MacOS
+### Linux/MacOS {#linuxmacos-1}
 
 ```bash
 export STORAGE_LOCATION=$HOME/anythingllm && \
@@ -65,7 +65,7 @@ docker run -d -p 3001:3001 \
 mintplexlabs/anythingllm:pg
 ```
 
-### Windows
+### Windows {#windows-1}
 
 ```powershell
 $env:STORAGE_LOCATION="$HOME\Documents\anythingllm"; `
@@ -80,6 +80,6 @@ docker run -d -p 3001:3001 `
 mintplexlabs/anythingllm:pg;
 ```
 
-## Last Updated
+## Cập nhật lần cuối {#last-updated}
 
-This guide was last updated on **July 17, 2025**.
+Hướng dẫn này được cập nhật lần cuối vào ngày **17 tháng 7 năm 2025**.

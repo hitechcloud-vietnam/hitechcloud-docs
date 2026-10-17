@@ -1,35 +1,35 @@
-# System Requirements
+# Yêu cầu hệ thống {#system-requirements}
 
-AnythingLLM is fully customizable in every regard.
+AnythingLLM có thể tùy chỉnh hoàn toàn về mọi mặt.
 
-Given this customizable nature, your exact requirements to run AnythingLLM depend on many factors. You can use the tables below to get a rough idea of what it will take to run AnythingLLM.
+Do tính chất tùy biến này, yêu cầu chính xác để chạy AnythingLLM phụ thuộc vào nhiều yếu tố. Bạn có thể dùng các bảng dưới đây để hình dung sơ bộ về những gì cần có để chạy AnythingLLM.
 
-AnythingLLM can be a wrapper around many external services that all accomplish some task - making AnythingLLM so lightweight it can run on the smallest machines - even Raspberry Pis!
+AnythingLLM có thể là lớp bao quanh nhiều dịch vụ bên ngoài, mỗi dịch vụ đảm nhận một tác vụ - nhờ đó AnythingLLM rất nhẹ và có thể chạy trên những máy nhỏ nhất, thậm chí cả Raspberry Pi!
 
-## Recommended Configuration for AnythingLLM
+## Cấu hình khuyến nghị cho AnythingLLM {#recommended-configuration-for-anythingllm}
 
-This is the minimum value for running AnythingLLM. This will be enough for you to store some documents, send chats, and use AnythingLLM features.
+Đây là giá trị tối thiểu để chạy AnythingLLM. Cấu hình này đủ để bạn lưu một số tài liệu, gửi tin nhắn trò chuyện và dùng các tính năng của AnythingLLM.
 
-| Property | Recommended Value |
+| Thuộc tính | Giá trị khuyến nghị |
 |----------|-------------------|
 | RAM      | 2GB              |
-| CPU      | 2-core CPU (any) |
-| Storage  | 5GB              |
+| CPU      | CPU 2 nhân (bất kỳ) |
+| Dung lượng lưu trữ | 5GB    |
 
-## LLM Selection Impact
+## Ảnh hưởng của việc chọn LLM {#llm-selection-impact}
 
-This is how you get chat responses. Popular hosted solutions like OpenAI tend to provide state-of-the-art responses with almost zero overhead. However, you will need an API key for any cloud-based LLM provider.
+Đây là nơi tạo ra các phản hồi trò chuyện. Các giải pháp được lưu trữ phổ biến như OpenAI thường cho phản hồi hiện đại nhất với chi phí vận hành gần như bằng không. Tuy nhiên, bạn cần có khóa API cho bất kỳ nhà cung cấp LLM nào trên đám mây.
 
-**Tip:** Host a local LLM on another machine that has a GPU if the device running AnythingLLM does not have a GPU. AnythingLLM can connect to any LLM running anywhere via API.
+**Mẹo:** nếu thiết bị chạy AnythingLLM không có GPU, hãy chạy LLM cục bộ trên một máy khác có GPU. AnythingLLM có thể kết nối tới bất kỳ LLM nào chạy ở bất kỳ đâu qua API.
 
-## Embedder Selection Impact
+## Ảnh hưởng của việc chọn Embedder {#embedder-selection-impact}
 
-This is the model which you use to "embed" or vectorize text. Likewise, external services connected to AnythingLLM have zero overhead impact.
+Đây là mô hình dùng để "nhúng" hay vector hóa văn bản. Tương tự, các dịch vụ bên ngoài kết nối với AnythingLLM không gây thêm tải nào.
 
-The default embedder runs on the same machine as AnythingLLM using CPU-only vectorization. If your documents are large or you need to vectorize a lot of data, you may want to use an external embedder provider and model.
+Embedder mặc định chạy trên cùng máy với AnythingLLM và chỉ vector hóa bằng CPU. Nếu tài liệu lớn hoặc bạn cần vector hóa nhiều dữ liệu, bạn có thể muốn dùng nhà cung cấp và mô hình embedder bên ngoài.
 
-## Vector Database Selection Impact
+## Ảnh hưởng của việc chọn cơ sở dữ liệu vector {#vector-database-selection-impact}
 
-All supported vector databases either have no impact as they are externally hosted or can scale to hundreds of millions of vectors at the minimum recommended settings.
+Mọi cơ sở dữ liệu vector được hỗ trợ hoặc không gây ảnh hưởng vì được lưu trữ bên ngoài, hoặc có thể mở rộng tới hàng trăm triệu vector với cấu hình khuyến nghị tối thiểu.
 
-The default LanceDB vector database can handle anything you can throw at it.
+Cơ sở dữ liệu vector LanceDB mặc định có thể xử lý mọi thứ bạn đưa vào.

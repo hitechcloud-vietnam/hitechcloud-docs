@@ -1,10 +1,10 @@
-# IPEX-LLM Installation: GPU
+# Cài đặt IPEX-LLM: GPU {#ipex-llm-installation-gpu}
 
-## Windows
+## Windows {#windows}
 
-### Prerequisites
+### Điều kiện tiên quyết {#prerequisites}
 
-IPEX-LLM on Windows supports Intel iGPU and dGPU.
+IPEX-LLM trên Windows hỗ trợ iGPU và dGPU của Intel.
 
 ```eval_rst
 .. important::
@@ -12,7 +12,7 @@ IPEX-LLM on Windows supports Intel iGPU and dGPU.
     IPEX-LLM on Windows only supports PyTorch 2.1.
 ```
 
-To apply Intel GPU acceleration, please first verify your GPU driver version.
+Để bật tăng tốc GPU Intel, trước hết hãy kiểm tra phiên bản driver GPU của bạn.
 
 ```eval_rst
 .. note::
@@ -20,7 +20,7 @@ To apply Intel GPU acceleration, please first verify your GPU driver version.
    The GPU driver version of your device can be checked in the "Task Manager" -> GPU 0 (or GPU 1, etc.) -> Driver version.
 ```
 
-If you have driver version lower than `31.0.101.5122`, it is recommended to [**update your GPU driver to the latest**](https://www.intel.com/content/www/us/en/download/785597/intel-arc-iris-xe-graphics-windows.html):
+Nếu phiên bản driver thấp hơn `31.0.101.5122`, nên [**cập nhật driver GPU lên bản mới nhất**](https://www.intel.com/content/www/us/en/download/785597/intel-arc-iris-xe-graphics-windows.html):
 
 <!-- Intel® oneAPI Base Toolkit 2024.0 installation methods:
 
@@ -42,10 +42,10 @@ If you have driver version lower than `31.0.101.5122`, it is recommended to [**u
          Activating your working conda environment will automatically configure oneAPI environment variables.
 ``` -->
 
-### Install IPEX-LLM
-#### Install IPEX-LLM From PyPI
+### Cài đặt IPEX-LLM {#install-ipex-llm}
+#### Cài đặt IPEX-LLM từ PyPI {#install-ipex-llm-from-pypi}
 
-We recommend using [Miniforge](https://conda-forge.org/download/) to create a python 3.11 enviroment.
+Nên dùng [Miniforge](https://conda-forge.org/download/) để tạo môi trường python 3.11.
 
 ```eval_rst
 .. important::
@@ -53,7 +53,7 @@ We recommend using [Miniforge](https://conda-forge.org/download/) to create a py
    ``ipex-llm`` is tested with Python 3.9, 3.10 and 3.11. Python 3.11 is recommended for best practices.
 ```
 
-The easiest ways to install `ipex-llm` is the following commands, choosing either US or CN website for `extra-index-url`:
+Cách dễ nhất để cài `ipex-llm` là dùng các lệnh sau, chọn trang US hoặc CN cho `extra-index-url`:
 
 ```eval_rst
 .. tabs::
@@ -76,11 +76,11 @@ The easiest ways to install `ipex-llm` is the following commands, choosing eithe
          pip install --pre --upgrade ipex-llm[xpu] --extra-index-url https://pytorch-extension.intel.com/release-whl/stable/xpu/cn/
 ```
 
-#### Install IPEX-LLM From Wheel
+#### Cài đặt IPEX-LLM từ wheel {#install-ipex-llm-from-wheel}
 
-If you encounter network issues when installing IPEX, you can also install IPEX-LLM dependencies for Intel XPU from source archives. First you need to download and install torch/torchvision/ipex from wheels listed below before installing `ipex-llm`.
+Nếu gặp sự cố mạng khi cài IPEX, bạn cũng có thể cài các phụ thuộc IPEX-LLM cho Intel XPU từ các gói mã nguồn. Trước hết cần tải và cài torch/torchvision/ipex từ các wheel liệt kê bên dưới, rồi mới cài `ipex-llm`.
 
-Download the wheels on Windows system:
+Tải các wheel trên hệ thống Windows:
 
 ```
 wget https://intel-extension-for-pytorch.s3.amazonaws.com/ipex_stable/xpu/torch-2.1.0a0%2Bcxx11.abi-cp311-cp311-win_amd64.whl
@@ -88,7 +88,7 @@ wget https://intel-extension-for-pytorch.s3.amazonaws.com/ipex_stable/xpu/torchv
 wget https://intel-extension-for-pytorch.s3.amazonaws.com/ipex_stable/xpu/intel_extension_for_pytorch-2.1.10%2Bxpu-cp311-cp311-win_amd64.whl
 ```
 
-You may install dependencies directly from the wheel archives and then install `ipex-llm` using following commands:
+Bạn có thể cài các phụ thuộc trực tiếp từ các gói wheel, sau đó cài `ipex-llm` bằng các lệnh sau:
 
 ```
 pip install torch-2.1.0a0+cxx11.abi-cp311-cp311-win_amd64.whl
@@ -104,9 +104,9 @@ pip install --pre --upgrade ipex-llm[xpu]
    All the wheel packages mentioned here are for Python 3.11. If you would like to use Python 3.9 or 3.10, you should modify the wheel names for ``torch``, ``torchvision``, and ``intel_extension_for_pytorch`` by replacing ``cp11`` with ``cp39`` or ``cp310``, respectively.
 ```
 
-### Runtime Configuration
+### Cấu hình khi chạy {#runtime-configuration}
 
-To use GPU acceleration on Windows, several environment variables are required before running a GPU example:
+Để dùng tăng tốc GPU trên Windows, cần đặt một số biến môi trường trước khi chạy ví dụ dùng GPU:
 
 <!-- Make sure you are using CMD (Miniforge Prompt if using conda) as PowerShell is not supported, and configure oneAPI environment variables with: 
 
@@ -138,21 +138,21 @@ Please also set the following environment variable if you would like to run LLMs
    For **the first time** that **each model** runs on Intel iGPU/Intel Arc™ A300-Series or Pro A60, it may take several minutes to compile.
 ```
 
-### Troubleshooting
+### Khắc phục sự cố {#troubleshooting}
 
-#### 1. Error loading `intel_extension_for_pytorch`
+#### 1. Lỗi khi nạp `intel_extension_for_pytorch` {#1-error-loading-intelextensionforpytorch}
 
-If you met error when importing `intel_extension_for_pytorch`, please ensure that you have completed the following steps:
+Nếu gặp lỗi khi import `intel_extension_for_pytorch`, hãy bảo đảm bạn đã hoàn thành các bước sau:
 
-* Ensure that you have installed Visual Studio with "Desktop development with C++" workload.
+* Đã cài Visual Studio với workload "Desktop development with C++".
 
-* Make sure that the correct version of oneAPI, specifically 2024.0, is installed.
+* Đã cài đúng phiên bản oneAPI, cụ thể là 2024.0.
 
-* Ensure that `libuv` is installed in your conda environment. This can be done during the creation of the environment with the command:
+* Đã cài `libuv` trong môi trường conda. Có thể cài ngay khi tạo môi trường bằng lệnh:
   ```cmd
   conda create -n llm python=3.11 libuv
   ```
-  If you missed `libuv`, you can add it to your existing environment through
+  Nếu bạn quên cài `libuv`, có thể bổ sung vào môi trường hiện có bằng lệnh
   ```cmd
   conda install libuv
   ```
@@ -163,11 +163,11 @@ If you met error when importing `intel_extension_for_pytorch`, please ensure tha
   ```
   Please note that you need to set these environment variables again once you have a new Miniforge Prompt window. -->
 
-## Linux
+## Linux {#linux}
 
-### Prerequisites
+### Điều kiện tiên quyết {#prerequisites-1}
 
-IPEX-LLM GPU support on Linux has been verified on:
+Hỗ trợ GPU của IPEX-LLM trên Linux đã được kiểm chứng trên:
 
 * Intel Arc™ A-Series Graphics
 * Intel Data Center GPU Flex Series
@@ -431,10 +431,10 @@ IPEX-LLM GPU support on Linux has been verified on:
                   sudo ./installer
 ```
 
-### Install IPEX-LLM
-#### Install IPEX-LLM From PyPI
+### Cài đặt IPEX-LLM {#install-ipex-llm-1}
+#### Cài đặt IPEX-LLM từ PyPI {#install-ipex-llm-from-pypi-1}
 
-We recommend using [Miniforge](https://conda-forge.org/download/ to create a python 3.11 enviroment:
+Nên dùng [Miniforge](https://conda-forge.org/download/) để tạo môi trường python 3.11:
 
 ```eval_rst
 .. important::
@@ -512,9 +512,9 @@ We recommend using [Miniforge](https://conda-forge.org/download/ to create a pyt
 
 ```
 
-#### Install IPEX-LLM From Wheel
+#### Cài đặt IPEX-LLM từ wheel {#install-ipex-llm-from-wheel-1}
 
-If you encounter network issues when installing IPEX, you can also install IPEX-LLM dependencies for Intel XPU from source archives. First you need to download and install torch/torchvision/ipex from wheels listed below before installing `ipex-llm`.
+Nếu gặp sự cố mạng khi cài IPEX, bạn cũng có thể cài các phụ thuộc IPEX-LLM cho Intel XPU từ các gói mã nguồn. Trước hết cần tải và cài torch/torchvision/ipex từ các wheel liệt kê bên dưới, rồi mới cài `ipex-llm`.
 
 ```eval_rst
 .. tabs::
@@ -568,9 +568,9 @@ If you encounter network issues when installing IPEX, you can also install IPEX-
    All the wheel packages mentioned here are for Python 3.11. If you would like to use Python 3.9 or 3.10, you should modify the wheel names for ``torch``, ``torchvision``, and ``intel_extension_for_pytorch`` by replacing ``cp11`` with ``cp39`` or ``cp310``, respectively.
 ```
 
-### Runtime Configuration
+### Cấu hình khi chạy {#runtime-configuration-1}
 
-To use GPU acceleration on Linux, several environment variables are required or recommended before running a GPU example.
+Để dùng tăng tốc GPU trên Linux, cần hoặc nên đặt một số biến môi trường trước khi chạy ví dụ dùng GPU.
 
 ```eval_rst
 .. tabs::
@@ -626,17 +626,17 @@ To use GPU acceleration on Linux, several environment variables are required or 
    For **the first time** that **each model** runs on Intel iGPU/Intel Arc™ A300-Series or Pro A60, it may take several minutes to compile.
 ```
 
-### Known issues
+### Các vấn đề đã biết {#known-issues}
 
-#### 1. Potential suboptimal performance with Linux kernel 6.2.0
+#### 1. Hiệu năng có thể chưa tối ưu với nhân Linux 6.2.0 {#1-potential-suboptimal-performance-with-linux-kernel-620}
 
-For Ubuntu 22.04 and driver version < stable_775_20_20231219, the performance on Linux kernel 6.2.0 is worse than Linux kernel 5.19.0. You can use `sudo apt update && sudo apt install -y intel-i915-dkms intel-fw-gpu` to install the latest driver to solve this issue (need to reboot OS).
+Với Ubuntu 22.04 và driver phiên bản < stable_775_20_20231219, hiệu năng trên nhân Linux 6.2.0 kém hơn nhân Linux 5.19.0. Bạn có thể dùng `sudo apt update && sudo apt install -y intel-i915-dkms intel-fw-gpu` để cài driver mới nhất và khắc phục vấn đề này (cần khởi động lại hệ điều hành).
 
-Tips: You can use `sudo apt list --installed | grep intel-i915-dkms` to check your intel-i915-dkms's version, the version should be latest and >= `1.23.9.11.231003.15+i19-1`.
+Mẹo: có thể dùng `sudo apt list --installed | grep intel-i915-dkms` để kiểm tra phiên bản intel-i915-dkms; phiên bản phải là mới nhất và >= `1.23.9.11.231003.15+i19-1`.
 
-#### 2. Driver installation unmet dependencies error: intel-i915-dkms
+#### 2. Lỗi phụ thuộc chưa đáp ứng khi cài driver: intel-i915-dkms {#2-driver-installation-unmet-dependencies-error-intel-i915-dkms}
 
-The last apt install command of the driver installation may produce the following error:
+Lệnh apt install cuối cùng của quá trình cài driver có thể báo lỗi sau:
 
 ```
 The following packages have unmet dependencies:
@@ -644,13 +644,13 @@ The following packages have unmet dependencies:
                    Conflicts: intel-platform-vsec-dkms
 ```
 
-You can use `sudo apt install -y intel-i915-dkms intel-fw-gpu` to install instead. As the intel-platform-cse-dkms and intel-platform-vsec-dkms are already provided by intel-i915-dkms.
+Bạn có thể dùng `sudo apt install -y intel-i915-dkms intel-fw-gpu` để cài thay thế, vì intel-platform-cse-dkms và intel-platform-vsec-dkms đã nằm trong intel-i915-dkms.
 
-### Troubleshooting
+### Khắc phục sự cố {#troubleshooting-1}
 
-#### 1. Cannot open shared object file: No such file or directory
+#### 1. Không mở được tệp shared object: No such file or directory {#1-cannot-open-shared-object-file-no-such-file-or-directory}
 
-Error where libmkl file is not found, for example,
+Lỗi không tìm thấy tệp libmkl, ví dụ:
 
 ```
 OSError: libmkl_intel_lp64.so.2: cannot open shared object file: No such file or directory
@@ -659,8 +659,8 @@ OSError: libmkl_intel_lp64.so.2: cannot open shared object file: No such file or
 Error: libmkl_sycl_blas.so.4: cannot open shared object file: No such file or directory
 ```
 
-The reason for such errors is that oneAPI has not been initialized properly before running IPEX-LLM code or before importing IPEX package.
+Nguyên nhân của các lỗi này là oneAPI chưa được khởi tạo đúng trước khi chạy mã IPEX-LLM hoặc trước khi import gói IPEX.
 
-* For oneAPI installed using APT or Offline Installer, make sure you execute `setvars.sh` of oneAPI Base Toolkit before running IPEX-LLM.
-* For PIP-installed oneAPI, activate your working environment and run ``echo $LD_LIBRARY_PATH`` to check if the installation path is properly configured for the environment. If the output does not contain oneAPI path (e.g. ``~/intel/oneapi/lib``), check [Prerequisites](#id1) to re-install oneAPI with PIP installer.
-* Make sure you install matching versions of ipex-llm/pytorch/IPEX and oneAPI Base Toolkit. IPEX-LLM with PyTorch 2.1 should be used with oneAPI Base Toolkit version 2024.0. IPEX-LLM with PyTorch 2.0 should be used with oneAPI Base Toolkit version 2023.2.
+* Với oneAPI cài bằng APT hoặc bộ cài offline, hãy bảo đảm bạn đã chạy `setvars.sh` của oneAPI Base Toolkit trước khi chạy IPEX-LLM.
+* Với oneAPI cài bằng PIP, hãy kích hoạt môi trường làm việc và chạy ``echo $LD_LIBRARY_PATH`` để kiểm tra đường dẫn cài đặt đã được cấu hình đúng cho môi trường chưa. Nếu kết quả không chứa đường dẫn oneAPI (ví dụ ``~/intel/oneapi/lib``), hãy xem [Điều kiện tiên quyết](#id1) để cài lại oneAPI bằng PIP.
+* Hãy cài các phiên bản ipex-llm/pytorch/IPEX khớp với oneAPI Base Toolkit. IPEX-LLM với PyTorch 2.1 nên dùng cùng oneAPI Base Toolkit phiên bản 2024.0. IPEX-LLM với PyTorch 2.0 nên dùng cùng oneAPI Base Toolkit phiên bản 2023.2.

@@ -18,7 +18,7 @@ Bộ tài liệu này được biên soạn nhằm cung cấp cho bạn cái nh�
 - **Tích hợp & Ứng dụng thực tiễn**  
   Cách kết nối LLM với hệ thống sẵn có, từ chatbot hỗ trợ khách hàng, công cụ phân tích dữ liệu, cho đến tự động hóa quy trình doanh nghiệp.  
 
-- **Best Practices & Troubleshooting**  
+- **Thực hành tốt nhất & Khắc phục sự cố**  
   Chia sẻ kinh nghiệm triển khai, xử lý sự cố thường gặp, cũng như mẹo tối ưu chi phí vận hành.  
 
 

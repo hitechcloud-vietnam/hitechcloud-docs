@@ -1,11 +1,11 @@
-# NVIDIA GPU Specifications
-## Nvidia
-Ollama supports Nvidia GPUs with compute capability 5.0+ and driver version 531 and newer.
+# Thông số kỹ thuật GPU NVIDIA {#nvidia-gpu-specifications}
+## Nvidia {#nvidia}
+Ollama hỗ trợ GPU Nvidia có compute capability 5.0 trở lên và driver phiên bản 531 trở lên.
 
-Check your compute compatibility to see if your card is supported:
+Hãy kiểm tra compute capability của card để biết card có được hỗ trợ hay không:
 [https://developer.nvidia.com/cuda-gpus](https://developer.nvidia.com/cuda-gpus)
 
-| Compute Capability | Family              | Cards                                                                                                       |
+| Compute Capability | Họ sản phẩm         | Các card                                                                                                    |
 | ------------------ | ------------------- | ----------------------------------------------------------------------------------------------------------- |
 | 12.0               | GeForce RTX 50xx    | `RTX 5060` `RTX 5060 Ti` `RTX 5070` `RTX 5070 Ti` `RTX 5080` `RTX 5090`                                     |
 |                    | NVIDIA Professioal  | `RTX PRO 4000 Blackwell` `RTX PRO 4500 Blackwell` `RTX PRO 5000 Blackwell` `RTX PRO 6000 Blackwell`         |
@@ -30,60 +30,60 @@ Check your compute compatibility to see if your card is supported:
 | 5.0                | GeForce GTX         | `GTX 750 Ti` `GTX 750` `NVS 810`                                                                            |
 |                    | Quadro              | `K2200` `K1200` `K620` `M1200` `M520` `M5000M` `M4000M` `M3000M` `M2000M` `M1000M` `K620M` `M600M` `M500M`  |
 
-For building locally to support older GPUs.
+Dùng khi build cục bộ để hỗ trợ các GPU cũ hơn.
 
-### GPU Selection
+### Chọn GPU {#gpu-selection}
 
-If you have multiple NVIDIA GPUs in your system and want to limit Ollama to use
-a subset, you can set `CUDA_VISIBLE_DEVICES` to a comma separated list of GPUs.
-Numeric IDs may be used, however ordering may vary, so UUIDs are more reliable.
-You can discover the UUID of your GPUs by running `nvidia-smi -L` If you want to
-ignore the GPUs and force CPU usage, use an invalid GPU ID (e.g., "-1")
+Nếu hệ thống có nhiều GPU NVIDIA và bạn muốn giới hạn Ollama chỉ dùng
+một phần trong số đó, hãy đặt `CUDA_VISIBLE_DEVICES` thành danh sách GPU phân tách bằng dấu phẩy.
+Có thể dùng ID số, nhưng thứ tự có thể thay đổi nên UUID đáng tin cậy hơn.
+Bạn có thể xem UUID của các GPU bằng lệnh `nvidia-smi -L`. Nếu muốn
+bỏ qua GPU và buộc dùng CPU, hãy dùng ID GPU không hợp lệ (ví dụ "-1")
 
-### Linux Suspend Resume
+### Suspend/Resume trên Linux {#linux-suspend-resume}
 
-On linux, after a suspend/resume cycle, sometimes Ollama will fail to discover
-your NVIDIA GPU, and fallback to running on the CPU.  You can workaround this
-driver bug by reloading the NVIDIA UVM driver with `sudo rmmod nvidia_uvm &&
+Trên Linux, sau một chu kỳ suspend/resume, đôi khi Ollama không phát hiện được
+GPU NVIDIA của bạn và chuyển sang chạy bằng CPU.  Bạn có thể khắc phục lỗi
+driver này bằng cách nạp lại driver NVIDIA UVM với lệnh `sudo rmmod nvidia_uvm &&
 sudo modprobe nvidia_uvm`
 
-## AMD Radeon
-Ollama supports the following AMD GPUs:
+## AMD Radeon {#amd-radeon}
+Ollama hỗ trợ các GPU AMD sau:
 
-### Linux Support
-| Family         | Cards and accelerators                                                                                                               |
+### Hỗ trợ trên Linux {#linux-support}
+| Họ sản phẩm    | Card và bộ tăng tốc                                                                                                                  |
 | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | AMD Radeon RX  | `7900 XTX` `7900 XT` `7900 GRE` `7800 XT` `7700 XT` `7600 XT` `7600` `6950 XT` `6900 XTX` `6900XT` `6800 XT` `6800` `Vega 64` `Vega 56`    |
 | AMD Radeon PRO | `W7900` `W7800` `W7700` `W7600` `W7500` `W6900X` `W6800X Duo` `W6800X` `W6800` `V620` `V420` `V340` `V320` `Vega II Duo` `Vega II` `VII` `SSG` |
 | AMD Instinct   | `MI300X` `MI300A` `MI300` `MI250X` `MI250` `MI210` `MI200` `MI100` `MI60` `MI50`                                                               |
 
-### Windows Support
-With ROCm v6.1, the following GPUs are supported on Windows.
+### Hỗ trợ trên Windows {#windows-support}
+Với ROCm v6.1, các GPU sau được hỗ trợ trên Windows.
 
-| Family         | Cards and accelerators                                                                                                               |
+| Họ sản phẩm    | Card và bộ tăng tốc                                                                                                                  |
 | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | AMD Radeon RX  | `7900 XTX` `7900 XT` `7900 GRE` `7800 XT` `7700 XT` `7600 XT` `7600` `6950 XT` `6900 XTX` `6900XT` `6800 XT` `6800`    |
 | AMD Radeon PRO | `W7900` `W7800` `W7700` `W7600` `W7500` `W6900X` `W6800X Duo` `W6800X` `W6800` `V620` |
 
 
-### Overrides on Linux
-Ollama leverages the AMD ROCm library, which does not support all AMD GPUs. In
-some cases you can force the system to try to use a similar LLVM target that is
-close.  For example The Radeon RX 5400 is `gfx1034` (also known as 10.3.4)
-however, ROCm does not currently support this target. The closest support is
-`gfx1030`.  You can use the environment variable `HSA_OVERRIDE_GFX_VERSION` with
-`x.y.z` syntax.  So for example, to force the system to run on the RX 5400, you
-would set `HSA_OVERRIDE_GFX_VERSION="10.3.0"` as an environment variable for the
-server.  If you have an unsupported AMD GPU you can experiment using the list of
-supported types below.
+### Ghi đè trên Linux {#overrides-on-linux}
+Ollama dùng thư viện AMD ROCm, thư viện này không hỗ trợ mọi GPU AMD. Trong
+một số trường hợp, bạn có thể buộc hệ thống thử dùng một LLVM target tương tự và
+gần nhất.  Ví dụ Radeon RX 5400 là `gfx1034` (còn gọi là 10.3.4)
+nhưng ROCm hiện chưa hỗ trợ target này. Target được hỗ trợ gần nhất là
+`gfx1030`.  Bạn có thể dùng biến môi trường `HSA_OVERRIDE_GFX_VERSION` với
+cú pháp `x.y.z`.  Chẳng hạn, để buộc hệ thống chạy trên RX 5400, bạn
+sẽ đặt `HSA_OVERRIDE_GFX_VERSION="10.3.0"` làm biến môi trường cho
+máy chủ.  Nếu có GPU AMD không được hỗ trợ, bạn có thể thử nghiệm bằng danh sách
+các loại được hỗ trợ bên dưới.
 
-If you have multiple GPUs with different GFX versions, append the numeric device
-number to the environment variable to set them individually.  For example,
-`HSA_OVERRIDE_GFX_VERSION_0=10.3.0` and  `HSA_OVERRIDE_GFX_VERSION_1=11.0.0`
+Nếu có nhiều GPU với phiên bản GFX khác nhau, hãy thêm số thứ tự thiết bị
+vào biến môi trường để đặt riêng cho từng GPU.  Ví dụ,
+`HSA_OVERRIDE_GFX_VERSION_0=10.3.0` và  `HSA_OVERRIDE_GFX_VERSION_1=11.0.0`
 
-At this time, the known supported GPU types on linux are the following LLVM Targets.
-This table shows some example GPUs that map to these LLVM targets:
-| **LLVM Target** | **An Example GPU** |
+Hiện tại, các loại GPU được hỗ trợ đã biết trên Linux là các LLVM Target sau.
+Bảng này cho thấy một số GPU ví dụ ứng với các LLVM target này:
+| **LLVM Target** | **GPU ví dụ** |
 |-----------------|---------------------|
 | gfx900 | Radeon RX Vega 56 |
 | gfx906 | Radeon Instinct MI50 |
@@ -97,25 +97,25 @@ This table shows some example GPUs that map to these LLVM targets:
 | gfx1101 | Radeon PRO W7700 |
 | gfx1102 | Radeon RX 7600 |
 
-AMD is working on enhancing ROCm v6 to broaden support for families of GPUs in a
-future release which should increase support for more GPUs.
+AMD đang cải thiện ROCm v6 để mở rộng hỗ trợ cho nhiều họ GPU hơn trong một
+bản phát hành tương lai, giúp hỗ trợ thêm nhiều GPU.
 
-Reach out on [Discord](https://discord.gg/ollama) or file an
-[issue](https://github.com/ollama/ollama/issues) for additional help.
+Hãy liên hệ trên [Discord](https://discord.gg/ollama) hoặc tạo
+[issue](https://github.com/ollama/ollama/issues) để được trợ giúp thêm.
 
-### GPU Selection
+### Chọn GPU {#gpu-selection-1}
 
-If you have multiple AMD GPUs in your system and want to limit Ollama to use a
-subset, you can set `ROCR_VISIBLE_DEVICES` to a comma separated list of GPUs.
-You can see the list of devices with `rocminfo`.  If you want to ignore the GPUs
-and force CPU usage, use an invalid GPU ID (e.g., "-1").  When available, use the
-`Uuid` to uniquely identify the device instead of numeric value.
+Nếu hệ thống có nhiều GPU AMD và bạn muốn giới hạn Ollama chỉ dùng một
+phần trong số đó, hãy đặt `ROCR_VISIBLE_DEVICES` thành danh sách GPU phân tách bằng dấu phẩy.
+Bạn có thể xem danh sách thiết bị bằng `rocminfo`.  Nếu muốn bỏ qua GPU
+và buộc dùng CPU, hãy dùng ID GPU không hợp lệ (ví dụ "-1").  Khi có sẵn, hãy dùng
+`Uuid` để xác định duy nhất thiết bị thay vì giá trị số.
 
-### Container Permission
+### Quyền của container {#container-permission}
 
-In some Linux distributions, SELinux can prevent containers from
-accessing the AMD GPU devices.  On the host system you can run 
-`sudo setsebool container_use_devices=1` to allow containers to use devices.
+Trên một số bản phân phối Linux, SELinux có thể ngăn container
+truy cập các thiết bị GPU AMD.  Trên máy chủ, bạn có thể chạy 
+`sudo setsebool container_use_devices=1` để cho phép container dùng thiết bị.
 
-### Metal (Apple GPUs)
-Ollama supports GPU acceleration on Apple devices via the Metal API.
+### Metal (GPU của Apple) {#metal-apple-gpus}
+Ollama hỗ trợ tăng tốc GPU trên các thiết bị Apple thông qua API Metal.

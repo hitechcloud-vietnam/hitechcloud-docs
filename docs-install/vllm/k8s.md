@@ -1,12 +1,12 @@
-# Deploying vLLM on Kubernetes
+# Triển khai vLLM trên Kubernetes {#deploying-vllm-on-kubernetes}
 
-Deploying vLLM on Kubernetes is a scalable and efficient way to serve machine learning models. This guide walks you through deploying vLLM using native Kubernetes.
+Triển khai vLLM trên Kubernetes là cách phục vụ mô hình học máy có khả năng mở rộng và hiệu quả. Hướng dẫn này đưa bạn qua các bước triển khai vLLM bằng Kubernetes thuần.
 
-## Deployment with CPUs
+## Triển khai với CPU {#deployment-with-cpus}
 
-**Note:** The use of CPUs here is for demonstration and testing purposes only, and its performance will not be on par with GPUs.
+**Lưu ý:** việc dùng CPU ở đây chỉ nhằm mục đích minh họa và kiểm thử, hiệu năng sẽ không bằng GPU.
 
-### Create a Kubernetes PVC and Secret
+### Tạo PVC và Secret của Kubernetes {#create-a-kubernetes-pvc-and-secret}
 
 ```yaml
 apiVersion: v1
@@ -30,7 +30,7 @@ data:
   token: $(HF_TOKEN)
 ```
 
-### Start the vLLM Server as a Kubernetes Deployment and Service
+### Khởi động máy chủ vLLM dưới dạng Deployment và Service của Kubernetes {#start-the-vllm-server-as-a-kubernetes-deployment-and-service}
 
 ```yaml
 apiVersion: apps/v1
@@ -84,19 +84,19 @@ spec:
   type: ClusterIP
 ```
 
-Verify the vLLM server has started successfully via the logs:
+Kiểm tra máy chủ vLLM đã khởi động thành công qua log:
 
 ```bash
 kubectl logs -l app.kubernetes.io/name=vllm
 ```
 
-## Deployment with GPUs
+## Triển khai với GPU {#deployment-with-gpus}
 
-**Pre-requisite:** Ensure that you have a running Kubernetes cluster with GPUs.
+**Điều kiện tiên quyết:** bảo đảm bạn có một cụm Kubernetes đang chạy với GPU.
 
-### Create a PVC, Secret, and Deployment for vLLM
+### Tạo PVC, Secret và Deployment cho vLLM {#create-a-pvc-secret-and-deployment-for-vllm}
 
-#### PVC
+#### PVC {#pvc}
 
 ```yaml
 apiVersion: v1
@@ -114,7 +114,7 @@ spec:
   volumeMode: Filesystem
 ```
 
-#### Secret
+#### Secret {#secret}
 
 ```yaml
 apiVersion: v1
@@ -127,9 +127,9 @@ stringData:
   token: "REPLACE_WITH_TOKEN"
 ```
 
-#### Deployment
+#### Deployment {#deployment}
 
-##### NVIDIA GPU
+##### NVIDIA GPU {#nvidia-gpu}
 
 ```yaml
 apiVersion: apps/v1
@@ -200,9 +200,9 @@ spec:
           periodSeconds: 5
 ```
 
-##### AMD GPU
+##### AMD GPU {#amd-gpu}
 
-Refer to the deployment.yaml below if using AMD ROCm GPU like MI300X.
+Xem deployment.yaml bên dưới nếu dùng GPU AMD ROCm như MI300X.
 
 ```yaml
 apiVersion: apps/v1
@@ -270,7 +270,7 @@ spec:
           mountPath: /dev/shm
 ```
 
-## Create a Kubernetes Service for vLLM
+## Tạo Service của Kubernetes cho vLLM {#create-a-kubernetes-service-for-vllm}
 
 ```yaml
 apiVersion: v1
@@ -290,16 +290,16 @@ spec:
   type: ClusterIP
 ```
 
-## Deploy and Test
+## Triển khai và kiểm thử {#deploy-and-test}
 
-Apply the deployment and service configurations using `kubectl apply -f <filename>`:
+Áp dụng các cấu hình deployment và service bằng `kubectl apply -f <filename>`:
 
 ```bash
 kubectl apply -f deployment.yaml
 kubectl apply -f service.yaml
 ```
 
-To test the deployment, run the following curl command:
+Để kiểm thử việc triển khai, chạy lệnh curl sau:
 
 ```bash
 curl http://mistral-7b.default.svc.cluster.local/v1/completions \
@@ -312,19 +312,19 @@ curl http://mistral-7b.default.svc.cluster.local/v1/completions \
       }'
 ```
 
-If the service is correctly deployed, you should receive a response from the vLLM model.
+Nếu dịch vụ được triển khai đúng, bạn sẽ nhận được phản hồi từ mô hình vLLM.
 
-## Troubleshooting
+## Khắc phục sự cố {#troubleshooting}
 
-### Startup Probe or Readiness Probe Failure
+### Lỗi Startup Probe hoặc Readiness Probe {#startup-probe-or-readiness-probe-failure}
 
-If the startup or readiness probe `failureThreshold` is too low for the time needed to start up the server, Kubernetes scheduler will kill the container. A couple of indications that this has happened:
+Nếu `failureThreshold` của startup hoặc readiness probe quá thấp so với thời gian cần để khởi động máy chủ, bộ lập lịch Kubernetes sẽ dừng container. Một vài dấu hiệu cho thấy điều này đã xảy ra:
 
-- Container log contains "KeyboardInterrupt: terminated"
-- `kubectl get events` shows message "Container $NAME failed startup probe, will be restarted"
+- Log container có chứa "KeyboardInterrupt: terminated"
+- `kubectl get events` hiển thị thông báo "Container $NAME failed startup probe, will be restarted"
 
-To mitigate, increase the `failureThreshold` to allow more time for the model server to start serving. You can identify an ideal `failureThreshold` by removing the probes from the manifest and measuring how much time it takes for the model server to show it's ready to serve.
+Để giảm thiểu, hãy tăng `failureThreshold` để máy chủ mô hình có thêm thời gian bắt đầu phục vụ. Bạn có thể xác định `failureThreshold` lý tưởng bằng cách bỏ các probe khỏi manifest và đo thời gian máy chủ mô hình cần để báo sẵn sàng phục vụ.
 
-## Conclusion
+## Kết luận {#conclusion}
 
-Deploying vLLM with Kubernetes allows for efficient scaling and management of ML models leveraging GPU resources. By following the steps outlined above, you should be able to set up and test a vLLM deployment within your Kubernetes cluster. If you encounter any issues or have suggestions, please feel free to contribute to the documentation.
+Triển khai vLLM bằng Kubernetes cho phép mở rộng và quản lý hiệu quả các mô hình ML tận dụng tài nguyên GPU. Làm theo các bước ở trên, bạn có thể thiết lập và kiểm thử một triển khai vLLM trong cụm Kubernetes của mình. Nếu gặp sự cố hoặc có đề xuất, xin hãy đóng góp vào tài liệu.

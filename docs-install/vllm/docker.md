@@ -1,10 +1,10 @@
-# Using vLLM's Official Docker Image
+# Dùng Docker image chính thức của vLLM {#using-vllms-official-docker-image}
 
-vLLM offers an official Docker image for deployment. The image can be used to run OpenAI-compatible servers and is available on Docker Hub as `vllm/vllm-openai`.
+vLLM cung cấp Docker image chính thức để triển khai. Image này có thể dùng để chạy các máy chủ tương thích OpenAI và có trên Docker Hub với tên `vllm/vllm-openai`.
 
-## Running vLLM with Docker
+## Chạy vLLM bằng Docker {#running-vllm-with-docker}
 
-### Command
+### Lệnh {#command}
 
 ```bash
 docker run --runtime nvidia --gpus all \
@@ -16,9 +16,9 @@ docker run --runtime nvidia --gpus all \
     --model Qwen/Qwen3-0.6B
 ```
 
-This image can also be used with other container engines such as Podman.
+Image này cũng có thể dùng với các engine container khác như Podman.
 
-### Podman Command
+### Lệnh Podman {#podman-command}
 
 ```bash
 podman run --device nvidia.com/gpu=all \
@@ -30,14 +30,14 @@ podman run --device nvidia.com/gpu=all \
   --model Qwen/Qwen3-0.6B
 ```
 
-You can add any other engine arguments you need after the image tag (`vllm/vllm-openai:latest`).
+Bạn có thể thêm bất kỳ tham số engine nào khác sau tag của image (`vllm/vllm-openai:latest`).
 
-## Notes
+## Lưu ý {#notes}
 
-- You can either use the `ipc=host` flag or `--shm-size` flag to allow the container to access the host's shared memory. vLLM uses PyTorch, which uses shared memory to share data between processes under the hood, particularly for tensor parallel inference.
-- Optional dependencies are not included in order to avoid licensing issues. If you need to use those dependencies, create a custom Dockerfile on top of the base image with an extra layer that installs them:
+- Bạn có thể dùng cờ `ipc=host` hoặc cờ `--shm-size` để cho phép container truy cập bộ nhớ dùng chung của máy chủ. vLLM dùng PyTorch, và PyTorch dùng bộ nhớ dùng chung để chia sẻ dữ liệu giữa các tiến trình ở bên dưới, đặc biệt với suy luận song song tensor.
+- Các phụ thuộc tùy chọn không được đưa vào để tránh vấn đề giấy phép. Nếu cần dùng các phụ thuộc đó, hãy tạo Dockerfile tùy chỉnh dựa trên image gốc, thêm một lớp cài đặt chúng:
 
-### Custom Dockerfile Example
+### Ví dụ Dockerfile tùy chỉnh {#custom-dockerfile-example}
 
 ```dockerfile
 FROM vllm/vllm-openai:v0.9.0
@@ -47,11 +47,11 @@ FROM vllm/vllm-openai:v0.9.0
 RUN uv pip install --system vllm[audio]==0.9.0
 ```
 
-## Building vLLM's Docker Image from Source
+## Build Docker image của vLLM từ mã nguồn {#building-vllms-docker-image-from-source}
 
-You can build and run vLLM from source via the provided `docker/Dockerfile`. To build vLLM:
+Bạn có thể build và chạy vLLM từ mã nguồn bằng `docker/Dockerfile` đi kèm. Để build vLLM:
 
-### Command
+### Lệnh {#command-1}
 
 ```bash
 # optionally specifies: --build-arg max_jobs=8 --build-arg nvcc_threads=2
@@ -61,16 +61,16 @@ DOCKER_BUILDKIT=1 docker build . \
     --file docker/Dockerfile
 ```
 
-### Notes
+### Lưu ý {#notes-1}
 
-- By default, vLLM will build for all GPU types for widest distribution. If you are just building for the current GPU type the machine is running on, you can add the argument `--build-arg torch_cuda_arch_list=""` for vLLM to find the current GPU type and build for that.
-- If you are using Podman instead of Docker, you might need to disable SELinux labeling by adding `--security-opt label=disable` when running the Podman build command to avoid certain existing issues.
+- Theo mặc định, vLLM build cho mọi loại GPU để phân phối rộng nhất. Nếu bạn chỉ build cho loại GPU của máy đang chạy, có thể thêm tham số `--build-arg torch_cuda_arch_list=""` để vLLM tự tìm loại GPU hiện tại và build cho loại đó.
+- Nếu dùng Podman thay cho Docker, bạn có thể cần tắt gán nhãn SELinux bằng cách thêm `--security-opt label=disable` khi chạy lệnh build của Podman để tránh một số vấn đề hiện có.
 
-## Building for Arm64/aarch64
+## Build cho Arm64/aarch64 {#building-for-arm64aarch64}
 
-A Docker container can be built for aarch64 systems such as the Nvidia Grace-Hopper. At the time of this writing, this requires the use of PyTorch Nightly and should be considered experimental. Using the flag `--platform "linux/arm64"` will attempt to build for arm64.
+Có thể build container Docker cho các hệ thống aarch64 như Nvidia Grace-Hopper. Tại thời điểm viết, việc này cần dùng PyTorch Nightly và nên được coi là thử nghiệm. Dùng cờ `--platform "linux/arm64"` sẽ thử build cho arm64.
 
-### Command
+### Lệnh {#command-2}
 
 ```bash
 # Example of building on Nvidia GH200 server. (Memory usage: ~15GB, Build time: ~1475s / ~25 min, Image size: 6.93GB)
@@ -85,25 +85,25 @@ DOCKER_BUILDKIT=1 docker build . \
 --build-arg torch_cuda_arch_list="9.0 10.0+PTX"
 ```
 
-### Notes
+### Lưu ý {#notes-2}
 
-- If you are building the `linux/arm64` image on a non-ARM host (e.g., an x86_64 machine), you need to ensure your system is set up for cross-compilation using QEMU. This allows your host machine to emulate ARM64 execution.
+- Nếu bạn build image `linux/arm64` trên máy chủ không phải ARM (ví dụ máy x86_64), cần bảo đảm hệ thống đã được thiết lập để biên dịch chéo bằng QEMU. Điều này cho phép máy chủ của bạn giả lập việc thực thi ARM64.
 
-### QEMU Setup
+### Thiết lập QEMU {#qemu-setup}
 
-Run the following command on your host machine to register QEMU user static handlers:
+Chạy lệnh sau trên máy chủ để đăng ký các trình xử lý QEMU user static:
 
 ```bash
 docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
 ```
 
-After setting up QEMU, you can use the `--platform "linux/arm64"` flag in your Docker build command.
+Sau khi thiết lập QEMU, bạn có thể dùng cờ `--platform "linux/arm64"` trong lệnh build Docker.
 
-## Use the Custom-Built vLLM Docker Image
+## Dùng Docker image vLLM tự build {#use-the-custom-built-vllm-docker-image}
 
-To run vLLM with the custom-built Docker image:
+Để chạy vLLM với Docker image tự build:
 
-### Command
+### Lệnh {#command-3}
 
 ```bash
 docker run --runtime nvidia --gpus all \
@@ -113,8 +113,8 @@ docker run --runtime nvidia --gpus all \
     vllm/vllm-openai <args...>
 ```
 
-The argument `vllm/vllm-openai` specifies the image to run and should be replaced with the name of the custom-built image (the `-t` tag from the build command).
+Tham số `vllm/vllm-openai` chỉ định image cần chạy và nên được thay bằng tên của image tự build (tag `-t` trong lệnh build).
 
-### Notes
+### Lưu ý {#notes-3}
 
-- For version `0.4.1` and `0.4.2` only - the vLLM Docker images under these versions are supposed to be run under the root user since a library under the root user's home directory, i.e., `/root/.config/vllm/nccl/cu12/libnccl.so.2.18.1`, is required to be loaded during runtime. If you are running the container under a different user, you may need to first change the permissions of the library (and all the parent directories) to allow the user to access it, then run vLLM with the environment variable `VLLM_NCCL_SO_PATH=/root/.config/vllm/nccl/cu12/libnccl.so.2.18.1`.
+- Chỉ với phiên bản `0.4.1` và `0.4.2` - các Docker image vLLM của các phiên bản này cần chạy dưới người dùng root vì một thư viện trong thư mục home của root, tức `/root/.config/vllm/nccl/cu12/libnccl.so.2.18.1`, phải được nạp khi chạy. Nếu chạy container dưới người dùng khác, bạn có thể cần đổi quyền của thư viện (và mọi thư mục cha) để cho phép người dùng đó truy cập, rồi chạy vLLM với biến môi trường `VLLM_NCCL_SO_PATH=/root/.config/vllm/nccl/cu12/libnccl.so.2.18.1`.

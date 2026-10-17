@@ -1,41 +1,41 @@
-# Complete Configuration
+# Cấu hình hoàn chỉnh {#complete-configuration}
 
-## 🚀 System Requirements
-- **OS**: Ubuntu 22.04 (recommended)
-- **Access**: Root or sudo
-- **Domain**: DNS (A record) pointed to server IP (eg: `app3.hitechcloud.dev`)
-- **Existing Services**: Ollama and OpenWebUI deployed (following previous instructions)
-- **Software**: Nginx, Certbot (for Let's Encrypt)
+## 🚀 Yêu cầu hệ thống {#-system-requirements}
+- **Hệ điều hành**: Ubuntu 22.04 (khuyến nghị)
+- **Quyền truy cập**: root hoặc sudo
+- **Tên miền**: DNS (bản ghi A) trỏ về IP máy chủ (ví dụ: `app3.hitechcloud.dev`)
+- **Dịch vụ có sẵn**: Ollama và OpenWebUI đã được triển khai (theo các hướng dẫn trước)
+- **Phần mềm**: Nginx, Certbot (để lấy chứng chỉ Let's Encrypt)
 
-## 🛠️ Installation Instructions
+## 🛠️ Hướng dẫn cài đặt {#️-installation-instructions}
 
-### 1️⃣ Install Nginx
-- Install Nginx:
+### 1️⃣ Cài đặt Nginx {#1️⃣-install-nginx}
+- Cài đặt Nginx:
 ```bash
 sudo apt update
 sudo apt install -y nginx
 ```
-- Check Nginx status:
+- Kiểm tra trạng thái Nginx:
 ```bash
 sudo systemctl status nginx
 ```
 
-### 2️⃣ Install Certbot to get SSL from Let's Encrypt
-- Install Certbot and Nginx plugin:
+### 2️⃣ Cài đặt Certbot để lấy SSL từ Let's Encrypt {#2️⃣-install-certbot-to-get-ssl-from-lets-encrypt}
+- Cài đặt Certbot và plugin Nginx:
 ```bash
 sudo apt install -y certbot python3-certbot-nginx
 ```
-- Get SSL certificate for domain:
+- Lấy chứng chỉ SSL cho tên miền:
 ```bash
 sudo certbot --nginx -d yourdomain.vn
 ```
 
-### 3️⃣ Configure Nginx Proxy for Ollama and OpenWebUI
-- Create Nginx configuration file:
+### 3️⃣ Cấu hình Nginx làm proxy cho Ollama và OpenWebUI {#3️⃣-configure-nginx-proxy-for-ollama-and-openwebui}
+- Tạo tệp cấu hình Nginx:
 ```bash
 sudo nano /etc/nginx/sites-available/yourdomain.vn
 ```
-- Paste the following content into the file:
+- Dán nội dung sau vào tệp:
 
 ```
 server {
@@ -69,17 +69,17 @@ proxy_set_header X-Forwarded-Proto $scheme;
 }
 ```
 
-### 4️⃣ Update Docker Compose to be compatible with Nginx
-- Make sure the `.env` file (from the previous tutorial) has the following configuration:
+### 4️⃣ Cập nhật Docker Compose để tương thích với Nginx {#4️⃣-update-docker-compose-to-be-compatible-with-nginx}
+- Bảo đảm tệp `.env` (từ hướng dẫn trước) có cấu hình sau:
 ```
 HOST_IP=0.0.0.0
 OLLAMA_PORT=11434
 WEBUI_PORT=18010
 ```
 
-### 5️⃣ Check access
-- Access OpenWebUI: `https://yourdomain.vn`
-- Check logs if there are errors:
+### 5️⃣ Kiểm tra truy cập {#5️⃣-check-access}
+- Truy cập OpenWebUI: `https://yourdomain.vn`
+- Kiểm tra log nếu có lỗi:
 ```bash
 docker logs -f ollama
 docker logs -f openwebui
