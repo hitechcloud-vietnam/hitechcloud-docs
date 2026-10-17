@@ -1,23 +1,23 @@
-# Upgrade Options
+# Tùy chọn nâng cấp
 
-List upgrade options for a specific service.
+Liệt kê các tùy chọn nâng cấp của một dịch vụ cụ thể.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /service/@id/upgrade
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID   |
+| id | int | ID dịch vụ |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@id/upgrade" \
    -H "Authorization: Bearer $token"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "resources": [

@@ -1,18 +1,18 @@
-# Change VM Hostname
+# Đổi hostname máy ảo
 
-Update the hostname of a virtual machine.
+Cập nhật hostname của máy ảo.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 POST /service/@id/vms/@vmid/hostname
 ```
 
-### Query Parameters
-| Parameter | Type   | Description         |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|---------------------|
-| id        | int    | Service ID          |
-| vmid      | int    | Virtual machine ID  |
-| hostname  | string | New hostname        |
+| id | int | ID dịch vụ |
+| vmid | int | ID máy ảo |
+| hostname | string | Hostname mới |
 
 ```bash
 POST_DATA="{

@@ -1,30 +1,30 @@
 ---
 id: create-vm
-title: Create VM
+title: Tạo máy ảo
 ---
 
-## Create VM
+## Tạo máy ảo
 
-Add a new virtual server.
+Thêm một máy chủ ảo mới.
 
-### HTTP Request
+### Yêu cầu HTTP
 
 `POST /service/@id/vms`
 
-### Query Parameters
+### Tham số truy vấn
 
-| Parameter       | Type   | Description                          |
+| Tham số | Kiểu | Mô tả |
 |-----------------|--------|--------------------------------------|
-| id              | int    | Service ID                          |
-| label           | string | VM label                            |
-| template        | string | Template ID                         |
-| flavor          | string | Flavor describing VM CPU and memory |
-| disk            | string | Disk space in GB                    |
-| security_group  | string | Network security group              |
-| keypair         | string | SSH key name                        |
-| password        | string | Password for root user              |
+| id | int | ID dịch vụ |
+| label | string | Nhãn máy ảo |
+| template | string | ID mẫu |
+| flavor | string | Flavor mô tả CPU và bộ nhớ của máy ảo |
+| disk | string | Dung lượng ổ đĩa (GB) |
+| security_group | string | Nhóm bảo mật mạng |
+| keypair | string | Tên khóa SSH |
+| password | string | Mật khẩu của người dùng root |
 
-### Example Request
+### Yêu cầu mẫu
 
 ```bash
 POST_DATA="{

@@ -1,17 +1,17 @@
-# Update rDNS
+# Cập nhật rDNS
 
-Update reverse DNS entries for service's IP addresses.
+Cập nhật các bản ghi DNS ngược cho các địa chỉ IP của dịch vụ.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 POST /service/@id/rdns
 ```
 
-### Query Parameters
-| Parameter   | Type   | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-------------|--------|-------------|
-| id          | int    | Service ID  |
-| ipaddress   | array  | IP address  |
+| id | int | ID dịch vụ |
+| ipaddress | array | Địa chỉ IP |
 
 ```bash
 POST_DATA="{

@@ -1,16 +1,16 @@
-# Upgrade Request
+# Yêu cầu nâng cấp
 
-Estimate or request an upgrade for a virtual server.
+Ước tính hoặc yêu cầu nâng cấp cho máy chủ ảo.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 POST /service/@id/upgrade
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID   |
+| id | int | ID dịch vụ |
 
 ```bash
 curl -X POST "https://my.photuesoftware.vn/api/service/@id/upgrade" \

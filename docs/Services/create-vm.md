@@ -1,22 +1,22 @@
-# Create VM
+# Tạo máy ảo
 
-Add a new virtual machine.
+Thêm một máy ảo mới.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 POST /service/@id/vms
 ```
 
-### Query Parameters
-| Parameter | Type   | Description             |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|-------------------------|
-| id        | int    | Service ID              |
-| label     | string | VM label                |
-| template  | string | Template ID             |
-| memory    | string | RAM memory in MB        |
-| cpu       | string | CPU cores               |
-| disk      | string | Disk space in GB        |
-| interface | array  | Interface configuration |
+| id | int | ID dịch vụ |
+| label | string | Nhãn máy ảo |
+| template | string | ID mẫu |
+| memory | string | Dung lượng RAM (MB) |
+| cpu | string | Số nhân CPU |
+| disk | string | Dung lượng ổ đĩa (GB) |
+| interface | array | Cấu hình giao diện |
 
 ```bash
 POST_DATA="{

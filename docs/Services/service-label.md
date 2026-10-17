@@ -1,23 +1,23 @@
-# Service Label
+# Nhãn dịch vụ
 
-Show the current service label.
+Hiển thị nhãn hiện tại của dịch vụ.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /service/@id/label
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID   |
+| id | int | ID dịch vụ |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@id/label" \
    -H "Authorization: Bearer $token"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "label": "example"

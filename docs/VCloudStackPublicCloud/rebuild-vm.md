@@ -1,25 +1,25 @@
 ---
 id: rebuild-vm
-title: Rebuild VM
+title: Cài lại máy ảo
 ---
 
-## Rebuild VM
+## Cài lại máy ảo
 
-Rebuild a virtual server using a specified template.
+Cài lại máy chủ ảo bằng một mẫu được chỉ định.
 
-### HTTP Request
+### Yêu cầu HTTP
 
 `POST /service/@id/vms/@vmid/rebuild`
 
-### Query Parameters
+### Tham số truy vấn
 
-| Parameter | Type   | Description       |
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|-------------------|
-| id        | int    | Service ID        |
-| vmid      | int    | Virtual server ID |
-| template  | string | Template ID       |
+| id | int | ID dịch vụ |
+| vmid | int | ID máy chủ ảo |
+| template | string | ID mẫu |
 
-### Example Request
+### Yêu cầu mẫu
 
 ```bash
 POST_DATA="{

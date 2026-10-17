@@ -1,18 +1,18 @@
-# List Rebuild Templates
+# Danh sách mẫu cài lại
 
-List templates available for rebuilding a virtual server.
+Liệt kê các mẫu có thể dùng để cài lại máy chủ ảo.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /service/@id/vms/@vmid/rebuild
 ```
 
-### Query Parameters
-| Parameter | Type   | Description         |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|---------------------|
-| id        | int    | Service ID          |
-| vmid      | int    | Virtual machine ID  |
-| template  | string | Template ID         |
+| id | int | ID dịch vụ |
+| vmid | int | ID máy ảo |
+| template | string | ID mẫu |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@id/vms/@vmid/rebuild" \

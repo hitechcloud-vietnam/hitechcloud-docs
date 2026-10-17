@@ -1,22 +1,22 @@
 id: upgrade-options
-title: Upgrade Options
+title: Tùy chọn nâng cấp
 ---
 
-## Upgrade Options
+## Tùy chọn nâng cấp
 
-List resource upgrade options for a service.
+Liệt kê các tùy chọn nâng cấp tài nguyên cho một dịch vụ.
 
-### HTTP Request
+### Yêu cầu HTTP
 
 `GET /service/@id/upgrade`
 
-### Query Parameters
+### Tham số truy vấn
 
-| Parameter | Type | Description |
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID  |
+| id | int | ID dịch vụ |
 
-### Example Request
+### Yêu cầu mẫu
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@id/upgrade" \

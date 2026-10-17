@@ -1,8 +1,8 @@
-# List Services
+# Danh sách dịch vụ
 
-List all services under your account.
+Liệt kê tất cả dịch vụ thuộc tài khoản của bạn.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /service
 ```
@@ -12,7 +12,7 @@ curl -X GET "https://my.photuesoftware.vn/api/service" \
    -H "Authorization: Bearer $token"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "services": [

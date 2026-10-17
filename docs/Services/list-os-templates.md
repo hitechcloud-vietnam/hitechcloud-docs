@@ -1,16 +1,16 @@
-# List OS Templates
+# Danh sách mẫu hệ điều hành
 
-List templates that can be used to create a virtual server.
+Liệt kê các mẫu có thể dùng để tạo máy chủ ảo.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /service/@id/templates
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID   |
+| id | int | ID dịch vụ |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@id/templates" \

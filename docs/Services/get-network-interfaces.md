@@ -1,18 +1,18 @@
-# Get Network Interfaces
+# Lấy giao diện mạng
 
-Retrieve details of a specific network interface.
+Lấy thông tin chi tiết của một giao diện mạng cụ thể.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /service/@id/vms/@vmid/interfaces/@iface
 ```
 
-### Query Parameters
-| Parameter | Type   | Description         |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|---------------------|
-| id        | int    | Service ID          |
-| vmid      | int    | Virtual machine ID  |
-| iface     | string | Interface name or ID |
+| id | int | ID dịch vụ |
+| vmid | int | ID máy ảo |
+| iface | string | Tên hoặc ID giao diện |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@id/vms/@vmid/interfaces/@iface" \

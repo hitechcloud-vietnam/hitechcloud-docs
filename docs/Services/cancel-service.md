@@ -1,18 +1,18 @@
-# Cancel Service
+# Hủy dịch vụ
 
-Request cancellation for a service.
+Yêu cầu hủy một dịch vụ.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 POST /service/@id/cancel
 ```
 
-### Query Parameters
-| Parameter   | Type   | Description                     |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-------------|--------|---------------------------------|
-| id          | int    | Service ID                     |
-| immediate   | string | Terminate immediately or later |
-| reason      | string | Reason for cancellation        |
+| id | int | ID dịch vụ |
+| immediate | string | Hủy ngay hoặc hủy sau |
+| reason | string | Lý do hủy |
 
 ```bash
 POST_DATA="{

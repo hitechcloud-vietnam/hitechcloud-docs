@@ -1,23 +1,23 @@
-# List Billing Cycle
+# Danh sách chu kỳ thanh toán
 
-Get recurring billing cycle options for a service.
+Lấy các tùy chọn chu kỳ thanh toán định kỳ của một dịch vụ.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /service/@id/cycle
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID   |
+| id | int | ID dịch vụ |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@id/cycle" \
    -H "Authorization: Bearer $token"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "current": "m",
