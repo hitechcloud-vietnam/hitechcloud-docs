@@ -1,76 +1,76 @@
-# API
+# API {#api}
 
-## Endpoints
+## Các endpoint {#endpoints}
 
-- [Generate a completion](#generate-a-completion)
-- [Generate a chat completion](#generate-a-chat-completion)
-- [Create a Model](#create-a-model)
-- [List Local Models](#list-local-models)
-- [Show Model Information](#show-model-information)
-- [Copy a Model](#copy-a-model)
-- [Delete a Model](#delete-a-model)
-- [Pull a Model](#pull-a-model)
-- [Push a Model](#push-a-model)
-- [Generate Embeddings](#generate-embeddings)
-- [List Running Models](#list-running-models)
-- [Version](#version)
+- [Tạo completion](#generate-a-completion)
+- [Tạo chat completion](#generate-a-chat-completion)
+- [Tạo mô hình](#create-a-model)
+- [Liệt kê các mô hình cục bộ](#list-local-models)
+- [Xem thông tin mô hình](#show-model-information)
+- [Sao chép mô hình](#copy-a-model)
+- [Xóa mô hình](#delete-a-model)
+- [Tải mô hình (pull)](#pull-a-model)
+- [Đẩy mô hình (push)](#push-a-model)
+- [Tạo embedding](#generate-embeddings)
+- [Liệt kê các mô hình đang chạy](#list-running-models)
+- [Phiên bản](#version)
 
-## Conventions
+## Quy ước {#conventions}
 
-### Model names
+### Tên mô hình {#model-names}
 
-Model names follow a `model:tag` format, where `model` can have an optional namespace such as `example/model`. Some examples are `orca-mini:3b-q8_0` and `llama3:70b`. The tag is optional and, if not provided, will default to `latest`. The tag is used to identify a specific version.
+Tên mô hình có định dạng `model:tag`, trong đó `model` có thể có thêm namespace (không bắt buộc) như `example/model`. Một số ví dụ là `orca-mini:3b-q8_0` và `llama3:70b`. Tag là tùy chọn và nếu không cung cấp sẽ mặc định là `latest`. Tag dùng để xác định một phiên bản cụ thể.
 
-### Durations
+### Khoảng thời gian {#durations}
 
-All durations are returned in nanoseconds.
+Mọi khoảng thời gian đều được trả về theo nano giây.
 
-### Streaming responses
+### Phản hồi dạng luồng (streaming) {#streaming-responses}
 
-Certain endpoints stream responses as JSON objects. Streaming can be disabled by providing `{"stream": false}` for these endpoints.
+Một số endpoint trả phản hồi dạng luồng các đối tượng JSON. Có thể tắt streaming bằng cách truyền `{"stream": false}` cho các endpoint này.
 
-## Generate a completion
+## Tạo completion {#generate-a-completion}
 
 ```
 POST /api/generate
 ```
 
-Generate a response for a given prompt with a provided model. This is a streaming endpoint, so there will be a series of responses. The final response object will include statistics and additional data from the request.
+Tạo phản hồi cho một prompt với mô hình được chỉ định. Đây là endpoint streaming nên sẽ có một chuỗi các phản hồi. Đối tượng phản hồi cuối cùng sẽ gồm số liệu thống kê và dữ liệu bổ sung của yêu cầu.
 
-### Parameters
+### Tham số {#parameters}
 
-- `model`: (required) the [model name](#model-names)
-- `prompt`: the prompt to generate a response for
-- `suffix`: the text after the model response
-- `images`: (optional) a list of base64-encoded images (for multimodal models such as `llava`)
-- `think`: (for thinking models) should the model think before responding?
+- `model`: (bắt buộc) [tên mô hình](#model-names)
+- `prompt`: prompt cần tạo phản hồi
+- `suffix`: văn bản đứng sau phản hồi của mô hình
+- `images`: (tùy chọn) danh sách ảnh mã hóa base64 (cho các mô hình đa phương thức như `llava`)
+- `think`: (cho các mô hình có suy nghĩ) mô hình có nên suy nghĩ trước khi phản hồi hay không
 
-Advanced parameters (optional):
+Tham số nâng cao (tùy chọn):
 
-- `format`: the format to return a response in. Format can be `json` or a JSON schema
-- `system`: system message to (overrides what is defined in the `Modelfile`)
-- `template`: the prompt template to use (overrides what is defined in the `Modelfile`)
-- `stream`: if `false` the response will be returned as a single response object, rather than a stream of objects
-- `raw`: if `true` no formatting will be applied to the prompt. You may choose to use the `raw` parameter if you are specifying a full templated prompt in your request to the API
-- `keep_alive`: controls how long the model will stay loaded into memory following the request (default: `5m`)
-- `context` (deprecated): the context parameter returned from a previous request to `/generate`, this can be used to keep a short conversational memory
+- `format`: định dạng trả về phản hồi. Có thể là `json` hoặc một JSON schema
+- `system`: system message (ghi đè giá trị đã định nghĩa trong `Modelfile`)
+- `template`: mẫu prompt cần dùng (ghi đè giá trị đã định nghĩa trong `Modelfile`)
+- `stream`: nếu là `false`, phản hồi sẽ được trả về dưới dạng một đối tượng phản hồi duy nhất thay vì một luồng đối tượng
+- `raw`: nếu là `true`, sẽ không áp dụng định dạng nào cho prompt. Bạn có thể dùng tham số `raw` nếu đang chỉ định một prompt đã áp mẫu đầy đủ trong yêu cầu gửi tới API
+- `keep_alive`: điều khiển thời gian mô hình ở lại trong bộ nhớ sau yêu cầu (mặc định: `5m`)
+- `context` (không còn khuyến nghị): tham số context trả về từ một yêu cầu `/generate` trước đó, có thể dùng để giữ một bộ nhớ hội thoại ngắn
 
-#### Structured outputs
+#### Kết quả có cấu trúc {#structured-outputs}
 
-Structured outputs are supported by providing a JSON schema in the `format` parameter. The model will generate a response that matches the schema. See the [structured outputs](#request-structured-outputs) example below.
+Kết quả có cấu trúc được hỗ trợ bằng cách cung cấp một JSON schema trong tham số `format`. Mô hình sẽ tạo phản hồi khớp với schema. Xem ví dụ [kết quả có cấu trúc](#request-structured-outputs) bên dưới.
 
-#### JSON mode
+#### Chế độ JSON {#json-mode}
 
-Enable JSON mode by setting the `format` parameter to `json`. This will structure the response as a valid JSON object. See the JSON mode [example](#request-json-mode) below.
+Bật chế độ JSON bằng cách đặt tham số `format` là `json`. Phản hồi sẽ có cấu trúc là một đối tượng JSON hợp lệ. Xem [ví dụ](#request-json-mode) chế độ JSON bên dưới.
 
 > [!IMPORTANT]
-> It's important to instruct the model to use JSON in the `prompt`. Otherwise, the model may generate large amounts whitespace.
+> Điều quan trọng là phải hướng dẫn mô hình dùng JSON trong `prompt`. Nếu không, mô hình có thể sinh ra rất nhiều khoảng trắng.
 
-### Examples
+### Ví dụ {#examples}
 
-#### Generate request (Streaming)
+#### Yêu cầu generate (Streaming) {#generate-request-streaming}
 
-##### Request
+##### Yêu cầu {#request}
 
 ```shell
 curl http://localhost:11434/api/generate -d '{
@@ -79,9 +79,9 @@ curl http://localhost:11434/api/generate -d '{
 }'
 ```
 
-##### Response
+##### Phản hồi {#response}
 
-A stream of JSON objects is returned:
+Trả về một luồng các đối tượng JSON:
 
 ```json
 {
@@ -92,18 +92,18 @@ A stream of JSON objects is returned:
 }
 ```
 
-The final response in the stream also includes additional data about the generation:
+Phản hồi cuối cùng trong luồng cũng chứa thêm dữ liệu về quá trình tạo:
 
-- `total_duration`: time spent generating the response
-- `load_duration`: time spent in nanoseconds loading the model
-- `prompt_eval_count`: number of tokens in the prompt
-- `prompt_eval_duration`: time spent in nanoseconds evaluating the prompt
-- `eval_count`: number of tokens in the response
-- `eval_duration`: time in nanoseconds spent generating the response
-- `context`: an encoding of the conversation used in this response, this can be sent in the next request to keep a conversational memory
-- `response`: empty if the response was streamed, if not streamed, this will contain the full response
+- `total_duration`: thời gian dành để tạo phản hồi
+- `load_duration`: thời gian (nano giây) dành để nạp mô hình
+- `prompt_eval_count`: số token trong prompt
+- `prompt_eval_duration`: thời gian (nano giây) dành để đánh giá prompt
+- `eval_count`: số token trong phản hồi
+- `eval_duration`: thời gian (nano giây) dành để tạo phản hồi
+- `context`: bản mã hóa của cuộc hội thoại dùng trong phản hồi này, có thể gửi trong yêu cầu tiếp theo để giữ bộ nhớ hội thoại
+- `response`: rỗng nếu phản hồi được truyền theo luồng; nếu không truyền theo luồng, trường này chứa toàn bộ phản hồi
 
-To calculate how fast the response is generated in tokens per second (token/s), divide `eval_count` / `eval_duration` * `10^9`.
+Để tính tốc độ tạo phản hồi theo token trên giây (token/s), hãy lấy `eval_count` / `eval_duration` * `10^9`.
 
 ```json
 {
@@ -121,11 +121,11 @@ To calculate how fast the response is generated in tokens per second (token/s), 
 }
 ```
 
-#### Request (No streaming)
+#### Yêu cầu (không streaming) {#request-no-streaming}
 
-##### Request
+##### Yêu cầu {#request-1}
 
-A response can be received in one reply when streaming is off.
+Khi tắt streaming, có thể nhận phản hồi trong một lần trả lời duy nhất.
 
 ```shell
 curl http://localhost:11434/api/generate -d '{
@@ -135,9 +135,9 @@ curl http://localhost:11434/api/generate -d '{
 }'
 ```
 
-##### Response
+##### Phản hồi {#response-1}
 
-If `stream` is set to `false`, the response will be a single JSON object:
+Nếu `stream` được đặt là `false`, phản hồi sẽ là một đối tượng JSON duy nhất:
 
 ```json
 {
@@ -155,9 +155,9 @@ If `stream` is set to `false`, the response will be a single JSON object:
 }
 ```
 
-#### Request (with suffix)
+#### Yêu cầu (có suffix) {#request-with-suffix}
 
-##### Request
+##### Yêu cầu {#request-2}
 
 ```shell
 curl http://localhost:11434/api/generate -d '{
@@ -171,7 +171,7 @@ curl http://localhost:11434/api/generate -d '{
 }'
 ```
 
-##### Response
+##### Phản hồi {#response-2}
 
 ```json5
 {
@@ -190,9 +190,9 @@ curl http://localhost:11434/api/generate -d '{
 }
 ```
 
-#### Request (Structured outputs)
+#### Yêu cầu (kết quả có cấu trúc) {#request-structured-outputs}
 
-##### Request
+##### Yêu cầu {#request-3}
 
 ```shell
 curl -X POST http://localhost:11434/api/generate -H "Content-Type: application/json" -d '{
@@ -217,7 +217,7 @@ curl -X POST http://localhost:11434/api/generate -H "Content-Type: application/j
 }'
 ```
 
-##### Response
+##### Phản hồi {#response-3}
 
 ```json
 {
@@ -236,12 +236,12 @@ curl -X POST http://localhost:11434/api/generate -H "Content-Type: application/j
 }
 ```
 
-#### Request (JSON mode)
+#### Yêu cầu (chế độ JSON) {#request-json-mode}
 
 > [!IMPORTANT]
-> When `format` is set to `json`, the output will always be a well-formed JSON object. It's important to also instruct the model to respond in JSON.
+> Khi `format` được đặt là `json`, kết quả luôn là một đối tượng JSON đúng cú pháp. Điều quan trọng là cũng phải hướng dẫn mô hình phản hồi bằng JSON.
 
-##### Request
+##### Yêu cầu {#request-4}
 
 ```shell
 curl http://localhost:11434/api/generate -d '{
@@ -252,7 +252,7 @@ curl http://localhost:11434/api/generate -d '{
 }'
 ```
 
-##### Response
+##### Phản hồi {#response-4}
 
 ```json
 {
@@ -270,7 +270,7 @@ curl http://localhost:11434/api/generate -d '{
 }
 ```
 
-The value of `response` will be a string containing JSON similar to:
+Giá trị của `response` sẽ là một chuỗi chứa JSON tương tự như:
 
 ```json
 {
@@ -289,11 +289,11 @@ The value of `response` will be a string containing JSON similar to:
 }
 ```
 
-#### Request (with images)
+#### Yêu cầu (có ảnh) {#request-with-images}
 
-To submit images to multimodal models such as `llava` or `bakllava`, provide a list of base64-encoded `images`:
+Để gửi ảnh cho các mô hình đa phương thức như `llava` hoặc `bakllava`, hãy cung cấp danh sách `images` mã hóa base64:
 
-#### Request
+#### Yêu cầu {#request-5}
 
 ```shell
 curl http://localhost:11434/api/generate -d '{
@@ -304,7 +304,7 @@ curl http://localhost:11434/api/generate -d '{
 }'
 ```
 
-#### Response
+#### Phản hồi {#response-5}
 
 ```json
 {
@@ -322,11 +322,11 @@ curl http://localhost:11434/api/generate -d '{
 }
 ```
 
-#### Request (Raw Mode)
+#### Yêu cầu (chế độ Raw) {#request-raw-mode}
 
-In some cases, you may wish to bypass the templating system and provide a full prompt. In this case, you can use the `raw` parameter to disable templating. Also note that raw mode will not return a context.
+Trong một số trường hợp, bạn có thể muốn bỏ qua hệ thống mẫu và cung cấp một prompt đầy đủ. Khi đó, bạn có thể dùng tham số `raw` để tắt việc áp mẫu. Lưu ý chế độ raw sẽ không trả về context.
 
-##### Request
+##### Yêu cầu {#request-6}
 
 ```shell
 curl http://localhost:11434/api/generate -d '{
@@ -337,11 +337,11 @@ curl http://localhost:11434/api/generate -d '{
 }'
 ```
 
-#### Request (Reproducible outputs)
+#### Yêu cầu (kết quả có thể tái lập) {#request-reproducible-outputs}
 
-For reproducible outputs, set `seed` to a number:
+Để có kết quả tái lập được, hãy đặt `seed` là một số:
 
-##### Request
+##### Yêu cầu {#request-7}
 
 ```shell
 curl http://localhost:11434/api/generate -d '{
@@ -353,7 +353,7 @@ curl http://localhost:11434/api/generate -d '{
 }'
 ```
 
-##### Response
+##### Phản hồi {#response-6}
 
 ```json
 {
@@ -370,11 +370,11 @@ curl http://localhost:11434/api/generate -d '{
 }
 ```
 
-#### Generate request (With options)
+#### Yêu cầu generate (có options) {#generate-request-with-options}
 
-If you want to set custom options for the model at runtime rather than in the Modelfile, you can do so with the `options` parameter. This example sets every available option, but you can set any of them individually and omit the ones you do not want to override.
+Nếu muốn đặt các tùy chọn riêng cho mô hình khi chạy thay vì trong Modelfile, bạn có thể dùng tham số `options`. Ví dụ này đặt mọi tùy chọn có sẵn, nhưng bạn có thể đặt riêng từng tùy chọn và bỏ qua những tùy chọn không muốn ghi đè.
 
-##### Request
+##### Yêu cầu {#request-8}
 
 ```shell
 curl http://localhost:11434/api/generate -d '{
@@ -407,7 +407,7 @@ curl http://localhost:11434/api/generate -d '{
 }'
 ```
 
-##### Response
+##### Phản hồi {#response-7}
 
 ```json
 {
@@ -425,11 +425,11 @@ curl http://localhost:11434/api/generate -d '{
 }
 ```
 
-#### Load a model
+#### Nạp mô hình {#load-a-model}
 
-If an empty prompt is provided, the model will be loaded into memory.
+Nếu cung cấp prompt rỗng, mô hình sẽ được nạp vào bộ nhớ.
 
-##### Request
+##### Yêu cầu {#request-9}
 
 ```shell
 curl http://localhost:11434/api/generate -d '{
@@ -437,9 +437,9 @@ curl http://localhost:11434/api/generate -d '{
 }'
 ```
 
-##### Response
+##### Phản hồi {#response-8}
 
-A single JSON object is returned:
+Trả về một đối tượng JSON duy nhất:
 
 ```json
 {
@@ -450,11 +450,11 @@ A single JSON object is returned:
 }
 ```
 
-#### Unload a model
+#### Gỡ mô hình khỏi bộ nhớ {#unload-a-model}
 
-If an empty prompt is provided and the `keep_alive` parameter is set to `0`, a model will be unloaded from memory.
+Nếu cung cấp prompt rỗng và tham số `keep_alive` được đặt là `0`, mô hình sẽ được gỡ khỏi bộ nhớ.
 
-##### Request
+##### Yêu cầu {#request-10}
 
 ```shell
 curl http://localhost:11434/api/generate -d '{
@@ -463,9 +463,9 @@ curl http://localhost:11434/api/generate -d '{
 }'
 ```
 
-##### Response
+##### Phản hồi {#response-9}
 
-A single JSON object is returned:
+Trả về một đối tượng JSON duy nhất:
 
 ```json
 {
@@ -477,55 +477,55 @@ A single JSON object is returned:
 }
 ```
 
-## Generate a chat completion
+## Tạo chat completion {#generate-a-chat-completion}
 
 ```
 POST /api/chat
 ```
 
-Generate the next message in a chat with a provided model. This is a streaming endpoint, so there will be a series of responses. Streaming can be disabled using `"stream": false`. The final response object will include statistics and additional data from the request.
+Tạo tin nhắn tiếp theo trong một cuộc trò chuyện với mô hình được chỉ định. Đây là endpoint streaming nên sẽ có một chuỗi các phản hồi. Có thể tắt streaming bằng `"stream": false`. Đối tượng phản hồi cuối cùng sẽ gồm số liệu thống kê và dữ liệu bổ sung của yêu cầu.
 
-### Parameters
+### Tham số {#parameters-1}
 
-- `model`: (required) the [model name](#model-names)
-- `messages`: the messages of the chat, this can be used to keep a chat memory
-- `tools`: list of tools in JSON for the model to use if supported
-- `think`: (for thinking models) should the model think before responding?
+- `model`: (bắt buộc) [tên mô hình](#model-names)
+- `messages`: các tin nhắn của cuộc trò chuyện, có thể dùng để giữ bộ nhớ hội thoại
+- `tools`: danh sách các công cụ dạng JSON để mô hình dùng nếu được hỗ trợ
+- `think`: (cho các mô hình có suy nghĩ) mô hình có nên suy nghĩ trước khi phản hồi hay không
 
-The `message` object has the following fields:
+Đối tượng `message` có các trường sau:
 
-- `role`: the role of the message, either `system`, `user`, `assistant`, or `tool`
-- `content`: the content of the message
-- `thinking`: (for thinking models) the model's thinking process
-- `images` (optional): a list of images to include in the message (for multimodal models such as `llava`)
-- `tool_calls` (optional): a list of tools in JSON that the model wants to use
-- `tool_name` (optional): add the name of the tool that was executed to inform the model of the result
+- `role`: vai trò của tin nhắn, là `system`, `user`, `assistant` hoặc `tool`
+- `content`: nội dung của tin nhắn
+- `thinking`: (cho các mô hình có suy nghĩ) quá trình suy nghĩ của mô hình
+- `images` (tùy chọn): danh sách ảnh đưa vào tin nhắn (cho các mô hình đa phương thức như `llava`)
+- `tool_calls` (tùy chọn): danh sách các công cụ dạng JSON mà mô hình muốn dùng
+- `tool_name` (tùy chọn): thêm tên công cụ đã được thực thi để thông báo kết quả cho mô hình
 
-Advanced parameters (optional):
+Tham số nâng cao (tùy chọn):
 
-- `format`: the format to return a response in. Format can be `json` or a JSON schema.
-- `stream`: if `false` the response will be returned as a single response object, rather than a stream of objects
-- `keep_alive`: controls how long the model will stay loaded into memory following the request (default: `5m`)
+- `format`: định dạng trả về phản hồi. Có thể là `json` hoặc một JSON schema.
+- `stream`: nếu là `false`, phản hồi sẽ được trả về dưới dạng một đối tượng phản hồi duy nhất thay vì một luồng đối tượng
+- `keep_alive`: điều khiển thời gian mô hình ở lại trong bộ nhớ sau yêu cầu (mặc định: `5m`)
 
-### Tool calling
+### Gọi công cụ (tool calling) {#tool-calling}
 
-Tool calling is supported by providing a list of tools in the `tools` parameter. The model will generate a response that includes a list of tool calls. See the [Chat request (Streaming with tools)](#chat-request-streaming-with-tools) example below.
+Gọi công cụ được hỗ trợ bằng cách cung cấp danh sách công cụ trong tham số `tools`. Mô hình sẽ tạo phản hồi gồm danh sách các lệnh gọi công cụ. Xem ví dụ [Yêu cầu chat (Streaming có công cụ)](#chat-request-streaming-with-tools) bên dưới.
 
-Models can also explain the result of the tool call in the response. See the [Chat request (With history, with tools)](#chat-request-with-history-with-tools) example below.
+Mô hình cũng có thể giải thích kết quả của lệnh gọi công cụ trong phản hồi. Xem ví dụ [Yêu cầu chat (có lịch sử, có công cụ)](#chat-request-with-history-with-tools) bên dưới.
 
-[See models with tool calling capabilities](https://ollama.com/search?c=tool).
+[Xem các mô hình có khả năng gọi công cụ](https://ollama.com/search?c=tool).
 
-### Structured outputs
+### Kết quả có cấu trúc {#structured-outputs-1}
 
-Structured outputs are supported by providing a JSON schema in the `format` parameter. The model will generate a response that matches the schema. See the [Chat request (Structured outputs)](#chat-request-structured-outputs) example below.
+Kết quả có cấu trúc được hỗ trợ bằng cách cung cấp một JSON schema trong tham số `format`. Mô hình sẽ tạo phản hồi khớp với schema. Xem ví dụ [Yêu cầu chat (kết quả có cấu trúc)](#chat-request-structured-outputs) bên dưới.
 
-### Examples
+### Ví dụ {#examples-1}
 
-#### Chat request (Streaming)
+#### Yêu cầu chat (Streaming) {#chat-request-streaming}
 
-##### Request
+##### Yêu cầu {#request-11}
 
-Send a chat message with a streaming response.
+Gửi một tin nhắn chat với phản hồi dạng luồng.
 
 ```shell
 curl http://localhost:11434/api/chat -d '{
@@ -539,9 +539,9 @@ curl http://localhost:11434/api/chat -d '{
 }'
 ```
 
-##### Response
+##### Phản hồi {#response-10}
 
-A stream of JSON objects is returned:
+Trả về một luồng các đối tượng JSON:
 
 ```json
 {
@@ -556,7 +556,7 @@ A stream of JSON objects is returned:
 }
 ```
 
-Final response:
+Phản hồi cuối cùng:
 
 ```json
 {
@@ -576,9 +576,9 @@ Final response:
 }
 ```
 
-#### Chat request (Streaming with tools)
+#### Yêu cầu chat (Streaming có công cụ) {#chat-request-streaming-with-tools}
 
-##### Request
+##### Yêu cầu {#request-12}
 
 ```shell
 curl http://localhost:11434/api/chat -d '{
@@ -612,9 +612,9 @@ curl http://localhost:11434/api/chat -d '{
 }'
 ```
 
-##### Response
+##### Phản hồi {#response-11}
 
-A stream of JSON objects is returned:
+Trả về một luồng các đối tượng JSON:
 ```json
 {
     "model": "llama3.2",
@@ -637,7 +637,7 @@ A stream of JSON objects is returned:
 }
 ```
 
-Final response:
+Phản hồi cuối cùng:
 
 ```json
 {
@@ -658,9 +658,9 @@ Final response:
 }
 ```
 
-#### Chat request (No streaming)
+#### Yêu cầu chat (không streaming) {#chat-request-no-streaming}
 
-##### Request
+##### Yêu cầu {#request-13}
 
 ```shell
 curl http://localhost:11434/api/chat -d '{
@@ -675,7 +675,7 @@ curl http://localhost:11434/api/chat -d '{
 }'
 ```
 
-##### Response
+##### Phản hồi {#response-12}
 
 ```json
 {
@@ -695,9 +695,9 @@ curl http://localhost:11434/api/chat -d '{
 }
 ```
 
-#### Chat request (No streaming, with tools)
+#### Yêu cầu chat (không streaming, có công cụ) {#chat-request-no-streaming-with-tools}
 
-##### Request
+##### Yêu cầu {#request-14}
 
 
 ```shell
@@ -732,7 +732,7 @@ curl http://localhost:11434/api/chat -d '{
 }'
 ```
 
-##### Response
+##### Phản hồi {#response-13}
 
 ```json
 {
@@ -763,9 +763,9 @@ curl http://localhost:11434/api/chat -d '{
 }
 ```
 
-#### Chat request (Structured outputs)
+#### Yêu cầu chat (kết quả có cấu trúc) {#chat-request-structured-outputs}
 
-##### Request
+##### Yêu cầu {#request-15}
 
 ```shell
 curl -X POST http://localhost:11434/api/chat -H "Content-Type: application/json" -d '{
@@ -793,7 +793,7 @@ curl -X POST http://localhost:11434/api/chat -H "Content-Type: application/json"
 }'
 ```
 
-##### Response
+##### Phản hồi {#response-14}
 
 ```json
 {
@@ -811,11 +811,11 @@ curl -X POST http://localhost:11434/api/chat -H "Content-Type: application/json"
 }
 ```
 
-#### Chat request (With History)
+#### Yêu cầu chat (có lịch sử) {#chat-request-with-history}
 
-Send a chat message with a conversation history. You can use this same approach to start the conversation using multi-shot or chain-of-thought prompting.
+Gửi một tin nhắn chat kèm lịch sử hội thoại. Bạn có thể dùng cùng cách này để bắt đầu cuộc trò chuyện bằng prompt multi-shot hoặc chain-of-thought.
 
-##### Request
+##### Yêu cầu {#request-16}
 
 ```shell
 curl http://localhost:11434/api/chat -d '{
@@ -837,9 +837,9 @@ curl http://localhost:11434/api/chat -d '{
 }'
 ```
 
-##### Response
+##### Phản hồi {#response-15}
 
-A stream of JSON objects is returned:
+Trả về một luồng các đối tượng JSON:
 
 ```json
 {
@@ -853,7 +853,7 @@ A stream of JSON objects is returned:
 }
 ```
 
-Final response:
+Phản hồi cuối cùng:
 
 ```json
 {
@@ -870,9 +870,9 @@ Final response:
 ```
 
 
-#### Chat request (With history, with tools)
+#### Yêu cầu chat (có lịch sử, có công cụ) {#chat-request-with-history-with-tools}
 
-##### Request
+##### Yêu cầu {#request-17}
 
 ```shell
 curl http://localhost:11434/api/chat -d '{
@@ -927,7 +927,7 @@ curl http://localhost:11434/api/chat -d '{
 }'
 ```
 
-##### Response
+##### Phản hồi {#response-16}
 
 ```json
 {
@@ -950,11 +950,11 @@ curl http://localhost:11434/api/chat -d '{
 ```
 
 
-#### Chat request (with images)
+#### Yêu cầu chat (có ảnh) {#chat-request-with-images}
 
-##### Request
+##### Yêu cầu {#request-18}
 
-Send a chat message with images. The images should be provided as an array, with the individual images encoded in Base64.
+Gửi một tin nhắn chat kèm ảnh. Các ảnh cần được cung cấp dưới dạng mảng, từng ảnh được mã hóa Base64.
 
 ```shell
 curl http://localhost:11434/api/chat -d '{
@@ -969,7 +969,7 @@ curl http://localhost:11434/api/chat -d '{
 }'
 ```
 
-##### Response
+##### Phản hồi {#response-17}
 
 ```json
 {
@@ -990,9 +990,9 @@ curl http://localhost:11434/api/chat -d '{
 }
 ```
 
-#### Chat request (Reproducible outputs)
+#### Yêu cầu chat (kết quả có thể tái lập) {#chat-request-reproducible-outputs}
 
-##### Request
+##### Yêu cầu {#request-19}
 
 ```shell
 curl http://localhost:11434/api/chat -d '{
@@ -1010,7 +1010,7 @@ curl http://localhost:11434/api/chat -d '{
 }'
 ```
 
-##### Response
+##### Phản hồi {#response-18}
 
 ```json
 {
@@ -1030,9 +1030,9 @@ curl http://localhost:11434/api/chat -d '{
 }
 ```
 
-#### Chat request (with tools)
+#### Yêu cầu chat (có công cụ) {#chat-request-with-tools}
 
-##### Request
+##### Yêu cầu {#request-20}
 
 ```shell
 curl http://localhost:11434/api/chat -d '{
@@ -1071,7 +1071,7 @@ curl http://localhost:11434/api/chat -d '{
 }'
 ```
 
-##### Response
+##### Phản hồi {#response-19}
 
 ```json
 {
@@ -1103,11 +1103,11 @@ curl http://localhost:11434/api/chat -d '{
 }
 ```
 
-#### Load a model
+#### Nạp mô hình {#load-a-model-1}
 
-If the messages array is empty, the model will be loaded into memory.
+Nếu mảng messages rỗng, mô hình sẽ được nạp vào bộ nhớ.
 
-##### Request
+##### Yêu cầu {#request-21}
 
 ```shell
 curl http://localhost:11434/api/chat -d '{
@@ -1116,7 +1116,7 @@ curl http://localhost:11434/api/chat -d '{
 }'
 ```
 
-##### Response
+##### Phản hồi {#response-20}
 
 ```json
 {
@@ -1131,11 +1131,11 @@ curl http://localhost:11434/api/chat -d '{
 }
 ```
 
-#### Unload a model
+#### Gỡ mô hình khỏi bộ nhớ {#unload-a-model-1}
 
-If the messages array is empty and the `keep_alive` parameter is set to `0`, a model will be unloaded from memory.
+Nếu mảng messages rỗng và tham số `keep_alive` được đặt là `0`, mô hình sẽ được gỡ khỏi bộ nhớ.
 
-##### Request
+##### Yêu cầu {#request-22}
 
 ```shell
 curl http://localhost:11434/api/chat -d '{
@@ -1145,9 +1145,9 @@ curl http://localhost:11434/api/chat -d '{
 }'
 ```
 
-##### Response
+##### Phản hồi {#response-21}
 
-A single JSON object is returned:
+Trả về một đối tượng JSON duy nhất:
 
 ```json
 {
@@ -1162,47 +1162,47 @@ A single JSON object is returned:
 }
 ```
 
-## Create a Model
+## Tạo mô hình {#create-a-model}
 
 ```
 POST /api/create
 ```
 
-Create a model from:
- * another model;
- * a safetensors directory; or
- * a GGUF file.
+Tạo mô hình từ:
+ * một mô hình khác;
+ * một thư mục safetensors; hoặc
+ * một tệp GGUF.
 
-If you are creating a model from a safetensors directory or from a GGUF file, you must [create a blob](#create-a-blob) for each of the files and then use the file name and SHA256 digest associated with each blob in the `files` field.
+Nếu bạn tạo mô hình từ thư mục safetensors hoặc từ tệp GGUF, bạn phải [tạo một blob](#create-a-blob) cho từng tệp, rồi dùng tên tệp và mã băm SHA256 tương ứng với mỗi blob trong trường `files`.
 
-### Parameters
+### Tham số {#parameters-2}
 
-- `model`: name of the model to create
-- `from`: (optional) name of an existing model to create the new model from
-- `files`: (optional) a dictionary of file names to SHA256 digests of blobs to create the model from
-- `adapters`: (optional) a dictionary of file names to SHA256 digests of blobs for LORA adapters
-- `template`: (optional) the prompt template for the model
-- `license`: (optional) a string or list of strings containing the license or licenses for the model
-- `system`: (optional) a string containing the system prompt for the model
-- `messages`: (optional) a list of message objects used to create a conversation
-- `stream`: (optional) if `false` the response will be returned as a single response object, rather than a stream of objects
-- `quantize` (optional): quantize a non-quantized (e.g. float16) model
+- `model`: tên mô hình cần tạo
+- `from`: (tùy chọn) tên mô hình có sẵn dùng để tạo mô hình mới
+- `files`: (tùy chọn) từ điển ánh xạ tên tệp tới mã băm SHA256 của các blob dùng để tạo mô hình
+- `adapters`: (tùy chọn) từ điển ánh xạ tên tệp tới mã băm SHA256 của các blob cho adapter LORA
+- `template`: (tùy chọn) mẫu prompt của mô hình
+- `license`: (tùy chọn) một chuỗi hoặc danh sách chuỗi chứa giấy phép của mô hình
+- `system`: (tùy chọn) một chuỗi chứa system prompt của mô hình
+- `messages`: (tùy chọn) danh sách các đối tượng tin nhắn dùng để tạo cuộc hội thoại
+- `stream`: (tùy chọn) nếu là `false`, phản hồi sẽ được trả về dưới dạng một đối tượng phản hồi duy nhất thay vì một luồng đối tượng
+- `quantize` (tùy chọn): lượng tử hóa một mô hình chưa lượng tử hóa (ví dụ float16)
 
-#### Quantization types
+#### Các kiểu lượng tử hóa {#quantization-types}
 
-| Type | Recommended |
+| Kiểu | Khuyến nghị |
 | --- | :-: |
 | q4_K_M | * |
 | q4_K_S | |
 | q8_0 | * |
 
-### Examples
+### Ví dụ {#examples-2}
 
-#### Create a new model
+#### Tạo mô hình mới {#create-a-new-model}
 
-Create a new model from an existing model.
+Tạo mô hình mới từ một mô hình có sẵn.
 
-##### Request
+##### Yêu cầu {#request-23}
 
 ```shell
 curl http://localhost:11434/api/create -d '{
@@ -1212,9 +1212,9 @@ curl http://localhost:11434/api/create -d '{
 }'
 ```
 
-##### Response
+##### Phản hồi {#response-22}
 
-A stream of JSON objects is returned:
+Trả về một luồng các đối tượng JSON:
 
 ```json
 {"status":"reading model metadata"}
@@ -1230,11 +1230,11 @@ A stream of JSON objects is returned:
 {"status":"success"}
 ```
 
-#### Quantize a model
+#### Lượng tử hóa mô hình {#quantize-a-model}
 
-Quantize a non-quantized model.
+Lượng tử hóa một mô hình chưa lượng tử hóa.
 
-##### Request
+##### Yêu cầu {#request-24}
 
 ```shell
 curl http://localhost:11434/api/create -d '{
@@ -1244,9 +1244,9 @@ curl http://localhost:11434/api/create -d '{
 }'
 ```
 
-##### Response
+##### Phản hồi {#response-23}
 
-A stream of JSON objects is returned:
+Trả về một luồng các đối tượng JSON:
 
 ```json
 {"status":"quantizing F16 model to Q4_K_M","digest":"0","total":6433687776,"completed":12302}
@@ -1261,12 +1261,12 @@ A stream of JSON objects is returned:
 {"status":"success"}
 ```
 
-#### Create a model from GGUF
+#### Tạo mô hình từ GGUF {#create-a-model-from-gguf}
 
-Create a model from a GGUF file. The `files` parameter should be filled out with the file name and SHA256 digest of the GGUF file you wish to use. Use [/api/blobs/:digest](#push-a-blob) to push the GGUF file to the server before calling this API.
+Tạo mô hình từ một tệp GGUF. Tham số `files` cần điền tên tệp và mã băm SHA256 của tệp GGUF bạn muốn dùng. Hãy dùng [/api/blobs/:digest](#push-a-blob) để đẩy tệp GGUF lên máy chủ trước khi gọi API này.
 
 
-##### Request
+##### Yêu cầu {#request-25}
 
 ```shell
 curl http://localhost:11434/api/create -d '{
@@ -1277,9 +1277,9 @@ curl http://localhost:11434/api/create -d '{
 }'
 ```
 
-##### Response
+##### Phản hồi {#response-24}
 
-A stream of JSON objects is returned:
+Trả về một luồng các đối tượng JSON:
 
 ```json
 {"status":"parsing GGUF"}
@@ -1289,11 +1289,11 @@ A stream of JSON objects is returned:
 ```
 
 
-#### Create a model from a Safetensors directory
+#### Tạo mô hình từ thư mục Safetensors {#create-a-model-from-a-safetensors-directory}
 
-The `files` parameter should include a dictionary of files for the safetensors model which includes the file names and SHA256 digest of each file. Use [/api/blobs/:digest](#push-a-blob) to first push each of the files to the server before calling this API. Files will remain in the cache until the Ollama server is restarted.
+Tham số `files` cần chứa một từ điển các tệp của mô hình safetensors, gồm tên tệp và mã băm SHA256 của từng tệp. Hãy dùng [/api/blobs/:digest](#push-a-blob) để đẩy từng tệp lên máy chủ trước khi gọi API này. Các tệp sẽ nằm trong cache cho đến khi máy chủ Ollama được khởi động lại.
 
-##### Request
+##### Yêu cầu {#request-26}
 
 ```shell
 curl http://localhost:11434/api/create -d '{
@@ -1309,9 +1309,9 @@ curl http://localhost:11434/api/create -d '{
 }'
 ```
 
-##### Response
+##### Phản hồi {#response-25}
 
-A stream of JSON objects is returned:
+Trả về một luồng các đối tượng JSON:
 
 ```shell
 {"status":"converting model"}
@@ -1322,73 +1322,73 @@ A stream of JSON objects is returned:
 {"status":"success"}
 ```
 
-## Check if a Blob Exists
+## Kiểm tra blob có tồn tại không {#check-if-a-blob-exists}
 
 ```shell
 HEAD /api/blobs/:digest
 ```
 
-Ensures that the file blob (Binary Large Object) used with create a model exists on the server. This checks your Ollama server and not ollama.com.
+Bảo đảm blob tệp (Binary Large Object) dùng để tạo mô hình tồn tại trên máy chủ. Việc này kiểm tra máy chủ Ollama của bạn chứ không phải ollama.com.
 
-### Query Parameters
+### Tham số truy vấn {#query-parameters}
 
-- `digest`: the SHA256 digest of the blob
+- `digest`: mã băm SHA256 của blob
 
-### Examples
+### Ví dụ {#examples-3}
 
-#### Request
+#### Yêu cầu {#request-27}
 
 ```shell
 curl -I http://localhost:11434/api/blobs/sha256:29fdb92e57cf0827ded04ae6461b5931d01fa595843f55d36f5b275a52087dd2
 ```
 
-#### Response
+#### Phản hồi {#response-26}
 
-Return 200 OK if the blob exists, 404 Not Found if it does not.
+Trả về 200 OK nếu blob tồn tại, 404 Not Found nếu không tồn tại.
 
-## Push a Blob
+## Đẩy blob lên {#push-a-blob}
 
 ```
 POST /api/blobs/:digest
 ```
 
-Push a file to the Ollama server to create a "blob" (Binary Large Object).
+Đẩy một tệp lên máy chủ Ollama để tạo một "blob" (Binary Large Object).
 
-### Query Parameters
+### Tham số truy vấn {#query-parameters-1}
 
-- `digest`: the expected SHA256 digest of the file
+- `digest`: mã băm SHA256 mong đợi của tệp
 
-### Examples
+### Ví dụ {#examples-4}
 
-#### Request
+#### Yêu cầu {#request-28}
 
 ```shell
 curl -T model.gguf -X POST http://localhost:11434/api/blobs/sha256:29fdb92e57cf0827ded04ae6461b5931d01fa595843f55d36f5b275a52087dd2
 ```
 
-#### Response
+#### Phản hồi {#response-27}
 
-Return 201 Created if the blob was successfully created, 400 Bad Request if the digest used is not expected.
+Trả về 201 Created nếu blob được tạo thành công, 400 Bad Request nếu mã băm sử dụng không như mong đợi.
 
-## List Local Models
+## Liệt kê các mô hình cục bộ {#list-local-models}
 
 ```
 GET /api/tags
 ```
 
-List models that are available locally.
+Liệt kê các mô hình có sẵn cục bộ.
 
-### Examples
+### Ví dụ {#examples-5}
 
-#### Request
+#### Yêu cầu {#request-29}
 
 ```shell
 curl http://localhost:11434/api/tags
 ```
 
-#### Response
+#### Phản hồi {#response-28}
 
-A single JSON object will be returned.
+Sẽ trả về một đối tượng JSON duy nhất.
 
 ```json
 {
@@ -1431,22 +1431,22 @@ A single JSON object will be returned.
 }
 ```
 
-## Show Model Information
+## Xem thông tin mô hình {#show-model-information}
 
 ```
 POST /api/show
 ```
 
-Show information about a model including details, modelfile, template, parameters, license, system prompt.
+Hiển thị thông tin về một mô hình gồm chi tiết, modelfile, mẫu, tham số, giấy phép và system prompt.
 
-### Parameters
+### Tham số {#parameters-3}
 
-- `model`: name of the model to show
-- `verbose`: (optional) if set to `true`, returns full data for verbose response fields
+- `model`: tên mô hình cần xem
+- `verbose`: (tùy chọn) nếu đặt là `true`, trả về dữ liệu đầy đủ cho các trường phản hồi chi tiết
 
-### Examples
+### Ví dụ {#examples-6}
 
-#### Request
+#### Yêu cầu {#request-30}
 
 ```shell
 curl http://localhost:11434/api/show -d '{
@@ -1454,7 +1454,7 @@ curl http://localhost:11434/api/show -d '{
 }'
 ```
 
-#### Response
+#### Phản hồi {#response-29}
 
 ```json5
 {
@@ -1501,17 +1501,17 @@ curl http://localhost:11434/api/show -d '{
 }
 ```
 
-## Copy a Model
+## Sao chép mô hình {#copy-a-model}
 
 ```
 POST /api/copy
 ```
 
-Copy a model. Creates a model with another name from an existing model.
+Sao chép một mô hình. Tạo một mô hình với tên khác từ một mô hình có sẵn.
 
-### Examples
+### Ví dụ {#examples-7}
 
-#### Request
+#### Yêu cầu {#request-31}
 
 ```shell
 curl http://localhost:11434/api/copy -d '{
@@ -1520,25 +1520,25 @@ curl http://localhost:11434/api/copy -d '{
 }'
 ```
 
-#### Response
+#### Phản hồi {#response-30}
 
-Returns a 200 OK if successful, or a 404 Not Found if the source model doesn't exist.
+Trả về 200 OK nếu thành công, hoặc 404 Not Found nếu mô hình nguồn không tồn tại.
 
-## Delete a Model
+## Xóa mô hình {#delete-a-model}
 
 ```
 DELETE /api/delete
 ```
 
-Delete a model and its data.
+Xóa một mô hình và dữ liệu của nó.
 
-### Parameters
+### Tham số {#parameters-4}
 
-- `model`: model name to delete
+- `model`: tên mô hình cần xóa
 
-### Examples
+### Ví dụ {#examples-8}
 
-#### Request
+#### Yêu cầu {#request-32}
 
 ```shell
 curl -X DELETE http://localhost:11434/api/delete -d '{
@@ -1546,27 +1546,27 @@ curl -X DELETE http://localhost:11434/api/delete -d '{
 }'
 ```
 
-#### Response
+#### Phản hồi {#response-31}
 
-Returns a 200 OK if successful, 404 Not Found if the model to be deleted doesn't exist.
+Trả về 200 OK nếu thành công, 404 Not Found nếu mô hình cần xóa không tồn tại.
 
-## Pull a Model
+## Tải mô hình (pull) {#pull-a-model}
 
 ```
 POST /api/pull
 ```
 
-Download a model from the ollama library. Cancelled pulls are resumed from where they left off, and multiple calls will share the same download progress.
+Tải một mô hình từ thư viện ollama. Các lần pull bị hủy sẽ được tiếp tục từ chỗ đã dừng, và nhiều lệnh gọi sẽ dùng chung tiến trình tải.
 
-### Parameters
+### Tham số {#parameters-5}
 
-- `model`: name of the model to pull
-- `insecure`: (optional) allow insecure connections to the library. Only use this if you are pulling from your own library during development.
-- `stream`: (optional) if `false` the response will be returned as a single response object, rather than a stream of objects
+- `model`: tên mô hình cần pull
+- `insecure`: (tùy chọn) cho phép kết nối không an toàn tới thư viện. Chỉ dùng khi bạn pull từ thư viện của chính mình trong quá trình phát triển.
+- `stream`: (tùy chọn) nếu là `false`, phản hồi sẽ được trả về dưới dạng một đối tượng phản hồi duy nhất thay vì một luồng đối tượng
 
-### Examples
+### Ví dụ {#examples-9}
 
-#### Request
+#### Yêu cầu {#request-33}
 
 ```shell
 curl http://localhost:11434/api/pull -d '{
@@ -1574,11 +1574,11 @@ curl http://localhost:11434/api/pull -d '{
 }'
 ```
 
-#### Response
+#### Phản hồi {#response-32}
 
-If `stream` is not specified, or set to `true`, a stream of JSON objects is returned:
+Nếu không chỉ định `stream`, hoặc đặt là `true`, sẽ trả về một luồng các đối tượng JSON:
 
-The first object is the manifest:
+Đối tượng đầu tiên là manifest:
 
 ```json
 {
@@ -1586,7 +1586,7 @@ The first object is the manifest:
 }
 ```
 
-Then there is a series of downloading responses. Until any of the download is completed, the `completed` key may not be included. The number of files to be downloaded depends on the number of layers specified in the manifest.
+Sau đó là một chuỗi các phản hồi tải xuống. Cho đến khi một lượt tải nào đó hoàn tất, khóa `completed` có thể chưa xuất hiện. Số tệp cần tải phụ thuộc vào số layer được chỉ định trong manifest.
 
 ```json
 {
@@ -1597,7 +1597,7 @@ Then there is a series of downloading responses. Until any of the download is co
 }
 ```
 
-After all the files are downloaded, the final responses are:
+Sau khi tải xong tất cả các tệp, các phản hồi cuối cùng là:
 
 ```json
 {
@@ -1614,7 +1614,7 @@ After all the files are downloaded, the final responses are:
 }
 ```
 
-if `stream` is set to false, then the response is a single JSON object:
+nếu `stream` được đặt là false, phản hồi sẽ là một đối tượng JSON duy nhất:
 
 ```json
 {
@@ -1622,23 +1622,23 @@ if `stream` is set to false, then the response is a single JSON object:
 }
 ```
 
-## Push a Model
+## Đẩy mô hình (push) {#push-a-model}
 
 ```
 POST /api/push
 ```
 
-Upload a model to a model library. Requires registering for ollama.ai and adding a public key first.
+Tải một mô hình lên thư viện mô hình. Cần đăng ký tại ollama.ai và thêm khóa công khai trước.
 
-### Parameters
+### Tham số {#parameters-6}
 
-- `model`: name of the model to push in the form of `<namespace>/<model>:<tag>`
-- `insecure`: (optional) allow insecure connections to the library. Only use this if you are pushing to your library during development.
-- `stream`: (optional) if `false` the response will be returned as a single response object, rather than a stream of objects
+- `model`: tên mô hình cần push, theo dạng `<namespace>/<model>:<tag>`
+- `insecure`: (tùy chọn) cho phép kết nối không an toàn tới thư viện. Chỉ dùng khi bạn push lên thư viện của chính mình trong quá trình phát triển.
+- `stream`: (tùy chọn) nếu là `false`, phản hồi sẽ được trả về dưới dạng một đối tượng phản hồi duy nhất thay vì một luồng đối tượng
 
-### Examples
+### Ví dụ {#examples-10}
 
-#### Request
+#### Yêu cầu {#request-34}
 
 ```shell
 curl http://localhost:11434/api/push -d '{
@@ -1646,15 +1646,15 @@ curl http://localhost:11434/api/push -d '{
 }'
 ```
 
-#### Response
+#### Phản hồi {#response-33}
 
-If `stream` is not specified, or set to `true`, a stream of JSON objects is returned:
+Nếu không chỉ định `stream`, hoặc đặt là `true`, sẽ trả về một luồng các đối tượng JSON:
 
 ```json
 { "status": "retrieving manifest" }
 ```
 
-and then:
+và sau đó:
 
 ```json
 {
@@ -1664,7 +1664,7 @@ and then:
 }
 ```
 
-Then there is a series of uploading responses:
+Sau đó là một chuỗi các phản hồi tải lên:
 
 ```json
 {
@@ -1674,40 +1674,40 @@ Then there is a series of uploading responses:
 }
 ```
 
-Finally, when the upload is complete:
+Cuối cùng, khi tải lên hoàn tất:
 
 ```json
 {"status":"pushing manifest"}
 {"status":"success"}
 ```
 
-If `stream` is set to `false`, then the response is a single JSON object:
+Nếu `stream` được đặt là `false`, phản hồi sẽ là một đối tượng JSON duy nhất:
 
 ```json
 { "status": "success" }
 ```
 
-## Generate Embeddings
+## Tạo embedding {#generate-embeddings}
 
 ```
 POST /api/embed
 ```
 
-Generate embeddings from a model
+Tạo embedding từ một mô hình
 
-### Parameters
+### Tham số {#parameters-7}
 
-- `model`: name of model to generate embeddings from
-- `input`: text or list of text to generate embeddings for
+- `model`: tên mô hình dùng để tạo embedding
+- `input`: văn bản hoặc danh sách văn bản cần tạo embedding
 
-Advanced parameters:
+Tham số nâng cao:
 
-- `truncate`: truncates the end of each input to fit within context length. Returns error if `false` and context length is exceeded. Defaults to `true`
-- `keep_alive`: controls how long the model will stay loaded into memory following the request (default: `5m`)
+- `truncate`: cắt phần cuối của mỗi đầu vào để vừa trong độ dài ngữ cảnh. Trả về lỗi nếu là `false` và vượt quá độ dài ngữ cảnh. Mặc định là `true`
+- `keep_alive`: điều khiển thời gian mô hình ở lại trong bộ nhớ sau yêu cầu (mặc định: `5m`)
 
-### Examples
+### Ví dụ {#examples-11}
 
-#### Request
+#### Yêu cầu {#request-35}
 
 ```shell
 curl http://localhost:11434/api/embed -d '{
@@ -1716,7 +1716,7 @@ curl http://localhost:11434/api/embed -d '{
 }'
 ```
 
-#### Response
+#### Phản hồi {#response-34}
 
 ```json
 {
@@ -1731,7 +1731,7 @@ curl http://localhost:11434/api/embed -d '{
 }
 ```
 
-#### Request (Multiple input)
+#### Yêu cầu (nhiều đầu vào) {#request-multiple-input}
 
 ```shell
 curl http://localhost:11434/api/embed -d '{
@@ -1740,7 +1740,7 @@ curl http://localhost:11434/api/embed -d '{
 }'
 ```
 
-#### Response
+#### Phản hồi {#response-35}
 
 ```json
 {
@@ -1755,24 +1755,24 @@ curl http://localhost:11434/api/embed -d '{
 }
 ```
 
-## List Running Models
+## Liệt kê các mô hình đang chạy {#list-running-models}
 ```
 GET /api/ps
 ```
 
-List models that are currently loaded into memory.
+Liệt kê các mô hình hiện đang được nạp vào bộ nhớ.
 
-#### Examples
+#### Ví dụ {#examples-12}
 
-### Request
+### Yêu cầu {#request-36}
 
 ```shell
 curl http://localhost:11434/api/ps
 ```
 
-#### Response
+#### Phản hồi {#response-36}
 
-A single JSON object will be returned.
+Sẽ trả về một đối tượng JSON duy nhất.
 
 ```json
 {
@@ -1799,28 +1799,28 @@ A single JSON object will be returned.
 }
 ```
 
-## Generate Embedding
+## Tạo embedding (endpoint cũ) {#generate-embedding}
 
-> Note: this endpoint has been superseded by `/api/embed`
+> Lưu ý: endpoint này đã được thay thế bởi `/api/embed`
 
 ```
 POST /api/embeddings
 ```
 
-Generate embeddings from a model
+Tạo embedding từ một mô hình
 
-### Parameters
+### Tham số {#parameters-8}
 
-- `model`: name of model to generate embeddings from
-- `prompt`: text to generate embeddings for
+- `model`: tên mô hình dùng để tạo embedding
+- `prompt`: văn bản cần tạo embedding
 
-Advanced parameters:
+Tham số nâng cao:
 
-- `keep_alive`: controls how long the model will stay loaded into memory following the request (default: `5m`)
+- `keep_alive`: điều khiển thời gian mô hình ở lại trong bộ nhớ sau yêu cầu (mặc định: `5m`)
 
-### Examples
+### Ví dụ {#examples-13}
 
-#### Request
+#### Yêu cầu {#request-37}
 
 ```shell
 curl http://localhost:11434/api/embeddings -d '{
@@ -1829,7 +1829,7 @@ curl http://localhost:11434/api/embeddings -d '{
 }'
 ```
 
-#### Response
+#### Phản hồi {#response-37}
 
 ```json
 {
@@ -1840,23 +1840,23 @@ curl http://localhost:11434/api/embeddings -d '{
 }
 ```
 
-## Version
+## Phiên bản {#version}
 
 ```
 GET /api/version
 ```
 
-Retrieve the Ollama version
+Lấy phiên bản Ollama
 
-### Examples
+### Ví dụ {#examples-14}
 
-#### Request
+#### Yêu cầu {#request-38}
 
 ```shell
 curl http://localhost:11434/api/version
 ```
 
-#### Response
+#### Phản hồi {#response-38}
 
 ```json
 {

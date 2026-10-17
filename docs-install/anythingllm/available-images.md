@@ -1,42 +1,42 @@
-# Available Images
+# Các image khả dụng {#available-images}
 
-## latest
+## latest {#latest}
 
-- **Architecture:** amd64 & arm64
-- **Deployment Frequency:** On every commit to the master branch
-- **Pull Command:** `docker pull mintplexlabs/anythingllm:latest`
+- **Kiến trúc:** amd64 & arm64
+- **Tần suất phát hành:** mỗi commit lên nhánh master
+- **Lệnh pull:** `docker pull mintplexlabs/anythingllm:latest`
 
-The latest image is the most recent version of AnythingLLM. It is updated on a near-daily basis and will always be up to date with the latest features and bug fixes that are committed to the master branch in the AnythingLLM GitHub repository.
+Image latest là phiên bản mới nhất của AnythingLLM. Image được cập nhật gần như hằng ngày và luôn có các tính năng và bản sửa lỗi mới nhất đã được commit vào nhánh master của kho GitHub AnythingLLM.
 
-## v*.*.*
+## v*.*.* {#v}
 
-- **Architecture:** amd64 & arm64
-- **Deployment Frequency:** On new releases
-- **Pull Command:** `docker pull mintplexlabs/anythingllm:v*.*.*`
+- **Kiến trúc:** amd64 & arm64
+- **Tần suất phát hành:** khi có bản phát hành mới
+- **Lệnh pull:** `docker pull mintplexlabs/anythingllm:v*.*.*`
 
-The v*.*.* images are the pinned versioned releases of AnythingLLM. These images are published when a new release is made - you can find the latest release [here](https://github.com/mintplexlabs/anythingllm/releases).
+Các image v*.*.* là các bản phát hành có phiên bản cố định của AnythingLLM. Các image này được đăng khi có bản phát hành mới; bạn có thể xem bản phát hành mới nhất [tại đây](https://github.com/mintplexlabs/anythingllm/releases).
 
-## render or railway
+## render hoặc railway {#render-or-railway}
 
-**Warning:** You should only specify this image if you are deploying AnythingLLM via Render or Railway.
+**Cảnh báo:** chỉ chỉ định image này khi bạn triển khai AnythingLLM qua Render hoặc Railway.
 
-- **Architecture:** amd64
-- **Deployment Frequency:** On new releases
-- **Pull Command:** `docker pull mintplexlabs/anythingllm:render`
+- **Kiến trúc:** amd64
+- **Tần suất phát hành:** khi có bản phát hành mới
+- **Lệnh pull:** `docker pull mintplexlabs/anythingllm:render`
 
-The render or railway images are the latest versions of AnythingLLM and are in sync with the versioned releases of AnythingLLM.
+Các image render hoặc railway là phiên bản mới nhất của AnythingLLM và đồng bộ với các bản phát hành có phiên bản của AnythingLLM.
 
-## pg
+## pg {#pg}
 
-- **Architecture:** amd64 & arm64
-- **Deployment Frequency:** On new releases
-- **Pull Command:** `docker pull mintplexlabs/anythingllm:pg`
+- **Kiến trúc:** amd64 & arm64
+- **Tần suất phát hành:** khi có bản phát hành mới
+- **Lệnh pull:** `docker pull mintplexlabs/anythingllm:pg`
 
-The pg image is the latest version of AnythingLLM that is specifically built for use with a local or remote PostgreSQL database.
+Image pg là phiên bản mới nhất của AnythingLLM được build riêng để dùng với cơ sở dữ liệu PostgreSQL cục bộ hoặc từ xa.
 
-This image has a slightly different startup command to support the PostgreSQL deployment and does the following:
+Image này có lệnh khởi động hơi khác để hỗ trợ triển khai PostgreSQL và thực hiện như sau:
 
-- Will store all AnythingLLM data in the PostgreSQL database
-- Will by default use PGVector for vector storage - requires a PGVector extension to be installed on the PostgreSQL database
+- Lưu toàn bộ dữ liệu AnythingLLM trong cơ sở dữ liệu PostgreSQL
+- Mặc định dùng PGVector để lưu vector - yêu cầu cài phần mở rộng PGVector trên cơ sở dữ liệu PostgreSQL
 
-See the PostgreSQL image deployment command for more information.
+Xem lệnh triển khai image PostgreSQL để biết thêm thông tin.

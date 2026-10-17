@@ -1,14 +1,14 @@
-# Create project directory and `.env` file
+# Tạo thư mục dự án và tệp `.env` {#create-project-directory-and-env-file}
 
-## Create project directory
-- Run command:
+## Tạo thư mục dự án {#create-project-directory}
+- Chạy lệnh:
 ```bash
 mkdir -p /www/dk_project/dk_app/ollama_and_openwebui
 cd /www/dk_project/dk_app/ollama_and_openwebui
 ```
 
-## Create `.env` file
-Create `.env` file with content after:
+## Tạo tệp `.env` {#create-env-file}
+Tạo tệp `.env` với nội dung sau:
 ```
 APP_PATH=/www/dk_project/dk_app/ollama_and_openwebui
 HOST_IP=0.0.0.0
@@ -21,4 +21,4 @@ OLLAMA_KV_CACHE=1
 OLLAMA_MAX_LOADED_MODELS=2
 OLLAMA_NUM_PARALLEL=2
 ```
-- **Note**: Replace `WEBUI_SECRET_KEY` with another security string.
+- **Lưu ý**: Thay `WEBUI_SECRET_KEY` bằng một chuỗi bảo mật khác.

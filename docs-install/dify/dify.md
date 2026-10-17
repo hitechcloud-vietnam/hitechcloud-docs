@@ -3,7 +3,7 @@
 **Dify** là một nền tảng mã nguồn mở mạnh mẽ để xây dựng và quản lý các ứng dụng **Large Language Model (LLM)**, từ **chatbots**, **agents** đến **workflows**. Sử dụng **Docker Compose**, Dify cung cấp một cách triển khai **self-hosted** linh hoạt, an toàn và có thể mở rộng. Hướng dẫn này sẽ dẫn bạn qua các bước cài đặt Dify trên **Ubuntu 22.04 LTS** hoặc **24.04 LTS**, với cấu hình tối ưu cho môi trường **production**.
 
 ## Tổng quan về Dify và các công nghệ cốt lõi
-### Large Language Models (LLMs)
+### Mô hình ngôn ngữ lớn (LLM)
 - **LLMs** là các mô hình AI được huấn luyện trên lượng lớn dữ liệu văn bản, cho phép hiểu và tạo ra ngôn ngữ tự nhiên.
 - **Cách hoạt động**: Dự đoán từ tiếp theo trong chuỗi, hỗ trợ các tác vụ như viết văn bản, dịch ngôn ngữ, tóm tắt, và trả lời câu hỏi.
 - **Dify và LLMs**: Dify không phải là LLM mà là một nền tảng **LLMOps** và **BaaS** (Backend-as-a-Service), giúp tích hợp LLMs với dữ liệu và ý tưởng của bạn.

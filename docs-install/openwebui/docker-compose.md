@@ -1,6 +1,6 @@
-# Create file `docker-compose.yml`
+# Tạo tệp `docker-compose.yml` {#create-file-docker-composeyml}
 
-Create file `docker-compose.yml` with the following content:
+Tạo tệp `docker-compose.yml` với nội dung sau:
 ```yaml
 version: "3.9"
 

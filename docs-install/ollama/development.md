@@ -1,52 +1,52 @@
-# Development
+# Phát triển {#development}
 
-Install prerequisites:
+Cài đặt các điều kiện tiên quyết:
 
 - [Go](https://go.dev/doc/install)
-- C/C++ Compiler e.g. Clang on macOS, [TDM-GCC](https://github.com/jmeubank/tdm-gcc/releases/latest) (Windows amd64) or [llvm-mingw](https://github.com/mstorsjo/llvm-mingw) (Windows arm64), GCC/Clang on Linux.
+- Trình biên dịch C/C++, ví dụ Clang trên macOS, [TDM-GCC](https://github.com/jmeubank/tdm-gcc/releases/latest) (Windows amd64) hoặc [llvm-mingw](https://github.com/mstorsjo/llvm-mingw) (Windows arm64), GCC/Clang trên Linux.
 
-Then build and run Ollama from the root directory of the repository:
+Sau đó build và chạy Ollama từ thư mục gốc của kho mã nguồn:
 
 ```shell
 go run . serve
 ```
 
-## macOS (Apple Silicon)
+## macOS (Apple Silicon) {#macos-apple-silicon}
 
-macOS Apple Silicon supports Metal which is built-in to the Ollama binary. No additional steps are required.
+macOS Apple Silicon hỗ trợ Metal, đã được tích hợp sẵn trong tệp nhị phân Ollama. Không cần thêm bước nào.
 
-## macOS (Intel)
+## macOS (Intel) {#macos-intel}
 
-Install prerequisites:
+Cài đặt các điều kiện tiên quyết:
 
-- [CMake](https://cmake.org/download/) or `brew install cmake`
+- [CMake](https://cmake.org/download/) hoặc `brew install cmake`
 
-Then, configure and build the project:
+Sau đó cấu hình và build dự án:
 
 ```shell
 cmake -B build
 cmake --build build
 ```
 
-Lastly, run Ollama:
+Cuối cùng, chạy Ollama:
 
 ```shell
 go run . serve
 ```
 
-## Windows
+## Windows {#windows}
 
-Install prerequisites:
+Cài đặt các điều kiện tiên quyết:
 
 - [CMake](https://cmake.org/download/)
-- [Visual Studio 2022](https://visualstudio.microsoft.com/downloads/) including the Native Desktop Workload
-- (Optional) AMD GPU support
+- [Visual Studio 2022](https://visualstudio.microsoft.com/downloads/) kèm Native Desktop Workload
+- (Tùy chọn) Hỗ trợ GPU AMD
     - [ROCm](https://rocm.docs.amd.com/en/latest/)
     - [Ninja](https://github.com/ninja-build/ninja/releases)
-- (Optional) NVIDIA GPU support
+- (Tùy chọn) Hỗ trợ GPU NVIDIA
     - [CUDA SDK](https://developer.nvidia.com/cuda-downloads?target_os=Windows&target_arch=x86_64&target_version=11&target_type=exe_network)
 
-Then, configure and build the project:
+Sau đó cấu hình và build dự án:
 
 ```shell
 cmake -B build
@@ -54,106 +54,106 @@ cmake --build build --config Release
 ```
 
 > [!IMPORTANT]
-> Building for ROCm requires additional flags:
+> Build cho ROCm cần thêm các cờ sau:
 > ```
 > cmake -B build -G Ninja -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++
 > cmake --build build --config Release
 > ```
 
 
-Lastly, run Ollama:
+Cuối cùng, chạy Ollama:
 
 ```shell
 go run . serve
 ```
 
-## Windows (ARM)
+## Windows (ARM) {#windows-arm}
 
-Windows ARM does not support additional acceleration libraries at this time.  Do not use cmake, simply `go run` or `go build`.
+Windows ARM hiện chưa hỗ trợ các thư viện tăng tốc bổ sung.  Không dùng cmake, chỉ cần `go run` hoặc `go build`.
 
-## Linux
+## Linux {#linux}
 
-Install prerequisites:
+Cài đặt các điều kiện tiên quyết:
 
-- [CMake](https://cmake.org/download/) or `sudo apt install cmake` or `sudo dnf install cmake`
-- (Optional) AMD GPU support
+- [CMake](https://cmake.org/download/) hoặc `sudo apt install cmake` hoặc `sudo dnf install cmake`
+- (Tùy chọn) Hỗ trợ GPU AMD
     - [ROCm](https://rocm.docs.amd.com/projects/install-on-linux/en/latest/install/quick-start.html)
-- (Optional) NVIDIA GPU support
+- (Tùy chọn) Hỗ trợ GPU NVIDIA
     - [CUDA SDK](https://developer.nvidia.com/cuda-downloads)
 
 > [!IMPORTANT]
-> Ensure prerequisites are in `PATH` before running CMake.
+> Bảo đảm các điều kiện tiên quyết nằm trong `PATH` trước khi chạy CMake.
 
 
-Then, configure and build the project:
+Sau đó cấu hình và build dự án:
 
 ```shell
 cmake -B build
 cmake --build build
 ```
 
-Lastly, run Ollama:
+Cuối cùng, chạy Ollama:
 
 ```shell
 go run . serve
 ```
 
-## Docker
+## Docker {#docker}
 
 ```shell
 docker build .
 ```
 
-### ROCm
+### ROCm {#rocm}
 
 ```shell
 docker build --build-arg FLAVOR=rocm .
 ```
 
-## Running tests
+## Chạy kiểm thử {#running-tests}
 
-To run tests, use `go test`:
+Để chạy kiểm thử, dùng `go test`:
 
 ```shell
 go test ./...
 ```
 
-> NOTE: In rare circumstances, you may need to change a package using the new
-> "synctest" package in go1.24.
+> LƯU Ý: trong một số trường hợp hiếm, bạn có thể cần thay đổi một gói dùng
+> gói "synctest" mới trong go1.24.
 >
-> If you do not have the "synctest" package enabled, you will not see build or
-> test failures resulting from your change(s), if any, locally, but CI will
-> break.
+> Nếu bạn chưa bật gói "synctest", bạn sẽ không thấy lỗi build hoặc
+> lỗi kiểm thử do thay đổi của mình gây ra (nếu có) ở máy cục bộ, nhưng CI
+> sẽ bị lỗi.
 >
-> If you see failures in CI, you can either keep pushing changes to see if the
-> CI build passes, or you can enable the "synctest" package locally to see the
-> failures before pushing.
+> Nếu thấy lỗi trong CI, bạn có thể tiếp tục đẩy thay đổi để xem CI
+> build có qua không, hoặc bật gói "synctest" ở máy cục bộ để xem
+> lỗi trước khi đẩy.
 >
-> To enable the "synctest" package for testing, run the following command:
+> Để bật gói "synctest" khi kiểm thử, chạy lệnh sau:
 >
 > ```shell
 > GOEXPERIMENT=synctest go test ./...
 > ```
 >
-> If you wish to enable synctest for all go commands, you can set the
-> `GOEXPERIMENT` environment variable in your shell profile or by using:
+> Nếu muốn bật synctest cho mọi lệnh go, bạn có thể đặt biến môi trường
+> `GOEXPERIMENT` trong hồ sơ shell hoặc dùng:
 >
 > ```shell
 > go env -w GOEXPERIMENT=synctest
 > ```
 >
-> Which will enable the "synctest" package for all go commands without needing
-> to set it for all shell sessions.
+> Lệnh này sẽ bật gói "synctest" cho mọi lệnh go mà không cần đặt
+> cho từng phiên shell.
 >
-> The synctest package is not required for production builds.
+> Gói synctest không bắt buộc cho các bản build production.
 
-## Library detection
+## Phát hiện thư viện {#library-detection}
 
-Ollama looks for acceleration libraries in the following paths relative to the `ollama` executable:
+Ollama tìm các thư viện tăng tốc trong các đường dẫn sau, tính tương đối so với tệp thực thi `ollama`:
 
 * `./lib/ollama` (Windows)
 * `../lib/ollama` (Linux)
 * `.` (macOS)
-* `build/lib/ollama` (for development)
+* `build/lib/ollama` (khi phát triển)
 
-If the libraries are not found, Ollama will not run with any acceleration libraries.
+Nếu không tìm thấy thư viện, Ollama sẽ không chạy với bất kỳ thư viện tăng tốc nào.

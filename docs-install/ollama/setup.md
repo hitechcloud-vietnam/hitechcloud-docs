@@ -1,26 +1,26 @@
-# Installation Instructions
+# Hướng dẫn cài đặt {#installation-instructions}
 
-## 1️⃣ Prepare the server
-- Update the system:
+## 1️⃣ Chuẩn bị máy chủ {#1️⃣-prepare-the-server}
+- Cập nhật hệ thống:
 ```bash
 sudo apt update && sudo apt upgrade -y
 ```
 
-## 2️⃣ Install NVIDIA driver and CUDA
-- Install NVIDIA driver and CUDA toolkit:
+## 2️⃣ Cài đặt driver NVIDIA và CUDA {#2️⃣-install-nvidia-driver-and-cuda}
+- Cài đặt driver NVIDIA và CUDA toolkit:
 ```bash
 sudo apt install -y nvidia-driver-535 nvidia-cuda-toolkit
 ```
-- Check the GPU:
+- Kiểm tra GPU:
 ```bash
 nvidia-smi
 ```
-- **Expected result**: The GPU information panel appears.
-- **Error if GPU not found**: The driver may not be installed correctly or the server needs to be restarted:
+- **Kết quả mong đợi**: bảng thông tin GPU hiện ra.
+- **Lỗi nếu không tìm thấy GPU**: driver có thể chưa được cài đúng hoặc máy chủ cần khởi động lại:
 ```bash
 sudo reboot
 ```
-- **Error Fix**: If `nvidia-smi` still doesn't work, check the driver version that matches your GPU:
+- **Cách khắc phục**: nếu `nvidia-smi` vẫn không chạy, hãy kiểm tra phiên bản driver phù hợp với GPU của bạn:
 ```bash
 sudo apt install -y nvidia-driver-<version>
 ```

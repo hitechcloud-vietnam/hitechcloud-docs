@@ -1,8 +1,8 @@
-# IPEX-LLM Installation: CPU
+# Cài đặt IPEX-LLM: CPU {#ipex-llm-installation-cpu}
 
-## Quick Installation
+## Cài đặt nhanh {#quick-installation}
 
-Install IPEX-LLM for CPU supports using pip through:
+Cài đặt IPEX-LLM hỗ trợ CPU bằng pip như sau:
 
 ```eval_rst	
 .. tabs::
@@ -20,7 +20,7 @@ Install IPEX-LLM for CPU supports using pip through:
          pip install --pre --upgrade ipex-llm[all]
 ```
 
-Please refer to [Environment Setup](#environment-setup) for more information.
+Xem thêm thông tin tại [Thiết lập môi trường](#environment-setup).
 
 ```eval_rst
 .. note::
@@ -32,26 +32,26 @@ Please refer to [Environment Setup](#environment-setup) for more information.
    ``ipex-llm`` is tested with Python 3.9, 3.10 and 3.11; Python 3.11 is recommended for best practices.
 ```
 
-## Recommended Requirements
+## Yêu cầu khuyến nghị {#recommended-requirements}
 
-Here list the recommended hardware and OS for smooth IPEX-LLM optimization experiences on CPU:
+Phần cứng và hệ điều hành khuyến nghị để có trải nghiệm tối ưu hóa IPEX-LLM mượt mà trên CPU:
 
-* Hardware
+* Phần cứng
 
-  * PCs equipped with 12th Gen Intel® Core™ processor or higher, and at least 16GB RAM
-  * Servers equipped with Intel® Xeon® processors, at least 32G RAM.
+  * Máy tính trang bị bộ xử lý Intel® Core™ thế hệ 12 trở lên và tối thiểu 16GB RAM
+  * Máy chủ trang bị bộ xử lý Intel® Xeon®, tối thiểu 32GB RAM.
 
-* Operating System
+* Hệ điều hành
 
-  * Ubuntu 20.04 or later
-  * CentOS 7 or later
-  * Windows 10/11, with or without WSL
+  * Ubuntu 20.04 trở lên
+  * CentOS 7 trở lên
+  * Windows 10/11, có hoặc không có WSL
 
-## Environment Setup
+## Thiết lập môi trường {#environment-setup}
 
-For optimal performance with LLM models using IPEX-LLM optimizations on Intel CPUs, here are some best practices for setting up environment:
+Để đạt hiệu năng tối ưu với các mô hình LLM dùng tối ưu hóa của IPEX-LLM trên CPU Intel, dưới đây là một số thực hành tốt khi thiết lập môi trường:
 
-First we recommend using [Conda](https://conda-forge.org/download/) to create a python 3.11 enviroment:
+Trước hết, nên dùng [Conda](https://conda-forge.org/download/) để tạo môi trường python 3.11:
 
 ```eval_rst	
 .. tabs::
@@ -75,7 +75,7 @@ First we recommend using [Conda](https://conda-forge.org/download/) to create a 
          pip install --pre --upgrade ipex-llm[all]
 ```
 
-Then for running a LLM model with IPEX-LLM optimizations (taking an `example.py` an example):
+Sau đó, để chạy một mô hình LLM với tối ưu hóa của IPEX-LLM (lấy `example.py` làm ví dụ):
 
 ```eval_rst	
 .. tabs::

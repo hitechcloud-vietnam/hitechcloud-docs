@@ -1,18 +1,18 @@
-# Using Nginx with vLLM
+# Dùng Nginx với vLLM {#using-nginx-with-vllm}
 
-This document shows how to launch multiple vLLM serving containers and use Nginx to act as a load balancer between the servers.
+Tài liệu này hướng dẫn khởi chạy nhiều container phục vụ vLLM và dùng Nginx làm bộ cân bằng tải giữa các máy chủ.
 
-## Build Nginx Container
+## Build container Nginx {#build-nginx-container}
 
-This guide assumes that you have just cloned the vLLM project and you're currently in the vLLM root directory.
+Hướng dẫn này giả định bạn vừa clone dự án vLLM và đang ở thư mục gốc của vLLM.
 
-### Command
+### Lệnh {#command}
 
 ```bash
 export vllm_root=`pwd`
 ```
 
-Create a file named `Dockerfile.nginx`:
+Tạo tệp tên `Dockerfile.nginx`:
 
 ```dockerfile
 FROM nginx:latest
@@ -21,17 +21,17 @@ EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 ```
 
-Build the container:
+Build container:
 
 ```bash
 docker build . -f Dockerfile.nginx --tag nginx-lb
 ```
 
-## Create Simple Nginx Config File
+## Tạo tệp cấu hình Nginx đơn giản {#create-simple-nginx-config-file}
 
-Create a file named `nginx_conf/nginx.conf`. Note that you can add as many servers as you'd like. In the below example, we'll start with two. To add more, add another `server vllmN:8000 max_fails=3 fail_timeout=10000s;` entry to `upstream backend`.
+Tạo tệp tên `nginx_conf/nginx.conf`. Lưu ý bạn có thể thêm bao nhiêu máy chủ tùy ý. Trong ví dụ dưới đây, chúng ta bắt đầu với hai máy chủ. Để thêm, hãy thêm một mục `server vllmN:8000 max_fails=3 fail_timeout=10000s;` khác vào `upstream backend`.
 
-### Config
+### Cấu hình {#config}
 
 ```nginx
 upstream backend {
@@ -51,14 +51,14 @@ server {
 }
 ```
 
-## Build vLLM Container
+## Build container vLLM {#build-vllm-container}
 
 ```bash
 cd $vllm_root
 docker build -f docker/Dockerfile . --tag vllm
 ```
 
-If you are behind a proxy, you can pass the proxy settings to the Docker build command as shown below:
+Nếu bạn ở sau proxy, có thể truyền cài đặt proxy cho lệnh docker build như bên dưới:
 
 ```bash
 cd $vllm_root
@@ -69,22 +69,22 @@ docker build \
     --build-arg https_proxy=$https_proxy
 ```
 
-## Create Docker Network
+## Tạo mạng Docker {#create-docker-network}
 
 ```bash
 docker network create vllm_nginx
 ```
 
-## Launch vLLM Containers
+## Khởi chạy các container vLLM {#launch-vllm-containers}
 
-### Notes
+### Lưu ý {#notes}
 
-- If you have your HuggingFace models cached somewhere else, update `hf_cache_dir` below.
-- If you don't have an existing HuggingFace cache, you will want to start `vllm0` and wait for the model to complete downloading and the server to be ready. This will ensure that `vllm1` can leverage the model you just downloaded and it won't have to be downloaded again.
-- The below example assumes GPU backend used. If you are using CPU backend, remove `--gpus device=ID`, add `VLLM_CPU_KVCACHE_SPACE` and `VLLM_CPU_OMP_THREADS_BIND` environment variables to the Docker run command.
-- Adjust the model name that you want to use in your vLLM servers if you don't want to use `Llama-2-7b-chat-hf`.
+- Nếu bạn lưu cache mô hình HuggingFace ở nơi khác, hãy cập nhật `hf_cache_dir` bên dưới.
+- Nếu bạn chưa có cache HuggingFace, hãy khởi động `vllm0` và chờ mô hình tải xong và máy chủ sẵn sàng. Việc này bảo đảm `vllm1` tận dụng được mô hình vừa tải mà không phải tải lại.
+- Ví dụ dưới đây giả định dùng backend GPU. Nếu dùng backend CPU, hãy bỏ `--gpus device=ID` và thêm các biến môi trường `VLLM_CPU_KVCACHE_SPACE` và `VLLM_CPU_OMP_THREADS_BIND` vào lệnh docker run.
+- Hãy điều chỉnh tên mô hình bạn muốn dùng trong các máy chủ vLLM nếu không muốn dùng `Llama-2-7b-chat-hf`.
 
-### Commands
+### Các lệnh {#commands}
 
 ```bash
 mkdir -p ~/.cache/huggingface/hub/
@@ -111,9 +111,9 @@ docker run \
     --model meta-llama/Llama-2-7b-chat-hf
 ```
 
-**Note:** If you are behind a proxy, you can pass the proxy settings to the Docker run command via `-e http_proxy=$http_proxy -e https_proxy=$https_proxy`.
+**Lưu ý:** nếu bạn ở sau proxy, có thể truyền cài đặt proxy cho lệnh docker run qua `-e http_proxy=$http_proxy -e https_proxy=$https_proxy`.
 
-## Launch Nginx
+## Khởi chạy Nginx {#launch-nginx}
 
 ```bash
 docker run \
@@ -124,14 +124,14 @@ docker run \
     --name nginx-lb nginx-lb:latest
 ```
 
-## Verify That vLLM Servers Are Ready
+## Kiểm tra các máy chủ vLLM đã sẵn sàng {#verify-that-vllm-servers-are-ready}
 
 ```bash
 docker logs vllm0 | grep Uvicorn
 docker logs vllm1 | grep Uvicorn
 ```
 
-Both outputs should look like this:
+Cả hai kết quả đầu ra sẽ trông như sau:
 
 ```plaintext
 INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)

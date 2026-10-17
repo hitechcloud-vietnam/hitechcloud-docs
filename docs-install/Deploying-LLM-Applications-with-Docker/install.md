@@ -1,33 +1,33 @@
-# Deploying LLM Applications with Docker
+# Triển khai ứng dụng LLM bằng Docker {#deploying-llm-applications-with-docker}
 
-Follow the tutorial: [Deploy LLM Applications Using Docker](https://www.datacamp.com/tutorial/deploy-llm-applications-using-docker)
+Làm theo hướng dẫn: [Deploy LLM Applications Using Docker](https://www.datacamp.com/tutorial/deploy-llm-applications-using-docker)
 
-## Approaches to Developing and Deploying AI Applications
+## Các cách phát triển và triển khai ứng dụng AI {#approaches-to-developing-and-deploying-ai-applications}
 
-There are two main approaches to developing and deploying AI applications:
+Có hai cách chính để phát triển và triển khai ứng dụng AI:
 
-- **Fully Open Source**: This approach emphasizes privacy and data protection.
-- **Fully Closed Source**: This method involves integrating multiple APIs and cloud services.
+- **Mã nguồn mở hoàn toàn**: cách này đề cao quyền riêng tư và bảo vệ dữ liệu.
+- **Mã nguồn đóng hoàn toàn**: cách này tích hợp nhiều API và dịch vụ đám mây.
 
-Both approaches have their advantages and disadvantages. In our case, we have chosen the second approach, where we will integrate multiple AI services. This allows us to build an AI application that is fast and takes only a few seconds to build and deploy. Our main focus is to reduce the Docker image size, which can be effectively achieved by integrating multiple AI services.
+Mỗi cách đều có ưu và nhược điểm riêng. Trong bài này, chúng ta chọn cách thứ hai, tức là tích hợp nhiều dịch vụ AI. Cách này cho phép xây dựng một ứng dụng AI nhanh, chỉ mất vài giây để build và triển khai. Trọng tâm của chúng ta là giảm kích thước Docker image, điều có thể đạt được hiệu quả bằng cách tích hợp nhiều dịch vụ AI.
 
-We will be building an all-purpose document Q&A chatbot that allows users to upload any documents and chat with it at real-time speed. It is quite similar to Google’s NotebookLM.
+Chúng ta sẽ xây dựng một chatbot hỏi đáp tài liệu đa năng, cho phép người dùng tải lên bất kỳ tài liệu nào và trò chuyện với nó với tốc độ thời gian thực. Chatbot này khá giống NotebookLM của Google.
 
-![Deploying LLM Applications with Docker](https://github.com/user-attachments/assets/1d82de55-3db6-4f70-8ff3-f2c46a5ed6ee)
+![Triển khai ứng dụng LLM bằng Docker](https://github.com/user-attachments/assets/1d82de55-3db6-4f70-8ff3-f2c46a5ed6ee)
 
-## Tools Used in This Project
+## Các công cụ sử dụng trong dự án {#tools-used-in-this-project}
 
-1. **Gradio Blocks**: For creating a user interface that allows users to upload any text document and chat with the document easily.
-2. **LlamaCloud**: For parsing files and extracting text data into markdown style.
-3. **MixedBread AI**: For converting loaded documents into embeddings and also converting chat messages into embeddings for context retrieval.
-4. **Groq Cloud**: For accessing fast LLM responses. In this project, we will be using the llama-3.1-70b model.
-5. **LlamaIndex**: For creating the RAG (Retrieval Augmented Generation) pipeline that orchestrates all of the AI services. The pipeline will use the uploaded file and user messages to generate context-aware answers.
-6. **Docker**: For encapsulating the app, dependencies, environment, and configurations.
-7. **Hugging Face Cloud**: We will push all the files to the Spaces repository, and Hugging Face will automatically build the image using the Dockerfile and deploy it to the server.
+1. **Gradio Blocks**: tạo giao diện cho phép người dùng dễ dàng tải lên tài liệu văn bản bất kỳ và trò chuyện với tài liệu đó.
+2. **LlamaCloud**: phân tích tệp và trích xuất dữ liệu văn bản sang định dạng markdown.
+3. **MixedBread AI**: chuyển các tài liệu đã tải lên thành embedding, đồng thời chuyển tin nhắn trò chuyện thành embedding để truy xuất ngữ cảnh.
+4. **Groq Cloud**: truy cập các phản hồi LLM nhanh. Trong dự án này, chúng ta dùng mô hình llama-3.1-70b.
+5. **LlamaIndex**: tạo pipeline RAG (Retrieval Augmented Generation) điều phối toàn bộ các dịch vụ AI. Pipeline dùng tệp đã tải lên và tin nhắn của người dùng để tạo câu trả lời có ngữ cảnh.
+6. **Docker**: đóng gói ứng dụng, các phụ thuộc, môi trường và cấu hình.
+7. **Hugging Face Cloud**: chúng ta đẩy toàn bộ tệp lên kho Spaces, Hugging Face sẽ tự động build image bằng Dockerfile và triển khai lên máy chủ.
 
-## Application Code
+## Mã ứng dụng {#application-code}
 
-### app.py
+### app.py {#apppy}
 
 ```python
 import os
@@ -162,7 +162,7 @@ if __name__ == "__main__":
     demo.launch()
 ```
 
-### requirements.txt
+### requirements.txt {#requirementstxt}
 
 ```plaintext
 gradio
@@ -171,7 +171,7 @@ llama-index-llms-groq
 llama-index
 ```
 
-### Dockerfile
+### Dockerfile {#dockerfile}
 
 ```dockerfile
 # Dockerfile

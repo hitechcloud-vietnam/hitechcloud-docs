@@ -1,30 +1,30 @@
-# Run AnythingLLM on Cloud using Docker
+# Chạy AnythingLLM trên đám mây bằng Docker {#run-anythingllm-on-cloud-using-docker}
 
-Running AnythingLLM on a cloud service is the best way to run a private multi-user instance of AnythingLLM with full control while not having to worry about the underlying infrastructure.
+Chạy AnythingLLM trên dịch vụ đám mây là cách tốt nhất để vận hành một phiên bản AnythingLLM riêng, nhiều người dùng, kiểm soát đầy đủ mà không phải lo về hạ tầng bên dưới.
 
-## Easy Cloud Deployment
+## Triển khai đám mây dễ dàng {#easy-cloud-deployment}
 
-AnythingLLM offers easily integrated one-click Docker deployment templates with Railway and Render.
+AnythingLLM cung cấp các mẫu triển khai Docker một cú nhấp chuột, dễ tích hợp với Railway và Render.
 
-This is the easiest way to self-host a cloud server version of AnythingLLM.
+Đây là cách dễ nhất để tự lưu trữ (self-host) phiên bản AnythingLLM trên máy chủ đám mây.
 
-### Provider Minimum Instance Size
+### Kích thước instance tối thiểu theo nhà cung cấp {#provider-minimum-instance-size}
 
-| Provider                | Minimum Instance Size |
+| Nhà cung cấp            | Kích thước instance tối thiểu |
 |-------------------------|-----------------------|
 | Amazon Web Services     | t3.small             |
 | Google Cloud Provider   | e2-standard-2        |
 | Azure Cloud             | B2ps v2              |
 
-AnythingLLM offers community-maintained deployment templates for cloud providers: [GitHub Repository](https://github.com/Mintplex-Labs/anything-llm/tree/master/cloud-deployments).
+AnythingLLM cung cấp các mẫu triển khai do cộng đồng duy trì cho các nhà cung cấp đám mây: [Kho GitHub](https://github.com/Mintplex-Labs/anything-llm/tree/master/cloud-deployments).
 
-## Deployment Steps
+## Các bước triển khai {#deployment-steps}
 
-Once you are prepared to run AnythingLLM on your server, the process is quite simple.
+Khi đã sẵn sàng chạy AnythingLLM trên máy chủ, quy trình khá đơn giản.
 
-You should provision a folder somewhere on the host machine so that you can re-pull the latest versions of AnythingLLM and persist data between container rebuilds.
+Bạn nên tạo một thư mục trên máy chủ để có thể pull lại các phiên bản AnythingLLM mới nhất và giữ dữ liệu khi dựng lại container.
 
-### Deployment Command
+### Lệnh triển khai {#deployment-command}
 
 ```bash
 # Assuming that you want to store app data in a folder at /var/lib/anythingllm
@@ -45,27 +45,27 @@ mintplexlabs/anythingllm:master
 # Visit http://localhost:3001 to use AnythingLLM!
 ```
 
-Done! You are using AnythingLLM!
+Xong! Bạn đang dùng AnythingLLM!
 
-## More Information
+## Thông tin thêm {#more-information}
 
-### Backwards Compatibility
+### Tương thích ngược {#backwards-compatibility}
 
-The Mintplex Labs team takes great care to ensure AnythingLLM is always backward compatible. In the event this changes, you will be alerted via code, deployment, or our regular communication channels on social, Discord, and email.
+Nhóm Mintplex Labs rất chú trọng bảo đảm AnythingLLM luôn tương thích ngược. Nếu điều này thay đổi, bạn sẽ được thông báo qua mã nguồn, quá trình triển khai hoặc các kênh liên lạc thường xuyên trên mạng xã hội, Discord và email.
 
-### Scaling
+### Mở rộng quy mô {#scaling}
 
-Since the AnythingLLM backend uses SQLite for its database, it is not recommended to attempt to scale the AnythingLLM backend horizontally since you would then need to have many containers all reading and writing to the same database.
+Vì backend của AnythingLLM dùng SQLite làm cơ sở dữ liệu, không nên mở rộng backend theo chiều ngang, vì khi đó nhiều container sẽ cùng đọc và ghi vào một cơ sở dữ liệu.
 
-In this case, we recommend using a more robust database like PostgreSQL and our PostgreSQL image, which will centralize the database as well as set PGVector as the vector database.
+Trong trường hợp này, nên dùng cơ sở dữ liệu mạnh hơn như PostgreSQL cùng image PostgreSQL của AnythingLLM; image này tập trung cơ sở dữ liệu và đặt PGVector làm cơ sở dữ liệu vector.
 
-### SSL/HTTPS Support
+### Hỗ trợ SSL/HTTPS {#sslhttps-support}
 
-In order to use SSL/HTTPS with AnythingLLM, you should use a reverse proxy like NGINX with a TLS certificate you can get from Let's Encrypt.
+Để dùng SSL/HTTPS với AnythingLLM, nên dùng reverse proxy như NGINX cùng chứng chỉ TLS lấy từ Let's Encrypt.
 
-#### NGINX Configuration
+#### Cấu hình NGINX {#nginx-configuration}
 
-Here is an example NGINX configuration that you can use to reverse proxy to AnythingLLM:
+Dưới đây là ví dụ cấu hình NGINX để reverse proxy tới AnythingLLM:
 
 ```nginx
 # Default server configuration
