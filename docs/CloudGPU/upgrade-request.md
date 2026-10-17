@@ -1,21 +1,21 @@
-# Upgrade Request
+# Yêu cầu nâng cấp
 
-Estimate or request an upgrade for a virtual server.
+Ước tính hoặc yêu cầu nâng cấp cho máy chủ ảo.
 
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 POST /service/@id/upgrade
 ```
 
-### Query Parameters
-| Parameter | Type   | Description                     |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|---------------------------------|
-| id        | int    | Service ID                      |
-| resources | array  | Array with resource values      |
-| package   | int    | New package ID (optional)       |
-| cycle     | string | New billing cycle (optional)    |
-| send      | bool   | Send upgrade request (optional) |
+| id | int | ID dịch vụ |
+| resources | array | Mảng giá trị tài nguyên |
+| package | int | ID gói mới (tùy chọn) |
+| cycle | string | Chu kỳ thanh toán mới (tùy chọn) |
+| send | bool | Gửi yêu cầu nâng cấp (tùy chọn) |
 
 ```bash
 POST_DATA="{

@@ -1,23 +1,23 @@
-# DNS Records Types
+# Các loại bản ghi DNS
 
-List supported DNS record types.
+Liệt kê các loại bản ghi DNS được hỗ trợ.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /domain/@id/dns/types
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Domain ID   |
+| id | int | ID tên miền |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/domain/@id/dns/types" \
    -H "Authorization: Bearer $token"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "types": [

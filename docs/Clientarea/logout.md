@@ -1,8 +1,8 @@
-# Logout
+# Đăng xuất
 
-Invalidate the authorization token.
+Vô hiệu hóa token xác thực.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 POST /logout
 ```
@@ -12,7 +12,7 @@ curl -X POST "https://my.photuesoftware.vn/api/logout" \
    -H "Authorization: Bearer $token"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "status": true

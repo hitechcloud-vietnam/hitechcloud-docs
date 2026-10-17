@@ -1,16 +1,16 @@
-# Power ON
+# Bật nguồn
 
-Power on a server.
+Bật nguồn máy chủ.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 POST /service/@id/poweron
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID  |
+| id | int | ID dịch vụ |
 
 ```bash
 curl -X POST "https://my.photuesoftware.vn/api/service/@id/poweron" \

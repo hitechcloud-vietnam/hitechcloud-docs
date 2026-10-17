@@ -1,21 +1,21 @@
-# Update DNS Records
+# Cập nhật bản ghi DNS
 
-Change a DNS record.
+Thay đổi một bản ghi DNS.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 PUT /domain/@id/dns/@index
 ```
 
-### Query Parameters
-| Parameter  | Type   | Description          |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |------------|--------|----------------------|
-| id         | int    | Domain ID            |
-| record_id  | int    | Record index         |
-| name       | string | Record name          |
-| type       | string | Record type          |
-| priority   | string | Record priority      |
-| content    | string | Record content (e.g., IP address for A records) |
+| id | int | ID tên miền |
+| record_id | int | Chỉ số bản ghi |
+| name | string | Tên bản ghi |
+| type | string | Loại bản ghi |
+| priority | string | Độ ưu tiên của bản ghi |
+| content | string | Nội dung bản ghi (ví dụ: địa chỉ IP cho bản ghi A) |
 
 ```bash
 POST_DATA="{
@@ -33,7 +33,7 @@ curl -X PUT "https://my.photuesoftware.vn/api/domain/@id/dns/@index" \
    -d "${POST_DATA}"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "info": [

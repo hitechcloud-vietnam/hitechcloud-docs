@@ -1,18 +1,18 @@
-# Order Multiple Services
+# Đặt hàng nhiều dịch vụ
 
-Create and submit a new order for multiple services.
+Tạo và gửi một đơn hàng mới cho nhiều dịch vụ.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 POST /order
 ```
 
-### Query Parameters
-| Parameter       | Type   | Description  |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------------|--------|--------------|
-| pay_method      | int    | Payment method ID |
-| ignore_errors   | bool   | Ignore errors     |
-| items           | array  | List of order items |
+| pay_method | int | ID phương thức thanh toán |
+| ignore_errors | bool | Bỏ qua lỗi |
+| items | array | Danh sách các mục của đơn hàng |
 
 ```bash
 POST_DATA="{
@@ -41,7 +41,7 @@ curl -X POST "https://my.photuesoftware.vn/api/order" \
    -d "${POST_DATA}"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "order_num_list": [

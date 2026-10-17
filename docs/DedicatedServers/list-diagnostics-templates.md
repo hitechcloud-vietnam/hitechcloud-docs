@@ -1,17 +1,17 @@
-# List Diagnostics Templates
+# Danh sách mẫu chẩn đoán
 
-List templates that can be used for diagnostics operations.
+Liệt kê các mẫu có thể dùng cho thao tác chẩn đoán.
 
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /service/@id/diag/templates
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID   |
+| id | int | ID dịch vụ |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@id/diag/templates" \

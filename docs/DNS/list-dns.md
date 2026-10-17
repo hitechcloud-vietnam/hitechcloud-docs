@@ -1,8 +1,8 @@
-# List DNS
+# Danh sách DNS
 
-Returns a list of all DNS.
+Trả về danh sách tất cả DNS.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /dns
 ```
@@ -12,7 +12,7 @@ curl -X GET "https://my.photuesoftware.vn/api/dns" \
    -H "Authorization: Bearer $token"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "service_ids": [

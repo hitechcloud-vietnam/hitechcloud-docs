@@ -1,23 +1,23 @@
-# List Products in Category
+# Danh sách sản phẩm trong danh mục
 
-Return a list of products available for purchase under the requested category.
+Trả về danh sách sản phẩm có thể mua thuộc danh mục được yêu cầu.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /category/@category_id/product
 ```
 
-### Query Parameters
-| Parameter    | Type | Description  |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |--------------|------|--------------|
-| category_id  | int  | Category ID  |
+| category_id | int | ID danh mục |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/category/@category_id/product" \
    -H "Authorization: Bearer $token"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "products": [

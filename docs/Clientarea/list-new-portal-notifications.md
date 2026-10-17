@@ -1,13 +1,13 @@
-# List New Portal Notifications
+# Danh sách thông báo mới của cổng
 
-Return only new portal notifications.
+Chỉ trả về các thông báo mới của cổng.
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/notifications/new" \
    -H "Authorization: Bearer $token"
 ```
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /notifications/new
 ```

@@ -1,8 +1,8 @@
-# Get Affiliate Commission Plans
-Get Affiliate Commission Plans description: Retrieve a list of affiliate commission plans available in the HiTechCloud system.
-Overview
+# Lấy danh sách gói hoa hồng tiếp thị liên kết
+Mô tả: Lấy danh sách các gói hoa hồng tiếp thị liên kết có trong hệ thống HiTechCloud.
+## Tổng quan
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /affiliates/commissionplans
 ```

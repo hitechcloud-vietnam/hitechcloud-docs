@@ -1,16 +1,16 @@
-# List Servers In-stock
+# Danh sách máy chủ còn hàng
 
-List servers currently in stock.
+Liệt kê các máy chủ hiện còn hàng.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /serverstock
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID  |
+| id | int | ID dịch vụ |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/serverstock" \

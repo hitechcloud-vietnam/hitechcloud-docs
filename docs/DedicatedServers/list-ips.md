@@ -1,16 +1,16 @@
-# List IPs
+# Danh sách IP
 
-List server IPs.
+Liệt kê các IP của máy chủ.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /service/@id/ips
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID   |
+| id | int | ID dịch vụ |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@id/ips" \

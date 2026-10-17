@@ -1,17 +1,17 @@
-# Add DNS Zone
+# Thêm vùng DNS
 
-Creates a new DNS zone.
+Tạo vùng DNS mới.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 POST /service/@service_id/dns
 ```
 
-### Query Parameters
-| Parameter    | Type   | Description  |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |--------------|--------|--------------|
-| service_id   | int    | Service ID   |
-| name         | string | Zone name    |
+| service_id | int | ID dịch vụ |
+| name | string | Tên vùng |
 
 ```bash
 POST_DATA="{
@@ -25,7 +25,7 @@ curl -X POST "https://my.photuesoftware.vn/api/service/@service_id/dns" \
    -d "${POST_DATA}"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "info": [

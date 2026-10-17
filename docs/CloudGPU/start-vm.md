@@ -1,17 +1,17 @@
-# Start VM
+# Khởi động máy ảo
 
-Start a virtual server.
+Khởi động máy chủ ảo.
 
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 PUT /service/@id/vms/start
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID   |
+| id | int | ID dịch vụ |
 
 ```bash
 curl -X PUT "https://my.photuesoftware.vn/api/service/@id/vms/start"

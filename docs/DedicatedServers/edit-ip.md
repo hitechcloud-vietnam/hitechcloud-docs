@@ -1,19 +1,19 @@
-# Edit IP
+# Sửa IP
 
-Update the domain of an IP.
+Cập nhật tên miền của một IP.
 
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 POST /service/@id/ips/@ip
 ```
 
-### Query Parameters
-| Parameter | Type   | Description         |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|---------------------|
-| id        | int    | Service ID          |
-| ip        | string | IP Address ID       |
-| domain    | string | Domain name         |
+| id | int | ID dịch vụ |
+| ip | string | ID địa chỉ IP |
+| domain | string | Tên miền |
 
 ```bash
 POST_DATA="{

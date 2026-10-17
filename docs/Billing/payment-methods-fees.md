@@ -1,18 +1,18 @@
-# Payment Methods Fees
+# Phí phương thức thanh toán
 
-List available payment methods with fees.
+Liệt kê các phương thức thanh toán khả dụng kèm phí.
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/payment/fees" \
    -H "Authorization: Bearer $token"
 ```
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /payment/fees
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "payments": [

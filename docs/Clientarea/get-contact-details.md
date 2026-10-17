@@ -1,30 +1,30 @@
 ---
 id: get-contact-details
-title: Get Contact Details
+title: Lấy chi tiết liên hệ
 ---
 
-## Get Contact Details
+## Lấy chi tiết liên hệ
 
-Retrieve details of a specific contact.
+Lấy thông tin chi tiết của một liên hệ cụ thể.
 
-### HTTP Request
+### Yêu cầu HTTP
 
 `GET /contact/@id`
 
-### Query Parameters
+### Tham số truy vấn
 
-| Parameter | Type | Description  |
+| Tham số | Kiểu | Mô tả |
 |-----------|------|--------------|
-| id        | int  | Contact ID   |
+| id | int | ID liên hệ |
 
-### Example Request
+### Yêu cầu mẫu
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/contact/@id" \
    -H "Authorization: Bearer $token"
 ```
 
-### Example Response
+### Phản hồi mẫu
 
 ```json
 {

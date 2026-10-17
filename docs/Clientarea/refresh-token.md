@@ -1,17 +1,17 @@
-# Refresh Token
+# Làm mới token
 
-Generate a new authorization token using the refresh token.
+Tạo token xác thực mới bằng refresh token.
 
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 POST /token
 ```
 
-### Query Parameters
-| Parameter      | Type   | Description                  |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |----------------|--------|------------------------------|
-| refresh_token  | string | Refresh token previously obtained from POST /login |
+| refresh_token | string | Refresh token đã nhận trước đó từ `POST /login` |
 
 ```bash
 POST_DATA="{
@@ -23,7 +23,7 @@ curl -X POST "https://my.photuesoftware.vn/api/token" \
    -d "${POST_DATA}"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHR(...)vY2xlYiHGvauCWZD9B0VwXgHEzXDllqY",

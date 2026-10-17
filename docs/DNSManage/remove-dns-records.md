@@ -1,24 +1,24 @@
-# Remove DNS Records
+# Xóa bản ghi DNS
 
-Remove a DNS record.
+Xóa một bản ghi DNS.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 DELETE /domain/@id/dns/@index
 ```
 
-### Query Parameters
-| Parameter  | Type   | Description          |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |------------|--------|----------------------|
-| id         | int    | Domain ID            |
-| record_id  | int    | Record index         |
+| id | int | ID tên miền |
+| record_id | int | Chỉ số bản ghi |
 
 ```bash
 curl -X DELETE "https://my.photuesoftware.vn/api/domain/@id/dns/@index" \
    -H "Authorization: Bearer $token"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "info": [

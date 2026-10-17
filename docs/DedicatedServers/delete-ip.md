@@ -1,17 +1,17 @@
-# Delete IP
+# Xóa IP
 
-Remove an IP from a server.
+Xóa một IP khỏi máy chủ.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 DELETE /service/@id/ips/@ip
 ```
 
-### Query Parameters
-| Parameter | Type   | Description         |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|---------------------|
-| id        | int    | Service ID          |
-| ip        | string | IP Address ID       |
+| id | int | ID dịch vụ |
+| ip | string | ID địa chỉ IP |
 
 ```bash
 curl -X DELETE "https://my.photuesoftware.vn/api/service/@id/ips/@ip"

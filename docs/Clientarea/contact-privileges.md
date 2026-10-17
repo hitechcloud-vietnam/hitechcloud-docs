@@ -1,24 +1,24 @@
 ---
 id: contact-privileges
-title: Contact Privileges
+title: Quyền của liên hệ
 ---
 
-## Contact Privileges
+## Quyền của liên hệ
 
-List possible contact privileges. Each domain and service may list additional privileges, depending on available features.
+Liệt kê các quyền có thể gán cho liên hệ. Mỗi tên miền và dịch vụ có thể liệt kê thêm quyền, tùy theo các tính năng hiện có.
 
-### HTTP Request
+### Yêu cầu HTTP
 
 `GET /contact/privileges`
 
-### Example Request
+### Yêu cầu mẫu
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/contact/privileges" \
    -H "Authorization: Bearer $token"
 ```
 
-### Example Response
+### Phản hồi mẫu
 
 ```json
 {

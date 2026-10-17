@@ -1,16 +1,16 @@
-# Diagnostics Status
+# Trạng thái chẩn đoán
 
-Show the status of a diagnostics operation.
+Hiển thị trạng thái của một thao tác chẩn đoán.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /service/@id/diag
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID   |
+| id | int | ID dịch vụ |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@id/diag" \

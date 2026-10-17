@@ -1,6 +1,6 @@
-# Apply Credit
+# Áp dụng tín dụng
 
-Apply account credit to an invoice.
+Áp dụng tín dụng tài khoản vào một hóa đơn.
 
 ```bash
 POST_DATA="{
@@ -13,17 +13,17 @@ curl -X POST "https://my.photuesoftware.vn/api/invoice/@id/credit" \
    -d "${POST_DATA}"
 ```
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 POST /invoice/@id/credit
 ```
 
-### Query Parameters
-| Parameter | Type   | Description                                                                 |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|-----------------------------------------------------------------------------|
-| amount    | number | Optional credit amount. If not specified, the maximum amount will be used.  |
+| amount | number | Số tín dụng (tùy chọn). Nếu không chỉ định, hệ thống dùng số tối đa. |
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "success": true,

@@ -1,16 +1,16 @@
-# Get Firewall Rules
+# Lấy quy tắc tường lửa
 
-Retrieve firewall rules for a virtual server.
+Lấy các quy tắc tường lửa của máy chủ ảo.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /service/@id/vms/firewall
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID   |
+| id | int | ID dịch vụ |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@id/vms/firewall"

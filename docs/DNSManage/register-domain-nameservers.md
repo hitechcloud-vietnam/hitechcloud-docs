@@ -1,16 +1,16 @@
-# Register Domain Nameservers
+# Đăng ký nameserver cho tên miền
 
-Register domain nameservers.
+Đăng ký nameserver cho tên miền.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 POST /domain/@id/reg
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Domain ID   |
+| id | int | ID tên miền |
 
 ```bash
 POST_DATA="{

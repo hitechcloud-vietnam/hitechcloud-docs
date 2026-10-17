@@ -1,23 +1,23 @@
-# List DNS for Service
+# Danh sách DNS của dịch vụ
 
-Returns a list of DNS zones under the service.
+Trả về danh sách các vùng DNS thuộc dịch vụ.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /service/@service_id/dns
 ```
 
-### Query Parameters
-| Parameter    | Type   | Description  |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |--------------|--------|--------------|
-| service_id   | int    | Service ID   |
+| service_id | int | ID dịch vụ |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@service_id/dns" \
    -H "Authorization: Bearer $token"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "error": [

@@ -1,16 +1,16 @@
-# Rescue Status
+# Trạng thái cứu hộ
 
-Show the status of a rescue operation.
+Hiển thị trạng thái của thao tác cứu hộ.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /service/@id/rescue
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID  |
+| id | int | ID dịch vụ |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@id/rescue" \

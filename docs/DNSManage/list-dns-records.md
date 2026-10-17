@@ -1,23 +1,23 @@
-# List DNS Records
+# Danh sách bản ghi DNS
 
-List DNS records.
+Liệt kê các bản ghi DNS.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /domain/@id/dns
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Domain ID   |
+| id | int | ID tên miền |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/domain/@id/dns" \
    -H "Authorization: Bearer $token"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "records": [

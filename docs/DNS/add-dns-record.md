@@ -1,22 +1,22 @@
-# Add DNS Record
+# Thêm bản ghi DNS
 
-Creates a new record in the DNS zone.
+Tạo bản ghi mới trong vùng DNS.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 POST /service/@service_id/dns/@zone_id/records
 ```
 
-### Query Parameters
-| Parameter    | Type   | Description  |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |--------------|--------|--------------|
-| service_id   | int    | Service ID   |
-| zone_id      | int    | Zone ID      |
-| name         | string | Record name  |
-| ttl          | int    | Record TTL   |
-| priority     | int    | Record priority |
-| type         | string | Record type  |
-| content      | string | Record content |
+| service_id | int | ID dịch vụ |
+| zone_id | int | ID vùng |
+| name | string | Tên bản ghi |
+| ttl | int | TTL của bản ghi |
+| priority | int | Độ ưu tiên của bản ghi |
+| type | string | Loại bản ghi |
+| content | string | Nội dung bản ghi |
 
 ```bash
 POST_DATA="{
@@ -35,7 +35,7 @@ curl -X POST "https://my.photuesoftware.vn/api/service/@service_id/dns/@zone_id/
    -d "${POST_DATA}"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "record": {

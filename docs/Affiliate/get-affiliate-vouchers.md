@@ -1,10 +1,10 @@
-# Get Affiliate Vouchers
-Get Affiliate Vouchers description: Retrieve a list of affiliate vouchers from the HiTechCloud system.
+# Lấy danh sách voucher tiếp thị liên kết
+Mô tả: Lấy danh sách voucher tiếp thị liên kết từ hệ thống HiTechCloud.
 
-Overview
+## Tổng quan
 
-The GET /affiliates/vouchers API endpoint allows affiliates to retrieve a list of their vouchers in the HiTechCloud system. This endpoint provides details about available vouchers, such as voucher codes, associated campaigns, and other relevant information, enabling affiliates to manage and distribute promotional vouchers effectively. Authentication is required using a valid Bearer token in the request header.
-### HTTP Request
+Endpoint API `GET /affiliates/vouchers` cho phép đối tác tiếp thị liên kết lấy danh sách voucher của họ trong hệ thống HiTechCloud. Endpoint này trả về chi tiết về các voucher hiện có như mã voucher, chiến dịch liên quan và các thông tin khác, giúp đối tác quản lý và phân phối voucher khuyến mại hiệu quả. Yêu cầu xác thực bằng token Bearer hợp lệ trong header của yêu cầu.
+### Yêu cầu HTTP
 ```
 GET /affiliates/vouchers
 ```

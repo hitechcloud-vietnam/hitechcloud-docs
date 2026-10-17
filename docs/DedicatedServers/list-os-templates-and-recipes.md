@@ -1,17 +1,17 @@
-# List OS Templates and Recipes
+# Danh sách mẫu hệ điều hành và công thức cấu hình
 
-Lists templates that can be installed on a server and recipes for additional configuration.
+Liệt kê các mẫu có thể cài đặt lên máy chủ và các công thức cấu hình bổ sung.
 
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /service/@id/reinstall/templates
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID   |
+| id | int | ID dịch vụ |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@id/reinstall/templates" \

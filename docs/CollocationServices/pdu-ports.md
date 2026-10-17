@@ -1,16 +1,16 @@
-# PDU Ports
+# Danh sách cổng PDU
 
-List PDU ports assigned to a service.
+Liệt kê các cổng PDU được gán cho một dịch vụ.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /service/@id/pdu
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID   |
+| id | int | ID dịch vụ |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@id/pdu"

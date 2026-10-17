@@ -1,16 +1,16 @@
-# Revoke Token
+# Thu hồi token
 
-Invalidate authorization and refresh tokens. Pass the refresh token or call this method with a valid access token.
+Vô hiệu hóa token xác thực và refresh token. Truyền refresh token hoặc gọi phương thức này với một access token hợp lệ.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 POST /revoke
 ```
 
-### Query Parameters
-| Parameter      | Type   | Description                  |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |----------------|--------|------------------------------|
-| refresh_token  | string | Refresh token                |
+| refresh_token | string | Refresh token |
 
 ```bash
 POST_DATA="{
@@ -22,7 +22,7 @@ curl -X POST "https://my.photuesoftware.vn/api/revoke" \
    -d "${POST_DATA}"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "status": true

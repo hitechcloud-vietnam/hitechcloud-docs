@@ -1,16 +1,16 @@
-# Reboot
+# Khởi động lại
 
-Request a server reboot.
+Yêu cầu khởi động lại máy chủ.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 POST /service/@id/reboot
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID  |
+| id | int | ID dịch vụ |
 
 ```bash
 curl -X POST "https://my.photuesoftware.vn/api/service/@id/reboot" \

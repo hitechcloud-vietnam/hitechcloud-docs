@@ -1,34 +1,34 @@
-# Add Contact
+# Thêm liên hệ
 
-Create a new contact account. If a password is provided, you can use the provided email address to log in as that contact.
-### HTTP Request
+Tạo tài khoản liên hệ mới. Nếu cung cấp mật khẩu, bạn có thể dùng địa chỉ email đã cung cấp để đăng nhập với tư cách liên hệ đó.
+### Yêu cầu HTTP
 ```
 POST /contact
 ```
 
-### Query Parameters
-| Parameter              | Type   | Description                  |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |------------------------|--------|------------------------------|
-| password               | string | Optional, allows you to log in as contact |
-| privileges             | array  | Array with privileges to enable |
-| type                   | string | Account Type (Private, Company) |
-| companyname            | string | Organization |
-| taxid                  | string | Tax ID |
-| gender                 | string | Gender (Nam, Nữ) |
-| lastname               | string | Last Name |
-| firstname              | string | First Name |
-| nationalid             | string | National ID |
-| email                  | string | Email Address |
-| birthday               | string | Birthday |
-| phonenumber            | string | Phone |
-| country                | string | Country |
-| state                  | string | State |
-| city                   | string | City |
-| address1               | string | Address 1 |
-| postcode               | string | Postcode |
-| managementagency       | string | Tax Management Agency |
-| telegramnotifications  | string | Telegram notifications |
-| email2                 | string | Secondary Email |
+| password | string | Tùy chọn, cho phép bạn đăng nhập với tư cách liên hệ |
+| privileges | array | Mảng các quyền cần bật |
+| type | string | Loại tài khoản (Private, Company) |
+| companyname | string | Tổ chức |
+| taxid | string | Mã số thuế |
+| gender | string | Giới tính (Nam, Nữ) |
+| lastname | string | Họ |
+| firstname | string | Tên |
+| nationalid | string | Số CMND/CCCD |
+| email | string | Địa chỉ email |
+| birthday | string | Ngày sinh |
+| phonenumber | string | Số điện thoại |
+| country | string | Quốc gia |
+| state | string | Tỉnh/Bang |
+| city | string | Thành phố |
+| address1 | string | Địa chỉ 1 |
+| postcode | string | Mã bưu chính |
+| managementagency | string | Cơ quan quản lý thuế |
+| telegramnotifications | string | Thông báo Telegram |
+| email2 | string | Email phụ |
 
 ```bash
 POST_DATA="{
@@ -60,7 +60,7 @@ curl -X POST "https://my.photuesoftware.vn/api/contact" \
    -d "${POST_DATA}"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "contact_id": "1",
