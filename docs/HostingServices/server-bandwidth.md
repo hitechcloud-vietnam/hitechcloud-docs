@@ -1,23 +1,23 @@
 ---
 id: server-bandwidth
-title: Server Bandwidth
+title: Băng thông máy chủ
 ---
 
-## Server Bandwidth
+## Băng thông máy chủ
 
-Retrieve bandwidth details of a server.
+Lấy thông tin băng thông của máy chủ.
 
-### HTTP Request
+### Yêu cầu HTTP
 
 `GET /service/@id/bandwidth`
 
-### Query Parameters
+### Tham số truy vấn
 
-| Parameter | Type | Description |
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID  |
+| id | int | ID dịch vụ |
 
-### Example Request
+### Yêu cầu mẫu
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@id/bandwidth"

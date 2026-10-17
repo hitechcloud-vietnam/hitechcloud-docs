@@ -1,23 +1,23 @@
 ---
 id: resources
-title: Resources
+title: Tài nguyên
 ---
 
-## Resources
+## Tài nguyên
 
-Show available and used resources for a service.
+Hiển thị tài nguyên khả dụng và đã sử dụng của một dịch vụ.
 
-### HTTP Request
+### Yêu cầu HTTP
 
 `GET /service/@id/resources`
 
-### Query Parameters
+### Tham số truy vấn
 
-| Parameter | Type | Description |
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID  |
+| id | int | ID dịch vụ |
 
-### Example Request
+### Yêu cầu mẫu
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@id/resources" \

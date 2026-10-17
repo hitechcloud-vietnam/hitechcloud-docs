@@ -1,8 +1,8 @@
-# List SSL Certificates
+# Danh sách chứng chỉ SSL
 
-List all SSL services under your account.
+Liệt kê tất cả dịch vụ SSL thuộc tài khoản của bạn.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /certificate
 ```
@@ -12,7 +12,7 @@ curl -X GET "https://my.photuesoftware.vn/api/certificate" \
    -H "Authorization: Bearer $token"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "sslservices": [

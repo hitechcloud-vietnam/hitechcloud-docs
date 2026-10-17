@@ -1,27 +1,27 @@
 ---
 id: resize-vm
-title: Resize VM
+title: Thay đổi cấu hình máy ảo
 ---
 
-## Resize VM
+## Thay đổi cấu hình máy ảo
 
-Edit the configuration of a virtual server.
+Sửa cấu hình của máy chủ ảo.
 
-### HTTP Request
+### Yêu cầu HTTP
 
 `PUT /service/@id/vms/@vmid`
 
-### Query Parameters
+### Tham số truy vấn
 
-| Parameter   | Type   | Description                |
+| Tham số | Kiểu | Mô tả |
 |-------------|--------|----------------------------|
-| id          | int    | Service ID                |
-| vmid        | string | Virtual server ID         |
-| memory      | string | Amount of RAM memory in MB |
-| cpu         | string | Amount of CPU cores       |
-| cpu_share   | string | Share percentage of CPU   |
+| id | int | ID dịch vụ |
+| vmid | string | ID máy chủ ảo |
+| memory | string | Dung lượng RAM (MB) |
+| cpu | string | Số nhân CPU |
+| cpu_share | string | Tỷ lệ chia sẻ CPU (%) |
 
-### Example Request
+### Yêu cầu mẫu
 
 ```bash
 POST_DATA="{

@@ -1,25 +1,25 @@
 ---
 id: update-rdns
-title: Update rDNS
+title: Cập nhật rDNS
 ---
 
-## Update rDNS
+## Cập nhật rDNS
 
-Update reverse DNS entries for VM IP addresses.
+Cập nhật các bản ghi DNS ngược cho địa chỉ IP của máy ảo.
 
-### HTTP Request
+### Yêu cầu HTTP
 
 `POST /service/@id/vms/@vmid/rdns`
 
-### Query Parameters
+### Tham số truy vấn
 
-| Parameter    | Type   | Description       |
+| Tham số | Kiểu | Mô tả |
 |--------------|--------|-------------------|
-| id           | int    | Service ID        |
-| vmid         | string | Virtual server ID |
-| ipaddress    | string | IP address and hostname mapping |
+| id | int | ID dịch vụ |
+| vmid | string | ID máy chủ ảo |
+| ipaddress | string | Ánh xạ địa chỉ IP với hostname |
 
-### Example Request
+### Yêu cầu mẫu
 
 ```bash
 POST_DATA="{

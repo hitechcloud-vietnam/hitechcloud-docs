@@ -1,23 +1,23 @@
 ---
 id: upgrade-request
-title: Upgrade Request
+title: Yêu cầu nâng cấp
 ---
 
-## Upgrade Request
+## Yêu cầu nâng cấp
 
-Estimate or request resource upgrades for a service.
+Ước tính hoặc yêu cầu nâng cấp tài nguyên cho một dịch vụ.
 
-### HTTP Request
+### Yêu cầu HTTP
 
 `POST /service/@id/upgrade`
 
-### Query Parameters
+### Tham số truy vấn
 
-| Parameter | Type | Description |
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID  |
+| id | int | ID dịch vụ |
 
-### Example Request
+### Yêu cầu mẫu
 
 ```bash
 curl -X POST "https://my.photuesoftware.vn/api/service/@id/upgrade" \

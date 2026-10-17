@@ -1,25 +1,25 @@
 ---
 id: list-available-ips
-title: List Available IPs
+title: Danh sách IP khả dụng
 ---
 
-## List Available IPs
+## Danh sách IP khả dụng
 
-Retrieve a list of IPs that can be assigned to a virtual server.
+Lấy danh sách các IP có thể gán cho máy chủ ảo.
 
-### HTTP Request
+### Yêu cầu HTTP
 
 `GET /service/@id/vms/@vmid/interfaces/@iface/ips`
 
-### Query Parameters
+### Tham số truy vấn
 
-| Parameter | Type   | Description       |
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|-------------------|
-| id        | int    | Service ID        |
-| vmid      | string | Virtual server ID |
-| iface     | string | Network interface ID |
+| id | int | ID dịch vụ |
+| vmid | string | ID máy chủ ảo |
+| iface | string | ID giao diện mạng |
 
-### Example Request
+### Yêu cầu mẫu
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@id/vms/@vmid/interfaces/@iface/ips" \

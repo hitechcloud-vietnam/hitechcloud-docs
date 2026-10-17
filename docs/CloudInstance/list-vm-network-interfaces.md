@@ -1,24 +1,24 @@
 ---
 id: list-vm-network-interfaces
-title: List VM Network Interfaces
+title: Danh sách giao diện mạng của máy ảo
 ---
 
-## List VM Network Interfaces
+## Danh sách giao diện mạng của máy ảo
 
-Retrieve the network interfaces assigned to a virtual server.
+Lấy các giao diện mạng đã gán cho máy chủ ảo.
 
-### HTTP Request
+### Yêu cầu HTTP
 
 `GET /service/@id/vms/@vmid/interfaces`
 
-### Query Parameters
+### Tham số truy vấn
 
-| Parameter | Type   | Description       |
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|-------------------|
-| id        | int    | Service ID        |
-| vmid      | string | Virtual server ID |
+| id | int | ID dịch vụ |
+| vmid | string | ID máy chủ ảo |
 
-### Example Request
+### Yêu cầu mẫu
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@id/vms/@vmid/interfaces" \

@@ -1,24 +1,24 @@
 ---
 id: list-disks-attached-to-vm
-title: List Disks Attached to VM
+title: Danh sách ổ đĩa gắn với máy ảo
 ---
 
-## List Disks Attached to VM
+## Danh sách ổ đĩa gắn với máy ảo
 
-Retrieve the list of disks available for a specific virtual server.
+Lấy danh sách các ổ đĩa của một máy chủ ảo cụ thể.
 
-### HTTP Request
+### Yêu cầu HTTP
 
 `GET /service/@id/vms/@vmid/storage`
 
-### Query Parameters
+### Tham số truy vấn
 
-| Parameter | Type   | Description       |
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|-------------------|
-| id        | int    | Service ID        |
-| vmid      | string | Virtual server ID |
+| id | int | ID dịch vụ |
+| vmid | string | ID máy chủ ảo |
 
-### Example Request
+### Yêu cầu mẫu
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/service/@id/vms/@vmid/storage" \

@@ -1,8 +1,8 @@
-# Document Signatured
+# Tải lên chữ ký
 
-Signatured upload
+Tải lên chữ ký.
 
-## HTTP Request
+## Yêu cầu HTTP
 
 ```POST /domain/documents/signed```
 

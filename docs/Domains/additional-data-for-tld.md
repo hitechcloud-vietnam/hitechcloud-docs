@@ -1,23 +1,23 @@
-# Additional Data for TLD
+# Dữ liệu bổ sung cho TLD
 
-Get additional forms required for some TLDs.
+Lấy các biểu mẫu bổ sung mà một số TLD yêu cầu.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /domain/order/@id/form
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| tld_id    | int  | TLD ID      |
+| tld_id | int | ID TLD |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/domain/order/@id/form" \
    -H "Authorization: Bearer $token"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "forms": [

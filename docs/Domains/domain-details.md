@@ -1,23 +1,23 @@
-# Domain Details
+# Chi tiết tên miền
 
-Get details of a specific domain.
+Lấy thông tin chi tiết của một tên miền cụ thể.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /domain/@id
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Domain ID   |
+| id | int | ID tên miền |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/domain/@id" \
    -H "Authorization: Bearer $token"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "details": {

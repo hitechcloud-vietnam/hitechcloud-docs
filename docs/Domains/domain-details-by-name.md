@@ -1,18 +1,18 @@
-# Domain Details by Name
+# Chi tiết tên miền theo tên
 
-Get details of a domain by its name.
+Lấy thông tin chi tiết của tên miền theo tên.
 
-### Query Parameters
-| Parameter | Type   | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|--------|-------------|
-| name      | string | Domain name |
+| name | string | Tên miền |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/domain/name/@name" \
    -H "Authorization: Bearer $token"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "details": [
@@ -40,7 +40,7 @@ curl -X GET "https://my.photuesoftware.vn/api/domain/name/@name" \
 }
 ```
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /domain/name/@name
 ```

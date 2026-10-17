@@ -1,17 +1,17 @@
-# Update Domain ID Protection
+# Cập nhật bảo vệ danh tính tên miền
 
-Enable or disable ID protection for a domain.
+Bật hoặc tắt bảo vệ danh tính cho tên miền.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 PUT /domain/@id/idprotection
 ```
 
-### Query Parameters
-| Parameter | Type  | Description                     |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|-------|---------------------------------|
-| id        | int   | Domain ID                       |
-| switch    | bool  | Enable or disable ID protection |
+| id | int | ID tên miền |
+| switch | bool | Bật hoặc tắt bảo vệ danh tính |
 
 ```bash
 POST_DATA="{

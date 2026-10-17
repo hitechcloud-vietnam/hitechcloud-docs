@@ -1,16 +1,16 @@
-# Update Domain Forwarding
+# Cập nhật chuyển tiếp tên miền
 
-Update domain forwarding settings.
+Cập nhật cấu hình chuyển tiếp tên miền.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 PUT /domain/@id/forwarding
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Domain ID   |
+| id | int | ID tên miền |
 
 ```bash
 POST_DATA="{

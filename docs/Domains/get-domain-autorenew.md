@@ -1,16 +1,16 @@
-# Get Domain Auto-Renew
+# Lấy trạng thái tự động gia hạn tên miền
 
-Retrieve the auto-renew status of a domain.
+Lấy trạng thái tự động gia hạn của tên miền.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /domain/@id/autorenew
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Domain ID   |
+| id | int | ID tên miền |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/domain/@id/autorenew" \

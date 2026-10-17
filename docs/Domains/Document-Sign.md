@@ -1,8 +1,8 @@
-# Document Sign
+# Xem tài liệu đã ký
 
-View document signed.
+Xem tài liệu đã ký.
 
-## HTTP Request
+## Yêu cầu HTTP
 
 ```GET /domain/documents/view/@token```
 

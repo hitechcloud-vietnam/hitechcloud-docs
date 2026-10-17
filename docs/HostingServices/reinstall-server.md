@@ -1,29 +1,29 @@
 ---
 id: reinstall-server
-title: Reinstall Server
+title: Cài lại máy chủ
 ---
 
-## Reinstall Server
+## Cài lại máy chủ
 
-Reinstall a server with specified options.
+Cài lại máy chủ với các tùy chọn được chỉ định.
 
-### HTTP Request
+### Yêu cầu HTTP
 
 `POST /service/@id/reinstall`
 
-### Query Parameters
+### Tham số truy vấn
 
-| Parameter         | Type   | Description |
+| Tham số | Kiểu | Mô tả |
 |-------------------|--------|-------------|
-| id                | int    | Service ID  |
-| profile           | int    | Profile ID  |
-| rootpassword      | string | Root password |
-| adminuser         | string | Admin username |
-| userpassword      | string | User password |
-| packageselection  | string | Package selection |
-| extra1            | string | Additional options |
+| id | int | ID dịch vụ |
+| profile | int | ID hồ sơ |
+| rootpassword | string | Mật khẩu root |
+| adminuser | string | Tên người dùng quản trị |
+| userpassword | string | Mật khẩu người dùng |
+| packageselection | string | Lựa chọn gói |
+| extra1 | string | Tùy chọn bổ sung |
 
-### Example Request
+### Yêu cầu mẫu
 
 ```bash
 POST_DATA="{

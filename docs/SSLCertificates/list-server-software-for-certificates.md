@@ -1,23 +1,23 @@
-# List Server Software for Certificates
+# Danh sách phần mềm máy chủ cho chứng chỉ
 
-Return a list of software IDs required for certificates.
+Trả về danh sách ID phần mềm máy chủ mà chứng chỉ yêu cầu.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /certificate/order/@product_id/software
 ```
 
-### Query Parameters
-| Parameter    | Type | Description             |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |--------------|------|-------------------------|
-| product_id   | int  | Certificate product ID  |
+| product_id | int | ID sản phẩm chứng chỉ |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/certificate/order/@product_id/software" \
    -H "Authorization: Bearer $token"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "software": [

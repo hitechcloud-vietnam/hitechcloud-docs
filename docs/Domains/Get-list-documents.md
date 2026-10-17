@@ -1,10 +1,10 @@
-# Get list documents
+# Lấy danh sách tài liệu
 
-Get a list of all documents.
+Lấy danh sách tất cả tài liệu.
 
 
 
-## HTTP Request
+## Yêu cầu HTTP
 
 ```GET /domain/@id/documents```
 

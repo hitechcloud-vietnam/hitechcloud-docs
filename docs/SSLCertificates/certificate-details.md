@@ -1,23 +1,23 @@
-# Certificate Details
+# Chi tiết chứng chỉ
 
-Return details for a specific certificate.
+Trả về thông tin chi tiết của một chứng chỉ cụ thể.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 GET /certificate/@id
 ```
 
-### Query Parameters
-| Parameter | Type | Description |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |-----------|------|-------------|
-| id        | int  | Service ID   |
+| id | int | ID dịch vụ |
 
 ```bash
 curl -X GET "https://my.photuesoftware.vn/api/certificate/@id" \
    -H "Authorization: Bearer $token"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "service": {

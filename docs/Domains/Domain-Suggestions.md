@@ -1,8 +1,8 @@
-# Domain Suggestions
+# Gợi ý tên miền
 
-List TLDs available for registration and transfer
+Liệt kê các TLD có thể đăng ký và chuyển về.
 
-## HTTP Request
+## Yêu cầu HTTP
 
 ```GET /cart/domain/suggestions/@sld/@tld```
 

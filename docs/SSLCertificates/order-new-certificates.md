@@ -1,27 +1,27 @@
-# Order New Certificates
+# Đặt hàng chứng chỉ mới
 
-Create a new order for a certificate.
+Tạo đơn hàng mới cho một chứng chỉ.
 
-### HTTP Request
+### Yêu cầu HTTP
 ```
 POST /certificate/order
 ```
 
-### Query Parameters
-| Parameter        | Type   | Description                     |
+### Tham số truy vấn
+| Tham số | Kiểu | Mô tả |
 |------------------|--------|---------------------------------|
-| product_id       | int    | Certificate product ID          |
-| csr              | string | Domain name                    |
-| years            | int    | Number of years                |
-| pay_method       | int    | Payment method ID              |
-| approver_email   | string | Email address for validation   |
-| admin            | int    | Admin contact ID               |
-| tech             | int    | Tech contact ID                |
-| billing          | int    | Billing contact ID             |
-| organization     | array  | Organization details           |
-| software         | int    | Server/Software ID             |
-| data             | array  | Additional data for products   |
-| aff_id           | int    | Affiliate ID                   |
+| product_id | int | ID sản phẩm chứng chỉ |
+| csr | string | Tên miền |
+| years | int | Số năm |
+| pay_method | int | ID phương thức thanh toán |
+| approver_email | string | Địa chỉ email xác thực |
+| admin | int | ID liên hệ quản trị |
+| tech | int | ID liên hệ kỹ thuật |
+| billing | int | ID liên hệ thanh toán |
+| organization | array | Thông tin tổ chức |
+| software | int | ID máy chủ/phần mềm |
+| data | array | Dữ liệu bổ sung cho sản phẩm |
+| aff_id | int | ID đối tác tiếp thị liên kết |
 
 ```bash
 POST_DATA="{
@@ -45,7 +45,7 @@ curl -X POST "https://my.photuesoftware.vn/api/certificate/order" \
    -d "${POST_DATA}"
 ```
 
-### Example Response
+### Phản hồi mẫu
 ```json
 {
     "order_num": 873340994,

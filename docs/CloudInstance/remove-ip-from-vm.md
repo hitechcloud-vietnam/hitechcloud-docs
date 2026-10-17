@@ -1,26 +1,26 @@
 ---
 id: remove-ip-from-vm
-title: Remove IP from VM
+title: Gỡ IP khỏi máy ảo
 ---
 
-## Remove IP from VM
+## Gỡ IP khỏi máy ảo
 
-Unassign an IP from a virtual server.
+Gỡ một IP khỏi máy chủ ảo.
 
-### HTTP Request
+### Yêu cầu HTTP
 
 `DELETE /service/@id/vms/@vmid/ips/@ipid`
 
-### Query Parameters
+### Tham số truy vấn
 
-| Parameter    | Type   | Description          |
+| Tham số | Kiểu | Mô tả |
 |--------------|--------|----------------------|
-| id           | int    | Service ID          |
-| vmid         | string | Virtual server ID   |
-| ipid         | string | IP Address ID       |
-| interfaceid  | string | Network interface ID |
+| id | int | ID dịch vụ |
+| vmid | string | ID máy chủ ảo |
+| ipid | string | ID địa chỉ IP |
+| interfaceid | string | ID giao diện mạng |
 
-### Example Request
+### Yêu cầu mẫu
 
 ```bash
 curl -X DELETE "https://my.photuesoftware.vn/api/service/@id/vms/@vmid/ips/@ipid" \
